@@ -1,0 +1,162 @@
+﻿@model OpenBookSystemMVC.Models.DocumentsModel
+
+@{
+    ViewBag.Title = "Documents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @Styles.Render("~/Content/library")
+    @*@Styles.Render("~/Content/colorpicker")*@
+    @Styles.Render("~/Scripts/Spectrum/spectrum")
+
+    <div class="selDocBody" onselect="return false;">
+        <div runat="server" class="selDocTitle">
+           @Model.PageTitle
+        </div>
+
+        <div class="selDocBtnLine" id="patientMenu">
+            <div>
+                @if (Model.IsUser)
+                {
+                    <a class="selDocBtn" href="/Documents/New">
+                        <span class="selDocInnerText"> @ClientDefault.Documents_New_Document_C </span>
+                    </a>
+                }
+                else
+                {
+                    <a class="selDocBtn" href="@string.Format("/Documents/New/{0}", Model.UserId)">
+                        <span class="selDocInnerText"> @ClientDefault.Documents_New_Document_C </span>
+                    </a>
+                }
+                    
+
+            </div>
+        </div>
+
+        <ul class="library-body">
+            <li class="library-header-row">
+                <div class="labels-header"> @ClientDefault.DocumentsLibrary_Labels </div>
+                <ul class="library-menu">                
+                    <li class="menu-search"> 
+                        <span class="menu-label">@ClientDefault.DocumentsLibrary_Search</span> 
+                        <span class="search-icon">&nbsp;</span> 
+                        <!--Possible alternative for valueUpdate is the 'input' value, which registers paste with the mouse click, 
+                        however it is required aa 'afterkeydown' as IE does not trigger 'change' event on backspacing or deleting.-->
+                        <div class="search-input-wrapper">
+                            <input class="search-input" type="text" data-bind="value: SearchValue, valueUpdate: 'afterkeydown'" />
+                            <img data-bind="visible: $root.ShowClearIcon, click: $root.ClearSearchField" src="~/Images/gray-close-24.png" alt="@ClientDefault.DocumentsLibrary_ClearText" title="@ClientDefault.DocumentsLibrary_ClearText" class="library-clear-text"/>
+                        </div>
+                    </li>
+                    @if (Model.IsUser)
+                    {
+                        <li class="menu-labels"> 
+                            <div data-bind="click: ToggleLabelMenu" class="menu-labels-trigger">
+                                <span class="label-icon">&nbsp;</span> 
+                                <span class="menu-label">@ClientDefault.DocumentsLibrary_Labels</span>
+                            </div>
+                        </li>                        
+                    }
+                
+                </ul>
+            </li>
+            <li class="data-row">
+                <div class="documents-section">
+                    <span class="documents-noresult" data-bind="text: EmptyDocsText"></span>
+                    <ul class="documents-list" data-bind="foreach: CurrentPageItems">
+                        <li data-bind="css: { 'unread': $root.AddUnreadClass($data) }">
+                            <input type="checkbox" data-bind="checked: $data.IsChecked"/>
+                            <span data-bind="css: $data.IsFavourite() ? 'fav-on' : 'fav-off', click: $root.ToggleIsFavourite ">&nbsp;</span>
+                            <div data-bind="click: $root.OpenDocument">
+                                <span class="doc-title" data-bind="text: $data.Title"></span>
+                                <div class="doc-summary">
+                                    <ul class="doc-labels" data-bind="foreach: $data.Labels">
+                                        <li><span data-bind="text: $data.Name, style:{'background': $data.Color, 'color': $data.FontColor }"></span></li>
+                                    </ul>
+                                    <span class="create-date" data-bind="text: $data.CreatedOn"></span>
+                                    <span class="summary-text" data-bind="text: $data.Summary"></span>
+                                    <!-- ko if: $data.IsDone -->
+                                        <span class="document-done"></span>
+                                    <!-- /ko  -->
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="documents-pager">
+                        <li>
+                            @ClientDefault.DocumentsLibrary_Pages
+                        </li>
+                        <!-- ko foreach: ko.utils.range(0, $root.PageCount) --> 
+                        <li data-bind="css: {'current': $data == $root.CurrentPageIndex() }, click: $root.SelectDocumentPage">
+                            <a data-bind="text: $data + 1"></a>                                                
+                        </li>
+                        <!-- /ko  -->
+                    </ul>
+                </div>
+
+                <ul class="labels-side-menu" data-bind="foreach: Labels">
+                    <li data-bind="css: {'current': $data.Id == $root.CurrentLabelId() }">
+                       <span data-bind="click: $root.SelectLabel ,text: $data.Name, style:{'background':$data.Color, 'color': $data.FontColor }"></span>                     
+                    </li>
+                </ul>
+            </li>
+        </ul>             
+
+        <div class="menu-labels-popup" data-bind="visible: IsLabelMenuOn">
+            <ul class="popup-labels-list" data-bind="foreach: $root.Labels">
+                <li data-bind="if: !$data.IsAll">
+                    <input type="checkbox" data-bind="checked: $data.IsChecked" />
+                    <span data-bind="text: $data.Name"></span>
+                </li>
+            </ul>
+
+            <span class="label-error" data-bind="visible: NoLabelsErrorFlag" >@ClientDefault.Library_NoLabels</span>
+
+            <span class="label-error" data-bind="visible: LabelErrorMessageToggler() == 1" >@ClientDefault.Library_NoDocSelected</span>
+
+            <span class="label-error" data-bind="visible: LabelErrorMessageToggler() == 2" >@ClientDefault.Library_NoLabelSelected</span>
+            
+
+
+            <ul class="popup-labels-actions">
+                <li data-bind="click: $root.ApplyLabels, css: { 'disable-label-operation': DisableLabelOperation() }">@ClientDefault.DocumentsLibrary_ApplyLabel</li>
+                <li data-bind="click: $root.CreateLabel">@ClientDefault.DocumentsLibrary_CreateLabel</li>
+                <li data-bind="click: $root.RemoveLabel, css: { 'disable-label-operation': DisableLabelOperation() }">@ClientDefault.DocumentsLibrary_RemoveLabels</li>
+                <li><a href="@string.Format("/Account/Edit?nUserID={0}&preferences=true",CurrentUser.Details(User.Identity.Name).AccountId)">@ClientDefault.DocumentsLibrary_ManageLabels</a></li>
+            </ul>
+        </div>
+
+        <div class="create-label-dialog hide" data-bind="with: NewLabel" data-title="@ClientDefault.DocumentsLibrary_CreateLabel">
+            <span class="dialog-label">@ClientDefault.DocumentsLibrary_Dialog_Label_Name</span>
+            <input type="text" id="create-label-input" data-bind="value: $data.Name, valueUpdate: 'afterkeydown'" placeholder="@ClientDefault.DocumentEdit_NewLabel_Placeholder" />
+            <br />
+            <span class="dialog-label">@ClientDefault.DocumentsLibrary_Dialog_Pick_Color</span>
+            <input type="text" class="dialog-label-pickcolor" />
+            <br />
+            <span class="dialog-label">@ClientDefault.DocumentsLibrary_Dialog_Pick_Label_FontColor</span>
+            <input type="text" class="dialog-label-pickfontcolor" />
+
+            <br />
+
+            <span class="error-noname" data-bind="visible: !$root.IsLabelNameValid()">@ClientDefault.DocumentsLibrary_Dialog_NoName</span>
+        </div>
+
+        <input type="button" class="delete-documents" data-bind="click: DeleteDocuments" value="@Resources.ClientDefault.Documents_Delete_C"/>
+        
+
+        @Html.ValidationSummary("", new { id = "documents-error-summary" })
+        @Html.HiddenFor(x => x.DocumentsJSON, new { id = "documents-data" })
+        @Html.HiddenFor(x => x.LabelsJSON, new { id = "library-labels-data" })
+        @Html.HiddenFor(x => x.IsUser, new { id = "isUser" })
+        @Html.HiddenFor(x => x.UserId, new { id = "hidden-userid"})
+
+        @*<span id="txtNoDocSelected" class="noDocSelected"> @Resources.ClientDefault.Documents_NoDocument_Selected </span>*@
+        @Scripts.Render("~/bundles/spectrum")
+
+        @*<script type="text/javascript" src="~/Scripts/jquery.colorPicker.js"></script>*@
+        @*<script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script>*@
+        <script src="~/Scripts/knockout-mapping-2.3.5.js"></script>
+        @Scripts.Render("~/bundles/library")
+        @*<script src="~/Scripts/LibraryViewModel.js"></script>*@
+    </div>
+    
+

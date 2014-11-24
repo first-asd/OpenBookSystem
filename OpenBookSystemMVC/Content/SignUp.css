@@ -1,0 +1,227 @@
+﻿/* SignUp */
+
+.signUpElementsBody {
+    width:90%;
+    /*height:560px;*/
+    background-color:#E6E6E6;
+    border-radius:0px 0px 10px 10px;
+    -webkit-border-radius:0px 0px 10px 10px;
+    -moz-border-radius:0px 0px 10px 10px;
+    -ms-border-radius:0px 0px 10px 10px;
+    -o-border-radius:0px 0px 10px 10px;
+    border-width:1px;
+    border-color:#CCCCCC;
+    border-top-style:none;
+    border-right-style:solid;
+    border-left-style:solid;
+    border-bottom-style:solid; 
+    padding-top:23px;   
+    padding-bottom:40px;
+    margin: 0 auto;
+}
+
+.signUpTitle {
+    text-align:left;
+    font-family:Arial;
+    font-size:24px;
+    color:#B3B3B3;
+    text-align: center;
+}
+
+.signUpShadow {
+    width:480px;
+    height:18px;
+    background:url(../Images/ShadowLine.png) right no-repeat;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.signUpTable {
+    max-width:490px;
+    height:350px;
+    float:left;
+    width:64%;
+}
+
+.signUpTableRow {
+    width:490px;
+    height:40px;
+}
+
+.signUpTableLabelCell {
+    width:220px;
+    height:40px;
+    text-align:right;
+    font-family:Arial;
+    font-size:14px;
+    color:#808080;
+}
+
+.signUpTableInputCell {
+    width:330px;
+    float:left;
+    padding-top:10px;
+    height:40px;
+    color:#8D8D8D;
+}
+
+.signUpTableInput {
+    width:270px;
+    height:28px;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    border-width:1px;
+    border-color:#b3b3b3;
+    border-style:solid;
+    padding-left:20px;
+    margin-left:15px;    
+}
+
+.signUpRequiredLbl {
+    width:100px;
+    height:20px;
+    text-align:right;
+    font-family:Arial;
+    font-size:14px;
+    color:#808080;  
+    float:left; 
+    margin-left:8%;
+}
+
+.signUpSubmit {
+    width:230px;
+    height:34px;
+    margin-left: 28%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.btnSubmitSignUp {
+    min-width:120px;
+    height:34px;
+    color:#FFF;
+    border-style:none;
+    cursor:pointer;
+    font-size:16px;
+    text-align:center;    
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    -ms-border-radius:7px;
+    -o-border-radius:7px;
+    border-radius:5px;   
+    background-color: #56a0c9;
+    padding-left: 10px; 
+    padding-right: 10px;
+    cursor:pointer;
+    margin-bottom:40px;
+}
+
+.signUpMiddleContent {
+    width:100%;
+    min-height:350px;
+    display:inline-block;
+}
+
+.signUpMdlRight {
+    width: 170px;
+    height: 300px;
+    float: left;
+    margin-left: 7%;
+}
+
+.signUpImg {
+    float:left;
+    width:151px;
+    height:154px;
+    margin-top: 5px;
+}
+
+.signUpUploadPic {
+    background:url(../Images/browse_btn.png) right no-repeat;
+    width:151px;
+    height:32px;
+    float:left;
+    margin-top:20px;
+    cursor:pointer;
+    border-style:none;
+    font-family:Arial;
+    font-size:14px;
+    color:#666;
+}
+
+.signUpValDiv {
+    width:500px;
+}
+
+.signUpErrSummary {
+    margin-left: 40%;
+    position: relative;
+    width:70%;
+    color:Red;
+    font-family:Arial;
+    /*display:none;*/
+}
+
+.isHidden {
+    visibility:hidden;
+}
+
+.signup-input-hidden {
+    width: 152px;
+    height: 34px;
+    opacity: 0;
+    font-size: 1.27em;
+    position: relative;
+    top: 54px;
+    filter: alpha(opacity = 0);
+}
+
+.validation-summary-valid { 
+    display:none; 
+}
+
+@media only screen and (max-width:672px) {
+    .signUpMdlRight {
+        width:220px;
+        float:none;
+        margin-left:auto;
+        margin-right:auto;
+        padding-left: 60px;
+    }
+
+    .signUpTable {
+        width: 73%;
+        margin-left: auto;
+        margin-right: auto;
+        float:none;
+    }
+}
+
+@media only screen and (min-width:600px) and (max-width:960px) {
+     .signUpElementsBody {
+        width:99.7%;
+        left:4%;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .signUpElementsBody {
+        width:99.7%;
+        left:4%;
+    }
+
+    .signUpRequiredLbl {
+        margin-left: 0px;
+    }
+
+    .signUpErrSummary {
+        margin-left:25%;
+    }
+}
+
+
+/* End-SignUp */

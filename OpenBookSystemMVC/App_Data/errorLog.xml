@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<log>
+  <entry>
+    <datetime />
+    <filename />
+    <methodbase />
+    <methodname />
+    <targetname />
+    <message />
+    <stacktrace />
+  </entry>  
+</log>

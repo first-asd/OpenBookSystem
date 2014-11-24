@@ -1,0 +1,17 @@
+﻿@model OpenBookSystemMVC.Models.NotificationsModel
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/notifs")
+
+<h3 class="notif-unread-msg"> @String.Format(ClientDefault.Notifications_Title, Model.Notifications.Count) </h3>
+
+<div class="notificationsBody">
+
+</div>
+
+<script src="~/Scripts/NotificationsViewModel.js"></script>
+@*@Scripts.Render("~/bundles/notifications")*@

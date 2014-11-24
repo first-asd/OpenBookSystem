@@ -1,0 +1,17 @@
+﻿.prefBody {
+    width:90%;
+    background-color:#E6E6E6;
+    margin:0 auto;
+    position:relative;
+    border-radius:0px 0px 10px 10px;
+    -webkit-border-radius:0px 0px 10px 10px;
+    -moz-border-radius:0px 0px 10px 10px;
+    -ms-border-radius:0px 0px 10px 10px;
+    -o-border-radius:0px 0px 10px 10px;
+    border-width:1px;
+    border-color:#CCCCCC;
+    border-style:solid;
+    border-top-style:none;
+    margin-top:2px; 
+    height:400px;   
+}

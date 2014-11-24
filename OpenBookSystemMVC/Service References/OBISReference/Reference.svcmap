@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ea29cbb0-7f57-4543-8e1f-79d71751aae4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OpenBookAPIService.wsdl" MetadataType="Wsdl" ID="d388d817-6e12-4735-9c09-cfa8e12092ac" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="OpenBookAPIService.disco" MetadataType="Disco" ID="324d2cff-3732-4e35-a30e-8d44ec18679c" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?disco" />
+    <MetadataFile FileName="OpenBookAPIService.xsd" MetadataType="Schema" ID="297bc938-e589-499b-b53d-388391340447" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd8" />
+    <MetadataFile FileName="OpenBookAPIService1.xsd" MetadataType="Schema" ID="700404f3-098e-4cdf-8f38-d970e27eefe4" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd6" />
+    <MetadataFile FileName="OpenBookAPIService2.xsd" MetadataType="Schema" ID="0cc4d9be-d7d0-4b10-bedf-e818e44c0774" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd3" />
+    <MetadataFile FileName="OpenBookAPIService3.xsd" MetadataType="Schema" ID="860d12b1-1b87-4b09-8649-aea6554bffea" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd0" />
+    <MetadataFile FileName="OpenBookAPIService4.xsd" MetadataType="Schema" ID="8fbe8e18-5ba7-4948-b853-627b76c453c7" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd7" />
+    <MetadataFile FileName="OpenBookAPIService1.wsdl" MetadataType="Wsdl" ID="9583bc65-b0a8-4138-a1cf-dcaffbd45089" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?wsdl" />
+    <MetadataFile FileName="OpenBookAPIService5.xsd" MetadataType="Schema" ID="8205e724-ece8-4fae-af60-afbfc2350a90" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd4" />
+    <MetadataFile FileName="OpenBookAPIService6.xsd" MetadataType="Schema" ID="6974a097-ac80-4ae1-9e9d-ac32f711b22b" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd5" />
+    <MetadataFile FileName="OpenBookAPIService7.xsd" MetadataType="Schema" ID="d1e8922f-78c3-4d04-862f-960eaf396e0e" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd2" />
+    <MetadataFile FileName="OpenBookAPIService8.xsd" MetadataType="Schema" ID="999b5cf3-7349-4888-818a-f202dcfa319b" SourceId="1" SourceUrl="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

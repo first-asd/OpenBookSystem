@@ -1,0 +1,240 @@
+﻿/*   LogIn   */
+
+.leftLogInDiv {
+    max-width:430px;
+    width:49%;
+    height:300px;
+    float:left;
+    position:relative;
+    background:url(../Images/LogIn_Left_Placeholder.png) center no-repeat;
+    border-radius:0px 0px 10px 10px;
+    -webkit-border-radius:0px 0px 10px 10px;
+    -moz-border-radius:0px 0px 10px 10px;
+    -ms-border-radius:0px 0px 10px 10px;
+    -o-border-radius:0px 0px 10px 10px;
+}
+
+.rightLogInDiv {
+    max-width:430px;
+    width:49%;
+    height:300px;
+    float:right;
+    position:relative; 
+    background:url(../Images/SignUp_Right_Placeholder.png) center no-repeat;   
+    border-radius:0px 0px 10px 10px;
+    -webkit-border-radius:0px 0px 10px 10px;
+    -moz-border-radius:0px 0px 10px 10px;
+    -ms-border-radius:0px 0px 10px 10px;
+    -o-border-radius:0px 0px 10px 10px;
+}
+
+.logInLabelText {
+    margin-left:12%;
+    color:#898989;
+    font-size:16px;
+    font-family:Arial;
+}
+
+.leftLogInTable {
+    margin-top: 40px;
+    border-style:none;
+    width:100%;
+    max-width:430px;
+    height:200px;
+}
+
+.logInInput {
+    height:32px;
+    max-width:190px;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    border-width:1px;
+    border-color:#b3b3b3;
+    border-style:solid;
+    padding-left:20px;
+    width: 93%;
+    background-color:#FFF;
+    
+}
+
+.btnLogIn {
+    min-width:100px;
+    height:32px;
+    font-size:16px;
+    color:#FFF;
+    border-style:none;
+    cursor:pointer;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    -ms-border-radius:7px;
+    -o-border-radius:7px;
+    border-radius:5px;   
+    background-color: #56a0c9;
+    padding-left: 10px; 
+    padding-right: 10px;
+    -webkit-appearance: none;
+}
+
+.rightSignUpTitle {
+    max-width:430px;
+    width:100%;
+    height:40px;
+    font-family:Arial;
+    font-size:24px;
+    color: #666;
+    text-align:center;
+    margin-top:38px;
+}
+
+.btnSignUpPat {
+    min-width: 130px;
+    height: 34px;
+    color: #FFF;
+    border-style: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    -ms-border-radius:7px;
+    -o-border-radius:7px;
+    border-radius:5px;   
+    padding-left: 10px; 
+    padding-right: 10px;
+    text-decoration: none;
+    line-height: 34px;
+    display: inline-block;
+}
+
+.signBtnDiv {
+    max-width:430px;
+    width:100%;
+    height:34px;
+    text-align:center;
+    margin-top:20px;
+}
+
+.signBtnCare {
+    max-width:430px;
+    width:100%;
+    height:32px;
+    text-align:center;
+    margin-top:60px;    
+}
+
+.signCarersA {
+    font-family:Arial;
+    font-size:14px;
+    text-decoration:underline;  
+}
+
+.rightLogInDiv.btnDisabled .signCarersA{
+    color:#BBB;
+}
+
+.rightLogInDiv .signCarersA{
+    color:#333;
+}
+
+.rightLogInDiv.btnDisabled .btnSignUpPat{
+    background-color:#BBB;
+}
+
+.rightLogInDiv .btnSignUpPat{
+    background-color: #56a0c9;
+}
+
+/*.signCarersA:hover {
+    color:#5882cc;
+    cursor:pointer;    
+}*/
+
+.logInFailed {
+    color:red;
+    font-family:Arial;
+}
+
+.leftLogInBtn {
+    text-align: left;
+    max-width: 430px;
+    width: 87%;
+    margin-left: 50px;
+}
+
+.loginRow {
+    text-align: left;
+    min-height: 40px;
+    vertical-align: middle;
+    margin-bottom:20px;
+}
+
+.logTextDiv {
+    min-width: 160px;
+    float: left;
+    padding-top: 7px;
+}
+
+.logInputDiv {
+    margin: 0 auto;
+    position: relative;
+    width: 85%;
+}
+
+.loginErrorDiv {
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    width:100%;
+}
+
+.loginErrorDiv ul {
+    list-style:none;
+    padding:0px;
+    margin-top:0px;
+    margin-bottom:10px;
+}
+
+.loginRememberMe {
+    margin-left: 5px;
+    margin-right: 0px;
+}
+
+.disclaimer {
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.contact-us {
+    display:block;
+    width:100%;
+    text-align:center;
+    margin-top:10px;
+}
+
+.rememberMeContainer {
+    padding-left: 12%;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+@media only screen and (max-width:600px) {
+    .loginRow {
+        margin-bottom:0px;
+    }
+
+    .leftLogInBtn {
+        margin-left:20px;
+    }
+
+    .logInInput {
+        width: 83%;
+        max-width: 170px;
+    }
+}
+/* End-LogIn */

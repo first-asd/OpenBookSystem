@@ -1,0 +1,502 @@
+﻿/*Site Master*/
+
+.sitemasterHead {
+    background:url('../Images/site.master/MasterGradient.png') repeat-x white;
+    width:100%;
+    height:100px;
+}
+
+.selectedMenu {
+    color:#8FB5DB !Important;
+}
+
+.firstLogo {
+    float: left;
+    margin-top: 28px;
+}
+
+.obLogo {
+    float: left;
+    margin: 3px;
+}
+
+.obLogoText {
+    float:left;
+    margin-left:5px;
+}
+
+.sevenfpLogo {
+    float:right;
+    margin-right:8%;
+}
+
+.euflagLogo {
+    float:right;
+}
+
+.siteBody {
+    background-color:#DCE1E6;
+    margin:0 auto;
+    width:100%;
+    max-width:960px;
+    padding-bottom:80px;
+    min-width:480px;
+    font-family:Arial;
+}
+
+.MasterMenuBody {
+    background-color:#EDF0F2;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    padding-top:3.5%;
+    position:relative;
+}
+
+.pageContent {    
+    max-width: 880px;
+    width: 100%;    
+    position: relative;
+    height:100%;
+    left:4%;
+    display:inline-block;
+}
+
+.masterMenu {
+    display:inline-block;
+    background-color:#FFFFFF;
+    max-width:880px;
+    width:100%;
+    min-height:47px;
+    left:4%;
+    border-radius:3px 3px 0px 0px;
+    -webkit-border-radius:3px 3px 0px 0px;
+    -moz-border-radius:3px 3px 0px 0px;
+    -ms-border-radius:3px 3px 0px 0px;
+    -o-border-radius:3px 3px 0px 0px;
+    bottom: -4px;
+    position:relative;
+}
+
+.languagePlaceholder {
+    width:100%;
+    height:47px;
+    margin-right:22px;   
+}
+
+.imgFlags {
+    margin:5px;
+    float:left;
+    border-style:none;
+    position:relative;
+    top:5%;
+    
+}
+
+.txtItemFit {
+    margin:5px;
+    float:left;
+    border-style:none;
+}
+
+.langFlagTitleDiv {
+    height:30px;
+    min-width:100px;
+    float:right;
+    margin-top:13px;
+    text-decoration: none;
+}
+
+.languageText {
+    font-family:Arial;
+    font-weight:bold;
+    font-size:10px;
+    margin-top:7.5px;
+    color:#666666;
+}
+
+.languageText:hover {
+    color:#5882cc;
+    cursor:pointer;
+}
+
+.espLeftMarg {
+    margin-left:10px;
+}
+
+.selLang {
+    color:#5882cc;
+}
+
+.patientMenuButton {
+    height:30px;
+    float:right;
+    margin-top: 11.5px;
+    text-decoration:none;
+    cursor: pointer;
+}
+
+.menuSeparator {
+    width:10px;
+    height:40px;
+    float:right;
+    margin-top:7.5px;
+}
+
+.menuText {
+    font-family:Arial;
+    font-size:14px;
+    color:#999999;
+    margin-top: 7.5px;
+}
+
+.menuText:hover {
+    color:#5882cc;
+}
+
+.customRoundedDDL {
+    background: transparent;
+    -webkit-appearance: none;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    border:none;       
+}
+
+.ddlCustomContainer {
+    overflow: hidden;
+    background: url(../Images/EditDocument/SmallDownArrow.png) no-repeat right white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-style:solid;
+    border-color:#CCC;
+    border-width:1px;
+}
+
+.selDocBody {
+    width:100%;
+    background-color:#E6E6E6;
+    margin:0 auto;
+    position:relative;
+    border-radius:0px 0px 10px 10px;
+    -webkit-border-radius:0px 0px 10px 10px;
+    -moz-border-radius:0px 0px 10px 10px;
+    -ms-border-radius:0px 0px 10px 10px;
+    -o-border-radius:0px 0px 10px 10px;
+    border-width:1px;
+    border-color:#CCCCCC;
+    border-style:solid;
+    border-top-style:none;
+    margin-top:2px;
+}
+
+.selDocTitle {
+    width:90%;
+    height:24px;
+    text-align:center;
+    font-family:Arial;
+    font-size:20px;
+    color:#999999;
+    margin-bottom:30px;
+    padding-top:50px;
+    text-shadow: 0px -1px #666;
+}
+
+.hide {
+    display:none;
+}
+
+.chatbox-etiquette {
+    position: fixed;
+    bottom: 1%;
+    right: 19%;
+    border: 1px solid #999;
+    width: 240px;
+    height: 26px;
+    font-family: Arial;
+    text-align: center;
+    line-height: 26px;
+    background: url(../Images/EditDocument_v2/green_dot.png) no-repeat 5px;
+    background-color:white;
+}
+
+.chatbox-statusbar {
+    cursor:pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.chatbox-window {
+    height: 300px;
+    width: 240px;
+    position: absolute;
+    background-color: white;
+    bottom: 26px;
+    border: 1px solid #999;
+    right: -1px;
+}
+
+.chatbox-messages {
+    height: 260px;
+    border-bottom: 1px solid #999;
+    float: left;
+    width: 100%;
+    font-size:0.9em;
+    overflow-y: auto;
+    margin: 0px;
+    padding: 0px;
+}
+
+    .chatbox-messages li {
+        float: left;
+        width: 97%;
+        margin-bottom: 4px;
+        display: block;
+        padding-left: 5px;
+    }
+
+.chatbox-input {
+    width: 236px;
+    border: none;
+    height: 35px;
+    resize: none;
+    font-size: 13px;
+    font-family: Arial;
+
+}
+
+.chatbox-username {
+    display: block;
+    float: left;
+    text-decoration: underline;
+}
+
+.chatbox-message-body span {
+    display: inline-block;
+    float: right;
+    margin-right: 5px;
+    font-size: 0.8em;
+    line-height: 1.3em;
+    color: #999;
+}
+
+.chatbox-message-body p {
+    text-align: left;
+    width: 180px;
+    float: left;
+    margin:0px;
+    line-height:1em;
+}
+
+.chatbox-close {
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+}
+
+.hide-item {
+    display:none !important;
+}
+
+.gradient-fix {
+    background:url('../Images/site.master/MasterGradient.png');
+}
+
+.FIRST-wrapper {
+    height: 100px;
+    float: left;
+    background-repeat: repeat-x;
+    background-color: #fff;
+    padding-left: 36px;
+}
+
+.REST-wrapper {
+    width:188px;
+    height: 100px;
+    float: right;
+    background-repeat: repeat-x;
+    background-color:white;
+}
+
+.inbetween-logos {
+    width:23px;
+    height:100%;
+    background-color:white;
+    float: right;
+    background-repeat: repeat-x;
+}
+
+.help-dialog {
+    width:40%;
+    height:auto;
+}
+
+.project-info {
+    position: absolute;
+    font-size: 11px;
+    width: 465px;
+    text-align: center;
+    margin-top: 32px;
+    display: inline-block;
+}
+
+.MasterMenuBody .icon-envelope {
+    position: absolute;
+    right: 10px;
+    font-size: 24px;
+    color: gray;
+    top: 51px;
+    cursor: pointer;
+}
+
+#systemFeedbackContainer {
+    display:none;
+    width:500px;
+    height:400px;
+    background: #F0F0F0;
+    position:relative;
+}
+
+    #systemFeedbackContainer #systemFeedbackText {
+        width:500px;
+        height:400px;
+        resize:none;
+        max-width:500px;
+        max-height:400px;
+        z-index:100;
+    }
+
+    #systemFeedbackContainer .sendMailLoader {
+        width:100%;
+        height:100%;
+        z-index:1;
+        display:none;        
+    }
+
+.putMessageOnTop {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    height: 76%;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.mailLoader {
+    background: url('../Images/AjaxLoader.gif') center no-repeat white;
+    z-index:200;
+    position:absolute;
+    top:0;
+    left:0;
+    display:block !important;
+}
+
+.resultMessage {    
+    margin-top:30%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@media only screen and (max-width:600px) {
+    .languagePlaceholder {
+        margin-right: 10px;
+        /*width: 485px;*/
+    }
+
+    .menuSeparator {
+        width: 5px;
+    }
+
+    .txtItemFit {
+        margin-left: 0px;
+    }
+
+    .obLogo {
+        margin-left: 0px;
+    }
+
+    .obLogoText {
+        display: none;
+    }
+
+    .masterMenu {
+        left: 0%;
+    }
+
+    .pageContent {
+        left:0%;
+    }
+}
+
+@media only screen and (min-width:600px) and (max-width:960px) {
+
+    .pageContent {
+        left:0%;
+    }
+    
+    .obLogoText {
+        display:none;
+    }
+    
+    .obLogoText {
+        display: none;
+    }
+    
+    .masterMenu {
+        width:92%;
+    }
+
+    .project-info {
+        width:36%;
+        right: 26%;
+        margin-top: 15px;
+    }
+
+
+}
+
+@media only screen and (min-width:600px) and (max-width:820px) {
+    .project-info {
+        position: absolute;
+        font-size: 11px;
+        width: 90%;
+        text-align: center;
+        top: 107px;
+        margin-top:0px;
+        right:5%;
+    }
+}
+
+@media only screen and (max-width:990px) {
+    .MasterMenuBody .icon-envelope {
+        right:0px;
+    }
+}
+
+
+
+#dlgNavigationHelp {
+    background-color: #FFFFFF;
+    margin: 10px 0;
+}
+
+.ui-widget-content {
+    background-image: none;
+    background-color: #FFFFFF;
+}
+
+
+
+/*End-Site Master*/

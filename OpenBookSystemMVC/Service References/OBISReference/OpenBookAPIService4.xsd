@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd3" namespace="http://OpenBookAPI/Entities/" />
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd4" namespace="http://OpenBookAPI/Enums/" />
+  <xs:complexType name="DocumentSentence">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlternativeStructures" nillable="true" type="tns:ArrayOfAlternativeStructure" />
+      <xs:element minOccurs="0" name="OriginalSentence" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransformedSentence" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentSentence" nillable="true" type="tns:DocumentSentence" />
+  <xs:complexType name="ArrayOfAlternativeStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlternativeStructure" nillable="true" type="tns:AlternativeStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlternativeStructure" nillable="true" type="tns:ArrayOfAlternativeStructure" />
+  <xs:complexType name="AlternativeStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:AlternativeStructureTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlternativeStructure" nillable="true" type="tns:AlternativeStructure" />
+  <xs:simpleType name="AlternativeStructureTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Original" />
+      <xs:enumeration value="Delete" />
+      <xs:enumeration value="Split" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AlternativeStructureTypes" nillable="true" type="tns:AlternativeStructureTypes" />
+  <xs:complexType name="ArrayOfWordSynonym">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WordSynonym" nillable="true" type="tns:WordSynonym" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWordSynonym" nillable="true" type="tns:ArrayOfWordSynonym" />
+  <xs:complexType name="WordSynonym">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Synonym" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WordSynonym" nillable="true" type="tns:WordSynonym" />
+  <xs:complexType name="ArrayOfWordAnaphora">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WordAnaphora" nillable="true" type="tns:WordAnaphora" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWordAnaphora" nillable="true" type="tns:ArrayOfWordAnaphora" />
+  <xs:complexType name="WordAnaphora">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Anaphora" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WordAnaphora" nillable="true" type="tns:WordAnaphora" />
+  <xs:complexType name="ArrayOfLanguagePreference">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LanguagePreference" nillable="true" type="tns:LanguagePreference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLanguagePreference" nillable="true" type="tns:ArrayOfLanguagePreference" />
+  <xs:complexType name="LanguagePreference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://OpenBookAPI/Entities/" minOccurs="0" name="EnumerationOptions" nillable="true" type="q1:ArrayOfEnumerationOption" />
+      <xs:element minOccurs="0" name="MaxValue" type="xs:int" />
+      <xs:element minOccurs="0" name="MinValue" type="xs:int" />
+      <xs:element minOccurs="0" name="PreferenceGroup" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://OpenBookAPI/Enums/" minOccurs="0" name="PrefrenceType" type="q2:LanguagePreferenceType" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LanguagePreference" nillable="true" type="tns:LanguagePreference" />
+  <xs:complexType name="ArrayOfCarerUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarerUser" nillable="true" type="tns:CarerUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarerUser" nillable="true" type="tns:ArrayOfCarerUser" />
+  <xs:complexType name="CarerUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewDocuments" type="xs:int" />
+      <xs:element minOccurs="0" name="NewNotifications" type="xs:int" />
+      <xs:element xmlns:q3="http://OpenBookAPI/Entities/" minOccurs="0" name="User" nillable="true" type="q3:AccountInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarerUser" nillable="true" type="tns:CarerUser" />
+</xs:schema>

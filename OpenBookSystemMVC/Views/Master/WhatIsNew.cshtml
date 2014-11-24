@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "WhatIsNew";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Scripts/Magnific/magnific")
+<style type="text/css">
+    figure {
+        margin-top:20px;
+    }
+
+    figure img {
+        width:50%;
+        cursor:zoom-in;
+        cursor:-moz-zoom-in;
+        cursor:-webkit-zoom-in;
+    }
+
+        figure figcaption {
+            font-size: 12px;
+        }
+
+    h3 {
+        text-decoration:underline;
+    }
+</style>
+
+<h3>Update 2 - 03.07.2014</h3>
+
+<h4>The following updates were made during last weeks:</h4>
+
+<ol>
+    <li>Carer can add notes to user’s documents which can be reviewed by the user.</li>
+    <li>Feedback appears about each obstacle word, giving the carer extra information about it. The feature is language sensitive and gives explanation according to the language of the converted text (EN, SP, BG).</li>
+    <li>Now carers and independent users can add and update their profile pictures.</li>
+    <li>Selected word can be edited by the independent user in order to get picture and explanation for any word.</li>
+    <li>Language preferences were implemented in Preferences section of the user’s account.</li>
+    <li>Two additional options were added to the independent user’s simplification page – “Show multiwords” and “Show obstacles”. When pressed, they show the multiword expressions and obstacles in the converted text.</li>
+</ol>
+
+<br />
+<br />
+
+<h3>Update 1 - 03.06.2014</h3>
+
+<h4>Multiword expressions and idioms are now implemented:</h4>
+
+<ol>
+    <li>Idiom expression is displayed in Italic.</li>
+    <li>
+        <div>When user clicks on a word within multiword expression, two suggestions appear in the text box below:</div>
+        <ol style="list-style-type: lower-latin;">
+            <li>the word selected</li>
+            <li>the whole expression.</li>
+        </ol>
+    </li>
+    <li>If there is an obstacle in the multiword expression, it will be displayed in red like before.</li>   
+</ol>
+
+<figure>
+    <img src="/Images/MWE.png" style="width:50%;margin-top:20px;" />
+    <figcaption>Click on the image above for zoomed-in preview</figcaption>
+</figure>
+@Scripts.Render("~/bundles/magnific")
+
+<script>
+    $(document).ready(function () {
+        $('.pageContent').find('img').each(function () {
+            var $imgElem = $(this);
+            $imgElem.magnificPopup({
+                type: 'image',
+                items: {
+                    'src': $imgElem.attr('src')
+                }
+            });
+        });
+    });
+</script>

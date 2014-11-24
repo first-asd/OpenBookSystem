@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GeneralView</title>
+    <style>
+        .general-error {
+            font-size: 32px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .button-back {
+            min-width: 100px;
+            width: 100px;
+            height: 32px;
+            font-size: 16px;
+            color: #fff;
+            border-style: none;
+            cursor: pointer;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            -ms-border-radius: 7px;
+            -o-border-radius: 7px;
+            border-radius: 5px;
+            background-color: #56a0c9;
+            padding-left: 10px;
+            padding-right: 10px;
+            -webkit-appearance: none;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 31px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h2 class="general-error">@ClientDefault.Error_GeneralError</h2>
+
+        <a href="../" class="button-back">@ClientDefault.Error_ButtonBack</a>
+    </div>
+</body>
+</html>

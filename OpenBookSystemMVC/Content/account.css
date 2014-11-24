@@ -1,0 +1,227 @@
+﻿.dotted_box {
+    border: 1px dashed #1C94C4;
+    margin: 5px;
+    padding: 10px;
+    text-align: left;
+    min-height: 230px;
+}
+
+.clear {
+    clear: both;
+}
+
+.dotted_box .ui-widget span, .dlg .ui-widget, .ui-dialog-buttonset .ui-widget {
+    font-size: 11px !important;
+}
+
+.centerDiv {
+    width: 94%;
+    margin: 20px auto;
+}
+
+.center_div_containers {
+    border: none;
+    width: 50%;
+    min-width: 250px;
+    float: left;
+}
+
+.big_center_div_containers {
+    border: none;
+    width: 100%;
+    min-width: 250px;
+    float: left;
+}
+
+.title {
+    color: #808080;
+    margin: 10px 0 20px 0;
+    padding: 0px;
+    text-align: center;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    background: url("images/ui-bg_glass_100_adadad_1x400.png") repeat-x scroll 50% 50% #ADADAD;
+    border: 1px solid #808080;
+    color: #808080;
+    font-weight: bold;
+}
+
+a.hoverFix:hover {
+    color: #FFFFFF;
+}
+
+.double_color {
+    border-left: 20px solid green;
+    border-right: 20px solid blue;
+    border-top: 10px solid green;
+    border-bottom: 10px solid blue;
+    width: 0px;
+    height: 0px;
+}
+
+.list_box {
+    border: 1px solid #999999;
+    width: 230px;
+    height: 130px;
+    overflow: auto;
+    list-style-type: none;
+    background-color: #FFFFFF;
+    padding: 0px;
+}
+
+    .list_box li {
+        padding: 5px;
+        line-height: 30px;
+        margin: 0px;
+        margin-bottom: 3px;
+        margin-top: 3px;
+        cursor: pointer;
+    }
+
+.selected_element {
+    background-color: #CCCCCC;
+    padding: 5px;
+}
+
+.error-noname {
+    color: #FF0000;
+    display: none;
+}
+
+#labels {
+    width: 300px;
+}
+
+.label_name {
+    display: inline-block;
+    padding: 0 3px;
+}
+
+#create-label-input {
+    width:200px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.theme_name {
+    float: left;
+    display: inline-block;
+    padding: 0 3px;
+}
+
+.color {
+    border-left: 20px solid #FF0000;
+    border-right: 20px solid #FFF000;
+    border-top: 10px solid #FF0000;
+    border-bottom: 10px solid #FFF000;
+    width: 0px;
+    height: 0px;
+    margin-right: 10px;
+    margin-top: 6px;
+    float: left;
+}
+
+.fleft {
+    float: left;
+}
+
+.fright {
+    float: right;
+}
+
+.dlg {
+    font-size: 16px;
+}
+
+    .dlg div {
+        max-width: 200px;
+    }
+
+.center_div div {
+    margin: 5px auto;
+}
+
+.example_theme {
+    border: 1px solid #999999;
+    min-width: 100px;
+    background: #FFFFFF;
+    padding: 2px 5px;
+}
+
+.dlg .example {
+    color: #FF0000;
+    background-color: #FFF000;
+}
+
+#dialogs {
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.half {
+    width: 50%;
+    color: #666666;
+}
+
+    .half select {
+        padding: 0px !important;
+        width: 85px;
+    }
+
+.font_options .line {
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+.toolsbar_options .line {
+    padding-top: 10px;
+}
+
+    .toolsbar_options .line label {
+        width: 150px;
+        display: inline-block;
+    }
+
+    .toolsbar_options .line input:first-child {
+        float:left;
+    }
+
+.font_label {
+    width: 150px;
+    display: inline-block;
+}
+
+.left {
+    text-align: left;
+}
+
+.chzn-single > span {
+    width: auto;
+    min-width: 30px;
+}
+
+@media only screen and (max-width: 51.250em) {
+    .center_div_containers {
+        float: none;
+        min-width: 340px;
+    }
+}
+
+@media only screen and (max-width: 56.563em) {
+    .toolsbar_options .line label {
+        width: 140px;
+    }
+}
+
+@media only screen and (max-width: 53.750em) {
+    .half {
+        clear: both !important;
+        margin: 20px auto;
+        float: none !important;
+        width: 335px;
+    }
+}

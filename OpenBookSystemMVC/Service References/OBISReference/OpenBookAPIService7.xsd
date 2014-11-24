@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd3" namespace="http://OpenBookAPI/Entities/" />
+  <xs:complexType name="SimplifyCarerDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://OpenBookAPI/Entities/" base="q1:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="q1:OriginalUserDocument" />
+          <xs:element minOccurs="0" name="SimplifySentenceMode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SimplifyCarerDocumentRequest" nillable="true" type="tns:SimplifyCarerDocumentRequest" />
+  <xs:complexType name="GetTransformedSentenceDataRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://OpenBookAPI/Entities/" base="q2:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SimplifiedSentence" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTransformedSentenceDataRequest" nillable="true" type="tns:GetTransformedSentenceDataRequest" />
+  <xs:complexType name="GetWordSynonymsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://OpenBookAPI/Entities/" base="q3:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="QuestionedWord" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetWordSynonymsRequest" nillable="true" type="tns:GetWordSynonymsRequest" />
+  <xs:complexType name="GetCarerWordPicturesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://OpenBookAPI/Entities/" base="q4:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="QuestionedWord" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCarerWordPicturesRequest" nillable="true" type="tns:GetCarerWordPicturesRequest" />
+  <xs:complexType name="GetCarerWordDefinitionsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://OpenBookAPI/Entities/" base="q5:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="QuestionedWord" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCarerWordDefinitionsRequest" nillable="true" type="tns:GetCarerWordDefinitionsRequest" />
+  <xs:complexType name="SaveCarerEditedDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://OpenBookAPI/Entities/" base="q6:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="q6:Document" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveCarerEditedDocumentRequest" nillable="true" type="tns:SaveCarerEditedDocumentRequest" />
+  <xs:complexType name="SubmitAcceptedSentenceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://OpenBookAPI/Entities/" base="q7:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AcceptedSentence" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+          <xs:element minOccurs="0" name="UnmodifiedSentence" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SubmitAcceptedSentenceRequest" nillable="true" type="tns:SubmitAcceptedSentenceRequest" />
+  <xs:complexType name="GetAnaphoraResolutionRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://OpenBookAPI/Entities/" base="q8:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="QuestionedWord" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAnaphoraResolutionRequest" nillable="true" type="tns:GetAnaphoraResolutionRequest" />
+  <xs:complexType name="GetDocumentSummaryRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://OpenBookAPI/Entities/" base="q9:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentSummaryRequest" nillable="true" type="tns:GetDocumentSummaryRequest" />
+  <xs:complexType name="GetObstacleInfoRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://OpenBookAPI/Entities/" base="q10:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ObstacleId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetObstacleInfoRequest" nillable="true" type="tns:GetObstacleInfoRequest" />
+</xs:schema>

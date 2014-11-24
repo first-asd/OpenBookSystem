@@ -1,0 +1,48 @@
+﻿@model IList<OpenBookSystemMVC.LanguageObjectPreference>
+
+
+<ul class="langprefs-list">
+    @{ 
+        string currentGroup = string.Empty;
+        if (Model.Count > 0)
+        {
+            currentGroup = Model[0].data.PreferenceGroup;
+        }
+    }
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        if (i == 0 && !string.IsNullOrEmpty(currentGroup))
+        {
+            <li class="langprefs-group">@currentGroup</li>
+        }
+        else if (currentGroup != Model[i].data.PreferenceGroup && !string.IsNullOrEmpty(Model[i].data.PreferenceGroup))
+        {
+            currentGroup = Model[i].data.PreferenceGroup;
+            <li class="langprefs-group">@currentGroup</li>
+        }
+        else if (string.IsNullOrEmpty(Model[i].data.PreferenceGroup))
+        {
+            currentGroup = string.Empty;
+        }
+                                    
+        <li class="langprefs-datarow @{ if (string.IsNullOrEmpty(currentGroup)) { Write(" nogroup"); } }">
+        @if (Model[i].data.PrefrenceType == LanguagePreferenceType.Boolean)
+        {        
+            @Html.CheckBoxFor( item => Model[i].BoolValue)     
+            <label>@Model[i].data.Caption</label>
+        }
+        else if (Model[i].data.PrefrenceType == LanguagePreferenceType.Number)
+	    {
+            <label>@Model[i].data.Caption</label>
+            @Html.TextBoxFor( item => Model[i].IntValue)  
+        }
+        else if (Model[i].data.PrefrenceType == LanguagePreferenceType.Enumerated)
+	    {
+		    <label>@Model[i].data.Caption</label>
+            @Html.DropDownListFor( item => Model[i].EnumerationValue, new SelectList(Model[i].data.EnumerationOptions, "Value", "Caption", Model[i].EnumerationValue))  
+	    }     
+
+        @Html.HiddenFor(x => x[i].Caption)
+        </li>  
+    }
+</ul>

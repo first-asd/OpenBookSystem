@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://OpenBookAPI/" elementFormDefault="qualified" targetNamespace="http://OpenBookAPI/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" />
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" />
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd3" namespace="http://OpenBookAPI/Entities/" />
+  <xs:element name="SimplifyCarerDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q1:SimplifyCarerDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SimplifyCarerDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" minOccurs="0" name="SimplifyCarerDocumentResult" nillable="true" type="q2:SimplifyCarerDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransformedSentenceData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q3:GetTransformedSentenceDataRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransformedSentenceDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" minOccurs="0" name="GetTransformedSentenceDataResult" nillable="true" type="q4:GetTransformedSentenceDataResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWordSynonyms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q5:GetWordSynonymsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWordSynonymsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" minOccurs="0" name="GetWordSynonymsResult" nillable="true" type="q6:GetWordSynonymsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarerWordPictures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q7:GetCarerWordPicturesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarerWordPicturesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" minOccurs="0" name="GetCarerWordPicturesResult" nillable="true" type="q8:GetCarerWordPicturesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarerWordDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q9:GetCarerWordDefinitionsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarerWordDefinitionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" minOccurs="0" name="GetCarerWordDefinitionsResult" nillable="true" type="q10:GetCarerWordDefinitionsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCarerEditedDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q11:SaveCarerEditedDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCarerEditedDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" minOccurs="0" name="SaveCarerEditedDocumentResult" nillable="true" type="q12:SaveCarerEditedDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitAcceptedSentence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q13:SubmitAcceptedSentenceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitAcceptedSentenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" minOccurs="0" name="SubmitAcceptedSentenceResult" nillable="true" type="q14:SubmitAcceptedSentenceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnaphoraResolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q15:GetAnaphoraResolutionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnaphoraResolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Responses" minOccurs="0" name="GetAnaphoraResolutionResult" nillable="true" type="q16:GetAnaphoraResolutionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q17:GetDocumentSummaryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://OpenBookAPI/Entities/" minOccurs="0" name="GetDocumentSummaryResult" nillable="true" type="q18:GetDocumentSummaryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetObstacleInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary.Requests" minOccurs="0" name="request" nillable="true" type="q19:GetObstacleInfoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetObstacleInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://OpenBookAPI/Entities/" minOccurs="0" name="GetObstacleInfoResult" nillable="true" type="q20:GetObstacleInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q21:GetDocumentTestRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://OpenBookAPI/Entities/" minOccurs="0" name="GetDocumentTestResult" nillable="true" type="q22:GetDocumentTestResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitTestAnswer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q23:SubmitTestAnswerRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitTestAnswerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://OpenBookAPI/Entities/" minOccurs="0" name="SubmitTestAnswerResult" nillable="true" type="q24:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserNotifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q25:RequestBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserNotificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://OpenBookAPI/Entities/" minOccurs="0" name="GetUserNotificationsResult" nillable="true" type="q26:GetUserNotificationsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkNotificationAsRead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q27:MarkNotificationAsReadRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkNotificationAsReadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://OpenBookAPI/Entities/" minOccurs="0" name="MarkNotificationAsReadResult" nillable="true" type="q28:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnreadNotifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q29:RequestBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnreadNotificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://OpenBookAPI/Entities/" minOccurs="0" name="GetUnreadNotificationsResult" nillable="true" type="q30:GetUnreadNotificationsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q31:SendNotificationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://OpenBookAPI/Entities/" minOccurs="0" name="SendNotificationResult" nillable="true" type="q32:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q33:DeleteNotificationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://OpenBookAPI/Entities/" minOccurs="0" name="DeleteNotificationResult" nillable="true" type="q34:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTheme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q35:CreateThemeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateThemeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://OpenBookAPI/Entities/" minOccurs="0" name="CreateThemeResult" nillable="true" type="q36:CreateThemeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadUserThemes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q37:LoadUserThemesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadUserThemesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://OpenBookAPI/Entities/" minOccurs="0" name="LoadUserThemesResult" nillable="true" type="q38:LoadUserThemesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDefaultThemes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q39:RequestBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDefaultThemesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://OpenBookAPI/Entities/" minOccurs="0" name="LoadDefaultThemesResult" nillable="true" type="q40:LoadDefaultThemesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q41:LoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://OpenBookAPI/Entities/" minOccurs="0" name="LoginResult" nillable="true" type="q42:LoginResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q43:RequestBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://OpenBookAPI/Entities/" minOccurs="0" name="LogoutResult" nillable="true" type="q44:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q45:RegisterAccountRequset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://OpenBookAPI/Entities/" minOccurs="0" name="RegisterAccountResult" nillable="true" type="q46:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q47:CreateUserAccountRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://OpenBookAPI/Entities/" minOccurs="0" name="CreateUserAccountResult" nillable="true" type="q48:CreateUserAccountResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateVerificationTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q49:ValidateVerificationTicketRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateVerificationTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://OpenBookAPI/Entities/" minOccurs="0" name="ValidateVerificationTicketResult" nillable="true" type="q50:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q51:UpdateAccountProfileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://OpenBookAPI/Entities/" minOccurs="0" name="UpdateAccountProfileResult" nillable="true" type="q52:UpdateAccountProfileResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q53:DeleteUserAccountRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://OpenBookAPI/Entities/" minOccurs="0" name="DeleteUserAccountResult" nillable="true" type="q54:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q55:GetAccountInfoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://OpenBookAPI/Entities/" minOccurs="0" name="GetAccountInfoResult" nillable="true" type="q56:GetAccountInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarersUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q57:RequestBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarersUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://OpenBookAPI/Entities/" minOccurs="0" name="GetCarersUsersResult" nillable="true" type="q58:GetCarersUsersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarerUsersPageList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q59:RequestBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarerUsersPageListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://OpenBookAPI/Entities/" minOccurs="0" name="GetCarerUsersPageListResult" nillable="true" type="q60:GetCarerUsersPageListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q61:GetUserImageRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://OpenBookAPI/Entities/" minOccurs="0" name="GetUserImageResult" nillable="true" type="q62:GetUserImageResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultLanguageSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q63:RequestBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultLanguageSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://OpenBookAPI/Entities/" minOccurs="0" name="GetDefaultLanguageSettingsResult" nillable="true" type="q64:GetDefaultLanguageSettingsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrievePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q65:RetrievePasswordRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrievePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://OpenBookAPI/Entities/" minOccurs="0" name="RetrievePasswordResult" nillable="true" type="q66:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLabel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q67:CreateLabelRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLabelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://OpenBookAPI/Entities/" minOccurs="0" name="CreateLabelResult" nillable="true" type="q68:CreateLabelResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteLabel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q69:DeleteLabelRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteLabelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://OpenBookAPI/Entities/" minOccurs="0" name="DeleteLabelResult" nillable="true" type="q70:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountLabels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q71:GetAccountLabelsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountLabelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://OpenBookAPI/Entities/" minOccurs="0" name="GetAccountLabelsResult" nillable="true" type="q72:GetAccountLabelsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentLabels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q73:SaveDocumentLabelsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentLabelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://OpenBookAPI/Entities/" minOccurs="0" name="SaveDocumentLabelsResult" nillable="true" type="q74:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLabel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q75:UpdateLabelRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLabelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://OpenBookAPI/Entities/" minOccurs="0" name="UpdateLabelResult" nillable="true" type="q76:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLibraryItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q77:GetLibraryItemsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLibraryItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://OpenBookAPI/Entities/" minOccurs="0" name="GetLibraryItemsResult" nillable="true" type="q78:GetLibraryItemsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeDocumentFavouriteStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q79:ChangeDocumentFavouriteStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeDocumentFavouriteStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://OpenBookAPI/Entities/" minOccurs="0" name="ChangeDocumentFavouriteStatusResult" nillable="true" type="q80:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SimplifyDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q81:SimplifyDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SimplifyDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://OpenBookAPI/Entities/" minOccurs="0" name="SimplifyDocumentResult" nillable="true" type="q82:SimplifyDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExplainWord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q83:ExplainWordRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExplainWordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://OpenBookAPI/Entities/" minOccurs="0" name="ExplainWordResult" nillable="true" type="q84:ExplainWordResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExplainWordWithPictures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q85:ExplainWordWithPicturesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExplainWordWithPicturesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://OpenBookAPI/Entities/" minOccurs="0" name="ExplainWordWithPicturesResult" nillable="true" type="q86:ExplainWordWithPicturesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q87:DeleteDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://OpenBookAPI/Entities/" minOccurs="0" name="DeleteDocumentResult" nillable="true" type="q88:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q89:SaveDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://OpenBookAPI/Entities/" minOccurs="0" name="SaveDocumentResult" nillable="true" type="q90:SaveDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q91:GetDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://OpenBookAPI/Entities/" minOccurs="0" name="GetDocumentResult" nillable="true" type="q92:GetDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q93:GetDocumentDefinitionsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentDefinitionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://OpenBookAPI/Entities/" minOccurs="0" name="GetDocumentDefinitionsResult" nillable="true" type="q94:GetDocumentDefinitionsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkDocumentAsRead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://OpenBookAPI/Entities/" minOccurs="0" name="request" nillable="true" type="q95:MarkDocumentAsReadRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkDocumentAsReadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://OpenBookAPI/Entities/" minOccurs="0" name="MarkDocumentAsReadResult" nillable="true" type="q96:ResponseBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

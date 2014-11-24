@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="/Content/ErrorPages.css" />
+    @Styles.Render("~/Content/error")
+</head>
+<body>
+    <p class="unsupported-title" >@ClientDefault.BrowserNotSupported_Title</p>
+
+    <div class="unsupported-message-body">
+        @ClientDefault.BrowserNotSupported_Body
+    </div>
+</body>
+</html>
