@@ -1,0 +1,42 @@
+package es.ujaen.clients;
+
+import java.rmi.RemoteException;
+
+import ujaen.es.clients.AnaphoraResolutionExceptionException;
+import ujaen.es.clients.AnaphoraResolutionStub;
+
+public class CoreferenceSpanishClient {
+	
+private int connectionTimeout;
+	
+	
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+	   this.connectionTimeout=connectionTimeout;	
+	}
+	
+	
+private String executeClient (AnaphoraResolutionStub stub, String gateInputString,String parameters) throws RemoteException, AnaphoraResolutionExceptionException { 
+	
+	AnaphoraResolutionStub.AnaphoraResolutionE req =  new AnaphoraResolutionStub.AnaphoraResolutionE ();
+	AnaphoraResolutionStub.AnaphoraResolution aux= new AnaphoraResolutionStub.AnaphoraResolution();
+	
+	aux.setText(gateInputString);
+	aux.setParameters(parameters);
+
+	req.setAnaphoraResolution(aux); 
+	AnaphoraResolutionStub.AnaphoraResolutionResponseE res= stub.anaphoraResolution(req);
+	return res.getAnaphoraResolutionResponse().get_return();
+	}
+
+public String getClientResponse (String gateInputString,String parameters) throws RemoteException, AnaphoraResolutionExceptionException 
+{
+	String gateOutputString ="";
+	AnaphoraResolutionStub  stub = new  AnaphoraResolutionStub ();
+    stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+    
+    gateOutputString =executeClient (stub,gateInputString,parameters);
+    return  gateOutputString;
+}
+
+}

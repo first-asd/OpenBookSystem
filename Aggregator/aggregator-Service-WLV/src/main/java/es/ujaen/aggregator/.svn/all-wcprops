@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/aggregator
+END
+CheckArguments.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ebarbu/!svn/ver/8/Aggregator-Maven/src/main/java/es/ujaen/aggregator/CheckArguments.java
+END
+GateOperations.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ebarbu/!svn/ver/11/Aggregator-Maven/src/main/java/es/ujaen/aggregator/GateOperations.java
+END
+AggregatorWS.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ebarbu/!svn/ver/13/Aggregator-Maven/src/main/java/es/ujaen/aggregator/AggregatorWS.java
+END
+JsonParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/aggregator/JsonParameters.java
+END
+Pipeline.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ebarbu/!svn/ver/11/Aggregator-Maven/src/main/java/es/ujaen/aggregator/Pipeline.java
+END

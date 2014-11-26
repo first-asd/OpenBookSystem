@@ -1,0 +1,41 @@
+package es.ujaen.clients;
+
+import java.rmi.RemoteException;
+
+import ujaen.es.clients.CorefOBServiceImplServiceStub;
+import ujaen.es.clients.FormatExceptionException;
+
+public class CoreferenceEnglishClient {
+	private int connectionTimeout;
+
+
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+		this.connectionTimeout=connectionTimeout;	
+	}
+
+
+	private String executeClient (CorefOBServiceImplServiceStub stub, String gateInputString,String languageCode) throws RemoteException, FormatExceptionException {    
+
+
+		CorefOBServiceImplServiceStub.ProcessCoreferenceE req= new  CorefOBServiceImplServiceStub.ProcessCoreferenceE ();
+		CorefOBServiceImplServiceStub.ProcessCoreference aux= new  CorefOBServiceImplServiceStub.ProcessCoreference();
+		aux.setGateDocument(gateInputString);
+		aux.setParams(languageCode);
+		req.setProcessCoreference(aux);
+		CorefOBServiceImplServiceStub.ProcessCoreferenceResponseE res=stub.processCoreference(req);
+		return res.getProcessCoreferenceResponse().get_return();
+
+	}
+
+	public String getClientResponse (String gateInputString,String languageCode) throws RemoteException, FormatExceptionException
+	{
+		String gateOutputString ="";
+		CorefOBServiceImplServiceStub  stub = new  CorefOBServiceImplServiceStub ();
+		stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+
+		gateOutputString =executeClient (stub,gateInputString,languageCode);
+		return  gateOutputString;
+	}
+
+}

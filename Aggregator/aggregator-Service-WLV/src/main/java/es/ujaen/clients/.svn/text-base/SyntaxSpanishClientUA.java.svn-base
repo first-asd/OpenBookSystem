@@ -1,0 +1,39 @@
+package es.ujaen.clients;
+
+import ujaen.es.clients.SintacticSimplificationServiceStub;
+public class SyntaxSpanishClientUA {
+	
+private int connectionTimeout;
+	
+	
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+	   this.connectionTimeout=connectionTimeout;	
+	}
+	
+	
+private String executeClient (SintacticSimplificationServiceStub stub, String gateInputString,String parameters) throws Exception { 
+	
+	SintacticSimplificationServiceStub.PerformSintacticSimplificationE req = new SintacticSimplificationServiceStub.PerformSintacticSimplificationE ();
+	SintacticSimplificationServiceStub.PerformSintacticSimplification aux = new SintacticSimplificationServiceStub.PerformSintacticSimplification();
+	
+	aux.setGDoc(gateInputString);
+	aux.setJSONparams(parameters);
+	
+	req.setPerformSintacticSimplification(aux);
+	
+	SintacticSimplificationServiceStub.PerformSintacticSimplificationResponseE res =stub.performSintacticSimplification(req);
+	return res.getPerformSintacticSimplificationResponse().get_return();
+}
+
+public String getClientResponse (String gateInputString,String parameters) throws Exception 
+{
+	String gateOutputString ="";
+	SintacticSimplificationServiceStub stub = new  SintacticSimplificationServiceStub ();
+    stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+    
+    gateOutputString =executeClient (stub,gateInputString,parameters);
+    return  gateOutputString;
+}
+
+}

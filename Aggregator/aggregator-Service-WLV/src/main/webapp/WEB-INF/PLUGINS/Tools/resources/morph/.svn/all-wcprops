@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/Tools/resources/morph
+END
+adj.dat
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/Tools/resources/morph/adj.dat
+END
+noun.dat
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/Tools/resources/morph/noun.dat
+END
+verb.dat
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/Tools/resources/morph/verb.dat
+END
+adv.dat
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/Tools/resources/morph/adv.dat
+END
+default.rul
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/Tools/resources/morph/default.rul
+END

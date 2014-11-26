@@ -1,0 +1,35 @@
+package es.ujaen.clients;
+
+import java.rmi.RemoteException;
+
+import ujaen.es.clients.OfflineImageRetrievalStub;
+
+public class OfflineImageClient {
+
+	private int connectionTimeout;
+
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+		this.connectionTimeout=connectionTimeout;	
+	}
+
+	private String executeClient (OfflineImageRetrievalStub stub, String gateInputString,String parameters) throws RemoteException, Exception{    
+		OfflineImageRetrievalStub.AddImages  req = new OfflineImageRetrievalStub.AddImages();
+		req.setGateInputString(gateInputString);
+		req.setParameters(parameters);
+		OfflineImageRetrievalStub.AddImagesResponse res=stub.addImages(req);
+		return res.get_return();
+	}
+
+
+
+	public String getClientResponse (String gateInputString,String parameters) throws RemoteException, Exception
+	{
+		String gateOutputString ="";
+		OfflineImageRetrievalStub stub = new  	OfflineImageRetrievalStub();
+		stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+		gateOutputString =executeClient (stub,gateInputString,parameters);
+		return  gateOutputString;
+	}
+
+}

@@ -1,0 +1,41 @@
+package es.ujaen.clients;
+
+import java.rmi.RemoteException;
+
+import ujaen.es.clients.BgCorefOBServiceImplServiceStub;
+import ujaen.es.clients.FormatExceptionException;
+
+public class CoreferenceBulgarianClient {
+	
+	private int connectionTimeout;
+
+
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+		this.connectionTimeout=connectionTimeout;	
+	}
+	
+	private String executeClient (BgCorefOBServiceImplServiceStub stub, String gateInputString,String params) throws RemoteException, FormatExceptionException { 
+		
+		BgCorefOBServiceImplServiceStub.ProcessBGE req =  new BgCorefOBServiceImplServiceStub.ProcessBGE();
+		BgCorefOBServiceImplServiceStub.ProcessBG aux = new BgCorefOBServiceImplServiceStub.ProcessBG();
+		
+		aux.setGateDocument(gateInputString);
+		aux.setParams(params);
+		req.setProcessBG(aux);
+		
+		BgCorefOBServiceImplServiceStub.ProcessBGResponseE res =stub.processBG(req);
+		return res.getProcessBGResponse().get_return();
+	}
+	
+	public String getClientResponse (String gateInputString,String params) throws RemoteException, FormatExceptionException
+	{
+		String gateOutputString ="";
+		BgCorefOBServiceImplServiceStub stub = new  BgCorefOBServiceImplServiceStub ();
+		stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+
+		gateOutputString =executeClient (stub,gateInputString,params);
+		return  gateOutputString;
+	}
+
+}

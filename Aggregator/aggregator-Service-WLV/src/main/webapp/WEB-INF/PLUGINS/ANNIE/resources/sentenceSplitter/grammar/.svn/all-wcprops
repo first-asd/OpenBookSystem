@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar
+END
+split.jape
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar/split.jape
+END
+find.jape
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar/find.jape
+END
+main.jape
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar/main.jape
+END
+prepare.jape
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar/prepare.jape
+END
+no-splits.jape
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar/no-splits.jape
+END
+cleanup.jape
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar/cleanup.jape
+END
+find-single-nl.jape
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar/find-single-nl.jape
+END
+main-single-nl.jape
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/grammar/main-single-nl.jape
+END

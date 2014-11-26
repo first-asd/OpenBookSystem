@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF
+END
+gate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/gate.xml
+END
+conf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/conf.txt
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/web.xml
+END

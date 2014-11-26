@@ -1,0 +1,13 @@
+<service name="Aggregator" scope="application" targetNamespace="http://first-asd.eu/service/">
+    <description>
+        This Service aggregates the output of all LT services in FIRST project . 
+    </description>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+    <schema schemaNamespace="http://first-asd.eu/service/xsd"/>
+    <parameter name="ServiceClass">es.ujaen.aggregator.AggregatorWS</parameter>
+</service>

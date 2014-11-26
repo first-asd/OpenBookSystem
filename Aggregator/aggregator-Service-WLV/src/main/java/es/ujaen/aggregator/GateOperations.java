@@ -1,0 +1,341 @@
+package es.ujaen.aggregator;
+
+import gate.Annotation;
+import gate.AnnotationSet;
+import gate.Corpus;
+import gate.Document;
+import gate.Factory;
+import gate.FeatureMap;
+import gate.Gate;
+import gate.ProcessingResource;
+import gate.creole.SerialAnalyserController;
+import gate.util.InvalidOffsetException;
+import gate.util.OffsetComparator;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.log4j.Logger;
+
+/**
+ * GATE Specific Operations for documents.
+ * @author Eduard
+ */
+
+public class GateOperations {
+	
+	
+	private static org.apache.log4j.Logger  log = Logger.getLogger(GateOperations.class);
+	
+	/**
+	 * Get the maximum id for an annotation set. 
+	 */
+	private int getMaximID (AnnotationSet as)
+	{
+		int maxId=0;
+		
+		for (Annotation an:as)
+		{
+			int curId=an.getId();
+			if (curId>maxId)
+			{
+				maxId=curId;
+			}
+		}
+		
+		return maxId;
+	}
+	
+	
+	public void consolidateSets (Document gateDocument) throws InvalidOffsetException
+	{
+		
+		Map <Integer,Integer> sourceDestIdMap= new HashMap <Integer,Integer> ();
+		
+		AnnotationSet idiomDetectionAS =gateDocument.getAnnotations("IdiomDetectionSet");
+		AnnotationSet multiWordDetectionAS =gateDocument.getAnnotations("Disambiguate markups MULTIWORDS");
+		int maxId=getMaximID (multiWordDetectionAS);
+		
+		List <Annotation> idiomAnnotationSortedList = new ArrayList<Annotation>(idiomDetectionAS);
+		Collections.sort(idiomAnnotationSortedList , new OffsetComparator());
+
+		
+		int curIdiomId=maxId;
+		
+		for (Annotation idiomAn:idiomAnnotationSortedList)
+		{
+			curIdiomId++;
+			
+			int idiomAnId=idiomAn.getId();
+			sourceDestIdMap.put(idiomAnId, curIdiomId);
+			
+			FeatureMap fm=idiomAn.getFeatures();
+			
+			if (fm.containsKey("wordIndexId"))
+			{
+				int oldId=Integer.parseInt(fm.get("wordIndexId").toString());
+				int newId=sourceDestIdMap.get(oldId);
+				fm.put("wordIndexId", newId);
+			}
+			
+			multiWordDetectionAS.add(curIdiomId, idiomAn.getStartNode().getOffset(), idiomAn.getEndNode().getOffset(), idiomAn.getType(), fm) ;
+		}
+		
+		gateDocument.removeAnnotationSet("IdiomDetectionSet");
+		
+	}
+
+	
+	/**
+	 * Tries to eliminate some annotations from the Tokenization set
+	 * @param gateDocument
+	 */
+	public void optimizeDocument (Document gateDocument)
+	{
+		AnnotationSet tokenization =gateDocument.getAnnotations("Tokenization");
+		
+		//Remove SpaceToken and Sentence from the Annotation Set "Tokenization."
+		
+		Set <String> toDelete = new HashSet<String> ();
+		//toDelete.add("SpaceToken");
+		toDelete.add("Sentence");
+		//toDelete.add("Split");
+		
+		AnnotationSet tokensToDelete = tokenization.get(toDelete);
+		Iterator<Annotation> iterator=tokensToDelete .iterator();
+		while (iterator.hasNext())
+		{
+			Annotation currentTokenAnnotation=iterator.next();
+			tokenization.remove(currentTokenAnnotation);
+		}
+	
+		//Remove unnecessary Features from type Token.
+		/*
+		Set <String> types = new HashSet<String> ();
+		types.add("Token");
+		
+		AnnotationSet tokens = tokenization.get(types);
+		Iterator<Annotation>anotIterator=tokens.iterator();
+		
+		while (anotIterator.hasNext())
+		{
+			Annotation currentTokenAnnotation=anotIterator.next();
+			currentTokenAnnotation.getFeatures().clear();
+		}
+	*/
+	}
+	
+	
+	public void chapuza (Document gateDocument) throws InvalidOffsetException
+	{
+		AnnotationSet idiomDetectionAS=gateDocument.getAnnotations("IdiomDetectionSet");
+		
+		ArrayList<String> arrayList = new ArrayList<String> ();
+		arrayList.add("Disambiguate markups LONGWORDS");
+		arrayList.add("Disambiguate markups ACRONYMNS");
+		arrayList.add("Disambiguate markups OOV");
+		arrayList.add("Disambiguate markups POLYSEMIC");
+		arrayList.add("Disambiguate markups RARE");
+		arrayList.add("Disambiguate markups LONGWORDS");
+		arrayList.add("Disambiguate markups SPECIALIZED");
+		arrayList.add("WikipediaDisambiguationAnnotationSet");
+		arrayList.add("WikipediaImageAnnotationSet");
+		arrayList.add("ImageNetAnnotationSet");
+		
+		//Eliminates from sets other than tokenization
+		for (Iterator<Annotation> it = idiomDetectionAS.iterator(); it.hasNext(); ) {
+
+			Annotation idiomAnnotation=it.next();
+			
+			Long startOffset=idiomAnnotation.getStartNode().getOffset();
+			Long endOffset=idiomAnnotation.getEndNode().getOffset();
+			for (String curAnnotationSetName:arrayList )
+			{
+				AnnotationSet curAnnotationSet =gateDocument.getAnnotations(curAnnotationSetName);
+				AnnotationSet toDelete =curAnnotationSet.get(startOffset, endOffset);
+				for (Iterator<Annotation> i = toDelete.iterator(); i.hasNext(); ) {
+					Annotation currentTokenAnnotation=i.next();
+					curAnnotationSet.remove(currentTokenAnnotation);
+				}
+			}
+		}
+		
+		//Make chapuza in the Tokenization
+		for (Iterator<Annotation> it = idiomDetectionAS.iterator(); it.hasNext(); ) {
+
+			Annotation idiomAnnotation=it.next();
+			
+			Long startOffset=idiomAnnotation.getStartNode().getOffset();
+			Long endOffset=idiomAnnotation.getEndNode().getOffset();
+			String idiom=gateDocument.getContent().getContent(startOffset, endOffset).toString();
+			
+			AnnotationSet tokenization =gateDocument.getAnnotations("Tokenization");
+
+			AnnotationSet toDelete =tokenization.get(startOffset, endOffset);
+			for (Iterator<Annotation> i = toDelete.iterator(); i.hasNext(); ) {
+				Annotation currentTokenAnnotation=i.next();
+				tokenization.remove(currentTokenAnnotation);
+			}
+			//And now add the idiom
+			FeatureMap curFeatures = Factory.newFeatureMap();
+			curFeatures.put("string", idiom);
+			curFeatures.put("kind", "word");
+			tokenization.add(startOffset, endOffset, "Token", curFeatures);
+		}
+	}
+
+
+
+
+	
+	public void aggregate (Document sourceDocument, Document targetDocument)
+	{
+		//Copy the Summary if Exists
+		FeatureMap metaFeaturesSourceMap = sourceDocument.getFeatures();
+		if (metaFeaturesSourceMap.containsKey("summary"))
+		{
+			String summaryString=metaFeaturesSourceMap.get("summary").toString();
+			FeatureMap metaFeaturesTargetMap = targetDocument.getFeatures();
+			metaFeaturesTargetMap.put("summary",summaryString);
+		}
+		
+		
+		//Copy the Default Annotation Set
+		AnnotationSet defaultSourceDocumentAS=sourceDocument.getAnnotations();
+		if (!defaultSourceDocumentAS.isEmpty())
+		{
+			AnnotationSet defaultTargetDocumentAS=targetDocument.getAnnotations();
+			for (Annotation anSource:defaultSourceDocumentAS)
+			{
+				defaultTargetDocumentAS.add(anSource);
+			}
+		}
+		
+		
+			
+		
+		
+		//Copy Name Annotation Sets
+		Map<String,AnnotationSet> sourceAnnotationSets=sourceDocument.getNamedAnnotationSets();
+		if (sourceAnnotationSets!=null)
+		{
+			for (String asNameSource: sourceAnnotationSets.keySet())
+			{
+				AnnotationSet asSource=sourceAnnotationSets.get(asNameSource);
+				
+				AnnotationSet targetAnSet=targetDocument.getAnnotations(asNameSource);
+				
+				Iterator<Annotation>sourceAnotIterator=asSource.iterator();
+				
+				while (sourceAnotIterator.hasNext())
+				{
+					Annotation currentSourceAnnotation=sourceAnotIterator.next();
+					targetAnSet.add(currentSourceAnnotation);
+				}
+			}
+		}
+		
+	}
+	
+
+	public void  addExtraInfo (Document gateDocument)
+	{
+		org.apache.log4j.Logger  log = Logger.getLogger(GateOperations.class);
+		
+		boolean isSentenceDetection=true;
+		AnnotationSet sentenceDetectionAS =gateDocument.getAnnotations("SentenceDetection");
+		
+		if (!sentenceDetectionAS.isEmpty())
+		{
+			isSentenceDetection=false;
+		}
+		
+
+		try {
+			
+			// For now I need a Tokenizer and a Sentence Detector.
+			File annieDirectory = new File ( Gate.getPluginsHome (), "ANNIE");
+			log.debug("Register ANNIE directory:"+annieDirectory);
+			Gate. getCreoleRegister (). registerDirectories (annieDirectory. toURI (). toURL ());
+			ProcessingResource whiteSpaceTokenizer = (ProcessingResource) Factory.createResource("gate.creole.tokeniser.SimpleTokeniser");
+			FeatureMap paramsTokenizer = Factory.newFeatureMap(); 
+			paramsTokenizer.put("annotationSetName", "Tokenization");
+			whiteSpaceTokenizer.setParameterValues(paramsTokenizer);
+			
+			ProcessingResource sentenceDetector = (ProcessingResource) Factory.createResource("gate.creole.splitter.SentenceSplitter");
+			FeatureMap paramsSentenceDetector = Factory.newFeatureMap(); 
+			paramsSentenceDetector.put("inputASName", "Tokenization");
+			paramsSentenceDetector.put("outputASName", "SentenceDetection");
+			sentenceDetector .setParameterValues(paramsSentenceDetector);
+
+			// It Creates a serial Analyser controller to run processing resources with
+			log.debug("Create SerialAnalyserController");
+			SerialAnalyserController controller =
+				( SerialAnalyserController ) Factory.createResource ("gate.creole.SerialAnalyserController", Factory.newFeatureMap(),Factory.newFeatureMap (), " ANNIE");
+
+			// add the processing resources to the pipeline controller
+			controller . add(whiteSpaceTokenizer);
+			
+			if (isSentenceDetection)
+			{
+				controller.add(sentenceDetector);
+			}
+			
+
+			//creates the corpus
+			Corpus corpus = Factory.newCorpus("DocumentSimpleProcessing-Corpus");
+			controller . setCorpus ( corpus );
+
+			
+		    //add the document to the corpus 
+			corpus.add(gateDocument);
+
+			//execute the application
+			controller . execute ();
+
+
+		}catch (Exception e) {
+			log.error ("Threw a BadException in GateAggregator::processDocumentByGate, full stack trace follows:",e);
+		}
+
+		optimizeDocument (gateDocument);
+	}
+	
+	/**
+	 * In Spanish Case the sentence annotations produced by the Syntactic Simplifications will be copied in the SentenceDetection Set.
+	 * @param gateDocument
+	 */
+	public void spanishSentenceDetection (Document gateDocument)
+	{
+		AnnotationSet defaultAS=gateDocument.getAnnotations();
+		
+		if (!defaultAS.isEmpty())
+		{
+			gateDocument.removeAnnotationSet("SentenceDetection");
+			
+			AnnotationSet sentenceAnnotationSet=defaultAS.get("Sentence",Factory.newFeatureMap());
+			AnnotationSet sentenceDetectionAS=gateDocument.getAnnotations("SentenceDetection");
+			
+			for (Annotation sentenceAnnotation : sentenceAnnotationSet)
+			{
+				sentenceDetectionAS.add(sentenceAnnotation);
+			}
+			
+			//delete the content of the  Default Annotation Set;
+			defaultAS.clear();
+		}
+		
+	}
+	
+	
+	
+
+
+}

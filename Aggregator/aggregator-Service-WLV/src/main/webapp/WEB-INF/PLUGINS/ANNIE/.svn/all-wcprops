@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/build.xml
+END
+creole.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/creole.xml
+END
+ANNIE_with_defaults.gapp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/ANNIE_with_defaults.gapp
+END

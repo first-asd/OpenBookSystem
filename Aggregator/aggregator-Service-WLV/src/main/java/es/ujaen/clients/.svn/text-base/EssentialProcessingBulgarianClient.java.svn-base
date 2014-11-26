@@ -1,0 +1,45 @@
+package es.ujaen.clients;
+
+import java.rmi.RemoteException;
+
+import ujaen.es.clients.BgPrepOBServiceImplServiceStub;
+import ujaen.es.clients.FormatExceptionException;
+
+public class BasicProcessingBulgarianClient {
+	
+	private int connectionTimeout;
+
+
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+		this.connectionTimeout=connectionTimeout;	
+	}
+	
+	
+	private String executeClient (BgPrepOBServiceImplServiceStub stub, String gateInputString,String bpJson) throws RemoteException, FormatExceptionException  {   
+		
+		BgPrepOBServiceImplServiceStub.ProcessBGE req = new BgPrepOBServiceImplServiceStub.ProcessBGE();
+		
+		BgPrepOBServiceImplServiceStub.ProcessBG aux = new BgPrepOBServiceImplServiceStub.ProcessBG();
+		aux.setGateDocument(gateInputString);
+		aux.setParams(bpJson);
+		
+		req.setProcessBG(aux);
+		BgPrepOBServiceImplServiceStub.ProcessBGResponseE res = stub.processBG(req);
+		
+		return res.getProcessBGResponse().get_return();
+	}
+	
+	
+	public String getClientResponse (String gateInputString,String bpJson) throws RemoteException, FormatExceptionException
+	{
+		String gateOutputString ="";
+		BgPrepOBServiceImplServiceStub  stub = new  BgPrepOBServiceImplServiceStub ();
+		stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+
+		gateOutputString =executeClient (stub,gateInputString,bpJson);
+		return  gateOutputString;
+	}
+
+
+}

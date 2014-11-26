@@ -1,0 +1,42 @@
+package es.ujaen.clients;
+import java.rmi.RemoteException;
+
+import ujaen.es.clients.DisambiguationExceptionException;
+import ujaen.es.clients.DisambiguationStub;
+import ujaen.es.clients.DisambiguationStub.DisambiguateResponseE;
+
+
+public class DisambiguatorClient {
+	
+	private int connectionTimeout;
+	
+	private String executeClient (DisambiguationStub stub, String gateInputString,String parameters) throws RemoteException, DisambiguationExceptionException{    
+		
+		DisambiguationStub.DisambiguateE req = new DisambiguationStub.DisambiguateE ();
+		DisambiguationStub.Disambiguate aux = new DisambiguationStub.Disambiguate ();
+		
+		aux.setText(gateInputString);
+		aux.setJsonParameters(parameters);
+		req.setDisambiguate(aux);
+		
+		DisambiguationStub.DisambiguateResponseE res =stub.disambiguate(req);
+		return res.getDisambiguateResponse().get_return();
+	}
+	
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+	   this.connectionTimeout=connectionTimeout;	
+	}
+	
+	public String getClientResponse (String gateInputString,String parameters) throws RemoteException, DisambiguationExceptionException
+	{
+		String gateOutputString ="";
+		DisambiguationStub stub = new  DisambiguationStub();
+        stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+        
+        gateOutputString =executeClient (stub,gateInputString,parameters);
+        return  gateOutputString;
+	}
+	
+}
+

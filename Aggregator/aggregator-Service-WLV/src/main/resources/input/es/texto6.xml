@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="2">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/media/datos/geni/research/proyectos/FIRST/develop/texts/adults/texto6.txt</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>Copérnico
+Copérnico (1473-1543) fue un astrónomo polaco, conocido por su teoría heliocéntrica, según la cual el Sol se encuentra inmóvil en el centro del Universo y la Tierra gira alrededor de él. La teoría fue desarrollada en los primeros años de la década de 1500, pero se publicó años después. Se oponía a la teoría de Ptolomeo, entonces vigente, según la cual el Sol y los planetas giran alrededor de una Tierra fija. Al principio, Copérnico dudó en publicar sus hallazgos porque temía las críticas de la comunidad científica y religiosa. A pesar de la incredulidad y rechazo iniciales, el sistema de Copérnico pasó a ser el modelo del Universo más ampliamente aceptado a finales del siglo XVII.
+Su formación académica fue muy variada. En 1491 comenzó a estudiar la carrera de humanidades en la Universidad de Cracovia. En enero de 1497, empezó sus estudios de derecho canónico en la Universidad de Bolonia, alojándose en casa de un profesor de matemáticas que contribuyó al interés de Copérnico por la geografía y la astronomía. En 1500, Copérnico se doctoró en astronomía en Roma. Al año siguiente obtuvo permiso para estudiar medicina en Padua. Sin haber acabado estos estudios, se licenció en derecho canónico en la Universidad de Ferrara en 1503 y regresó a Polonia.
+Concluyó su obra más célebre, “Sobre las revoluciones de los cuerpos celestes”, en 1530, pero no fue publicada hasta el 24 de mayo de 1543, poco antes de su muerte, por Andreas Osiander, un editor luterano de Nuremberg (Alemania). La teoría copernicana, pese a la oposición de la Iglesia Católica, fue imponiéndose paulatinamente debido a las observaciones científicas y a los apoyos de ilustres astrónomos como Kepler y Galileo.
+Hasta Copérnico el movimiento de los cuerpos celestes se explicaba mediante el sistema de Ptolomeo. Se suponía que los cuerpos celestes (el Sol, la Luna y los planetas) se encontraban situados en esferas huecas concéntricas a la Tierra. Las estrellas fijas (casi todos los objetos del cielo, se situaban en una sola capa exterior. Se suponía que cada una de estas esferas ajustaba perfectamente en la siguiente, como si fueran las capas de una cebolla. En el centro de todas ellas estaría la Tierra. Todas estas esferas girarían con distintas velocidades alrededor de la Tierra, de forma que desde la Tierra veríamos deslizarse por el Cielo a los distintos objetos celestes. Sin embargo, no todo era tan simple y para poder explicar los distintos movimientos que se fueron observando hubo que ir complicando bastante el modelo.
+Copérnico se planteó que, en vez de ser las esferas las que giraban alrededor de la Tierra, podría ocurrir que la Tierra girara alrededor de su eje una vez al día. Idea que no era demasiado original porque se les había ocurrido antes a otros. Sin embargo, la verdadera aportación de Copérnico fue la de proponer que la Tierra no era el centro del mundo, sino que la Tierra y todos los demás planetas se movían describiendo círculos alrededor del Sol. Este nuevo modelo permitía explicar fácilmente el aparente movimiento de avance y retroceso que describen los planetas en el firmamento. De esta manera pudo desecharse la teoría de Ptolomeo con toda su carga de complicación y los reajustes que había sufrido. A partir de ese momento, los navegantes y los astrónomos disponían de un método mucho más sencillo para realizar sus cálculos. Bastaba suponer que la Tierra y los demás planetas giraban alrededor del Sol. Aunque en nuestros días se acepta la tesis copernicana, ésta ha sido corregida. Las órbitas de los planetas no son circulares, como creía Copérnico, sino elípticas, como mostró Kepler. Asimismo, el Sol, como los demás astros del firmamento, también se mueve.
+</TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+</GateDocument>

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/gazetteer
+END
+abbreviations.lst
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/gazetteer/abbreviations.lst
+END
+lists.def
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/sentenceSplitter/gazetteer/lists.def
+END

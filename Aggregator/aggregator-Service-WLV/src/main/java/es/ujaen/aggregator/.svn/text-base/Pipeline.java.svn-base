@@ -1,0 +1,584 @@
+package es.ujaen.aggregator;
+
+import es.ujaen.clients.*;
+import gate.Annotation;
+import gate.AnnotationSet;
+import gate.Document;
+import gate.Factory;
+import gate.FeatureMap;
+import gate.Gate;
+import gate.Utils;
+import gate.corpora.DocumentContentImpl;
+import gate.creole.ResourceInstantiationException;
+import gate.util.GateException;
+
+import java.io.File;
+import java.io.IOException;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+
+import javax.servlet.ServletContext;
+
+import org.apache.axis2.context.MessageContext;
+import org.apache.axis2.transport.http.HTTPConstants;
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
+
+import ujaen.es.clients.AnaphoraResolutionExceptionException;
+import ujaen.es.clients.DisambiguationExceptionException;
+import ujaen.es.clients.FormatExceptionException;
+
+
+public class Pipeline {
+
+	private static int connectionReadTimeout=2*60*1000 ; 
+	private static Logger logger = Logger.getLogger(Pipeline.class);
+	private static boolean gateInited = false; 
+	private boolean isBulgarianProcess=true;
+	
+	
+	private void initGateServiceWS ()  throws GateException
+	{
+		if (!gateInited)
+		{
+			MessageContext inContext = MessageContext.getCurrentMessageContext(); 
+			ServletContext req = (ServletContext)inContext.getProperty(HTTPConstants.MC_HTTP_SERVLETCONTEXT);
+			File gateHome = new File(req.getRealPath("/WEB-INF"));
+			Gate.setGateHome(gateHome ); 
+			Gate.setPluginsHome(new File (gateHome,"PLUGINS"));
+
+			//set user config file
+			Gate.setUserConfigFile(new File(gateHome, "user-gate.xml"));
+
+			Gate.init();
+			gateInited=true;	
+		}
+
+	}
+	
+	private void initGateStandAlone () throws GateException
+	{
+		if (!gateInited)
+		{
+			String gateHome=Pipeline.class.getResource("/WEB-INF/").getPath();
+			Gate.setGateHome(new File(gateHome));
+			Gate.init();
+			gateInited=true;
+		}
+		
+	}
+		
+	public void initGate () throws GateException
+	{
+		
+		MessageContext inContext = MessageContext.getCurrentMessageContext(); 
+		if (inContext==null)
+		{
+			initGateStandAlone ();
+		}
+		else
+		{
+			  initGateServiceWS ();
+		}
+	  
+	}
+	
+	
+	
+	private static Document readDocument (String gateDocumentString) throws ResourceInstantiationException
+	{
+		Document gateDocument= (Document) Factory.createResource("gate.corpora.DocumentImpl", Utils.featureMap("stringContent", gateDocumentString, "mimeType", "text/xml", "encoding", "UTF-8"));
+		return gateDocument;
+	}
+
+	private String getSummarizerResponse (String gateInputString, String parameters) throws RemoteException, Exception
+	{
+		
+		SummarizerClient sc = new SummarizerClient ();
+		sc.setConnectionTimeout(connectionReadTimeout);
+		
+		logger.debug("Get Summarizer Client Response:");
+		long startTime = System.currentTimeMillis();
+		String gateResponse =sc.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Summarizer Time:"+estimatedTime);
+		
+		logger.debug("Finish Summarizer Jaen");
+		return gateResponse;
+	}
+	
+	
+	private String getBasicProcessingResponse (String gateInputString, String bpJson) throws RemoteException, Exception
+	{
+		
+		BasicProcessingBulgarianClient bc = new BasicProcessingBulgarianClient ();
+		bc.setConnectionTimeout(connectionReadTimeout);
+		
+		logger.debug("Get the Basic Bulgarian Processing Client Response:");
+		long startTime = System.currentTimeMillis();
+		String gateResponse =bc.getClientResponse(gateInputString, bpJson);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Basic Bulgarian Processing Time:"+estimatedTime);
+		
+		logger.debug("Finish Basic Bulgarian Processing Jaen");
+		return gateResponse;
+	}
+
+	private String getMultiWordAlicanteResponse (String gateInputString, String parameters) throws RemoteException, Exception
+	{
+		MultiWordDetectionClientUA ua = new MultiWordDetectionClientUA ();
+		ua.setConnectionTimeout(connectionReadTimeout);
+		
+		logger.debug("Get the Multi Word Detection Alicante Response:");
+		long startTime = System.currentTimeMillis();
+		String gateResponse =ua.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Multi Word Detection Alicante:"+estimatedTime);
+		
+		logger.debug("Finish Multi Word Detection Alicante");
+		return gateResponse;
+	}
+
+	
+	private String getMultiWordJaenResponse (String gateInputString, String parameters) throws RemoteException, Exception
+	{
+		
+		MultiWordDetectionClientUJ ic = new MultiWordDetectionClientUJ ();
+		ic.setConnectionTimeout(connectionReadTimeout);
+		
+		logger.debug("Get the Multi Word Detection Jaen Response:");
+		long startTime = System.currentTimeMillis();
+		String gateResponse =ic.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Multi Word Detection Jaen:"+estimatedTime);
+		
+		logger.debug("Finish Multi Word Detection Jaen");
+		return gateResponse;
+	}
+
+
+
+	private String getDisambiguatorResponse (String gateInputString, String parameters) throws RemoteException, DisambiguationExceptionException 
+	{
+		DisambiguatorClient dc = new DisambiguatorClient ();
+		dc.setConnectionTimeout(connectionReadTimeout);
+		logger.debug("Get the Disambiguator Client Response:");
+		
+		long startTime = System.currentTimeMillis();
+		String gateResponse =dc.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Disambiguator Time:"+estimatedTime);
+		logger.debug("Finish Disambiguation Alicante");
+		
+		return gateResponse;
+	}
+
+
+	private String getWDResponse (String gateInputString, String languageCode) throws RemoteException, Exception 
+	{
+		WikipediaDisambiguationClient wdc = new WikipediaDisambiguationClient ();
+		wdc.setConnectionTimeout(connectionReadTimeout);
+		logger.debug("Get the Wikipedia Disambiguation Client Response:");
+		
+		long startTime = System.currentTimeMillis();
+		String gateResponse =wdc.getClientResponse(gateInputString, languageCode);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("WD Time:"+estimatedTime);
+		logger.debug("Finish WD Jaen");
+		
+		return gateResponse;
+	}
+
+	private String getOfflineImage (String gateInputString, String parameters) throws RemoteException, Exception 
+	{
+		OfflineImageClient oic = new OfflineImageClient ();
+		oic.setConnectionTimeout(connectionReadTimeout);
+		logger.debug("Get the Offline Image Client Response:");
+		
+		long startTime = System.currentTimeMillis();
+		String gateResponse =oic.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("OI time:"+estimatedTime);
+		logger.debug("Finish OfflineImage Jaen");
+		
+		
+		return gateResponse;
+	}
+	
+	
+	private  String normaliseEsCoreferenceAnnotations(String document){
+        Document doc=null;
+        try {
+            doc=readDocument(document);
+            String providerAsName="Pronominal Anaphora markups";
+            String providerAnn="PronounAnaphora";
+            String targetAsName="Coreference";
+            String targetAnn="CorefEntity";
+            AnnotationSet asToCopy=doc.getAnnotations(providerAsName).get(providerAnn);
+            AnnotationSet targetAS=doc.getAnnotations(targetAsName);
+
+            for(Object obj:asToCopy) {
+                Annotation oneAnn = (Annotation)obj;
+
+                String text=Utils.stringFor(doc, oneAnn); 
+                String chain=(String)oneAnn.getFeatures().get("chain");
+                if (chain!=null){
+                    FeatureMap fm=Factory.newFeatureMap();
+                    fm.put("text", text);                
+                    fm.put("chain", chain);
+                    targetAS.add(oneAnn.getStartNode(), oneAnn.getEndNode(),targetAnn, fm);
+                }
+                //else: some pronouns are not resolved automatically: 
+                //UI should show the obstacle was detected 
+            }
+
+            document= doc.toXml();
+        } catch (ResourceInstantiationException e) {
+            logger.error("Failed to normalise Spanish Coreference Annotations "+e.getLocalizedMessage());
+        }finally{
+            if (doc!=null)
+                Factory.deleteResource(doc);
+        }
+            return document;
+        }
+        
+	
+	private  String getSpanishCoreferenceResults(String gateInputString, String languageCode) throws RemoteException, AnaphoraResolutionExceptionException
+	{
+		CoreferenceSpanishClient cac =new CoreferenceSpanishClient ();
+		cac.setConnectionTimeout(connectionReadTimeout);
+		logger.debug("Get Spanish Coreference Alicante Client Response:");
+
+		long startTime = System.currentTimeMillis();
+		String gateResponse =cac.getClientResponse(gateInputString, languageCode);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Spanish Coreference time:"+estimatedTime);
+
+		logger.debug("Finish Spanish Coreference Alicante ");
+		
+		 //gateResponse=normaliseEsCoreferenceAnnotations(gateResponse);
+	     //logger.debug("Normalised Spanish Coreference Annotations ");
+
+		return gateResponse;
+	}
+	
+	
+	private String getEnglishCoreferenceResults(String gateInputString, String languageCode) throws RemoteException, FormatExceptionException 
+	{
+		
+		CoreferenceEnglishClient cec = new CoreferenceEnglishClient();
+		cec.setConnectionTimeout(connectionReadTimeout);
+		logger.debug("Get English Coreference WLV Client Response:");
+		
+		long startTime = System.currentTimeMillis();
+		String gateResponse =cec.getClientResponse(gateInputString, languageCode);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("English Coreference time:"+estimatedTime);
+		
+		logger.debug("Finish English Coreference WLV ");
+		return gateResponse;
+	}
+	
+	
+	private String getBulgarianCoreferenceResults(String gateInputString, String parameters) throws RemoteException, FormatExceptionException 
+	{
+		
+		CoreferenceBulgarianClient cbc = new CoreferenceBulgarianClient();
+		cbc.setConnectionTimeout(connectionReadTimeout);
+		logger.debug("Get Bulgarian Coreference WLV Client Response:");
+		
+		long startTime = System.currentTimeMillis();
+		String gateResponse =cbc.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Bulgarian Coreference time:"+estimatedTime);
+		logger.debug("Finish Bulgarian Coreference WLV ");
+		return gateResponse;
+	}
+	
+	
+	private String getCorefResponse(String gateInputString, String parameters) throws RemoteException, FormatExceptionException, AnaphoraResolutionExceptionException
+	{
+		final String languageCode =getLanguageCode(parameters);
+		if (languageCode.equalsIgnoreCase("en"))
+		{
+			return getEnglishCoreferenceResults(gateInputString, parameters);
+		}
+		else if (languageCode.equalsIgnoreCase("es"))
+		{
+			return getSpanishCoreferenceResults(gateInputString, parameters);
+		}
+		else if (languageCode.equalsIgnoreCase("bg"))
+		{
+			return getBulgarianCoreferenceResults(gateInputString, parameters);
+		}
+		
+		return null;
+	}
+	
+	
+	
+	private  String getEnglishSyntaxResponse (String gateInputString, String parameters) throws RemoteException, FormatExceptionException 
+	{
+		SyntaxEnglishClient sc = new SyntaxEnglishClient ();
+		sc.setConnectionTimeout(connectionReadTimeout);
+		logger.debug("Get the Syntax English Client Response:");
+		
+		long startTime = System.currentTimeMillis();
+		String gateResponse =sc.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("WLV Syntax Time:"+estimatedTime);
+		logger.debug("Finish Syntax WLV");
+		
+		return gateResponse;
+	}
+	
+	
+	private static  String getSpanishSyntaxUJResponse (String gateInputString, String parameters) throws Exception 
+	{
+		SyntaxSpanishClientUJ sc = new SyntaxSpanishClientUJ();
+		sc.setConnectionTimeout(connectionReadTimeout);
+		logger.error("Get the Syntax Spanish UJ Client Response:");
+		
+		long startTime = System.currentTimeMillis();
+		String gateResponse =sc.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Syntax Spanish UJ Time:"+estimatedTime);
+		logger.debug("Finish Syntax UJ");
+		
+		return gateResponse;
+	}
+	
+	
+	private static  String getSpanishSyntaxUAResponse (String gateInputString, String parameters) throws Exception 
+	{
+		SyntaxSpanishClientUA sc = new SyntaxSpanishClientUA();
+		sc.setConnectionTimeout(connectionReadTimeout);
+		logger.error("Get the Syntax Spanish UA Client Response:");
+		
+		long startTime = System.currentTimeMillis();
+		String gateResponse =sc.getClientResponse(gateInputString, parameters);
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		logger.error("Syntax Spanish UA Time:"+estimatedTime);
+		logger.debug("Finish Syntax UA");
+		
+		return gateResponse;
+	}
+	
+	private  String getSpanishSyntaxResponse (String gateInputString, String parameters) throws Exception 
+	{
+		String syntaxUJString=getSpanishSyntaxUJResponse (gateInputString, parameters);
+		String syntaxUAString=getSpanishSyntaxUAResponse (syntaxUJString, parameters);
+		
+		return syntaxUAString;
+	}
+	
+	
+	
+	
+	
+	private String getSyntaxResponse(String gateInputString, String parameters) throws Exception
+	{
+		final String languageCode =getLanguageCode(parameters);
+		if (languageCode.equalsIgnoreCase("en"))
+		{
+			return getEnglishSyntaxResponse(gateInputString, parameters);
+		}
+		else if (languageCode.equalsIgnoreCase("es"))
+		{
+			return getSpanishSyntaxResponse(gateInputString, parameters);
+		}
+		
+		return gateInputString;
+	}
+	
+	
+	public String getInputString (String gateInputString,String languageCode) 
+	{
+		if (languageCode.compareToIgnoreCase("bg")==0)
+		{
+			String bpJson="{\"bgprep.simplify\":\"y\"}";
+			try {
+				gateInputString=getBasicProcessingResponse(gateInputString, bpJson);
+			} catch (RemoteException e) {
+				logger.error("Aggregator Error: Exception Occured in Bulgarian Basic Processing at Remote site",e.getCause());
+				isBulgarianProcess=false;
+			} catch (Exception e) {
+				logger.error("Aggregator Error: Exception Occured in Bulgarian Basic Processing",e.getCause());
+				isBulgarianProcess=false;
+			}
+			
+		}
+		return gateInputString;
+	}
+	
+	private String getLanguageCode (String parameters)
+	{
+		JsonParameters jp = new JsonParameters(parameters);
+		boolean isJson=jp.isJsonParameter();
+		
+		String languageCode="";
+		if (isJson)
+		{
+			languageCode =jp.getValue("languageCode");
+		}
+		else
+		{
+			languageCode=parameters;
+		}
+		return languageCode;
+	}
+	
+	
+	private void writeFile (String docString,String fileName) throws IOException
+	{
+		String outputDirectory="/opt/dist/008_first/Aggregator/inputFiles/";
+		String disambiguationFile = outputDirectory +fileName;
+		FileUtils.write(new File(disambiguationFile), docString, "UTF-8");
+	}
+	
+
+	public String aggregate (String gateInputString,final String parameters) throws Exception  
+	{
+		final String languageCode =getLanguageCode(parameters);
+		
+		//The Bulgarian Pipe modifies the input String (it basic process it)
+		final String gateString=getInputString (gateInputString,languageCode);
+		if (isBulgarianProcess)
+		{
+			ExecutorService es = Executors.newCachedThreadPool();
+			ExecutorCompletionService<String> ecs = new ExecutorCompletionService<String>(es);
+			List<Callable<String>> tasks = new ArrayList<Callable<String>>();
+			
+			
+			tasks.add(new Callable<String>() {
+				public String call() throws Exception {
+					return getSyntaxResponse (gateString, parameters);
+				}		});
+				
+			
+			tasks.add(new Callable<String>() {
+				public String call() throws Exception {
+					return getCorefResponse(gateString, parameters);
+				}		});
+			
+		
+			//This should run in any case  because there is idiom detection
+				tasks.add(new Callable<String>() {
+					public String call() throws Exception {
+						return getMultiWordJaenResponse (gateString, parameters);
+					}		});
+				
+			
+			
+			if (languageCode.equalsIgnoreCase("en"))
+			{
+				tasks.add(new Callable<String>() {
+					public String call() throws Exception {
+						return getMultiWordAlicanteResponse (gateString, parameters);
+					}		});
+			}
+			
+			
+			
+			tasks.add(new Callable<String>() {
+				public String call() throws Exception {
+					return getSummarizerResponse (gateString, parameters);
+				}		});
+				
+			
+				
+			
+			
+			tasks.add(new Callable<String>() {
+					public String call() throws Exception {
+						String docString=gateString;
+						docString = getDisambiguatorResponse(docString, parameters);
+						docString = getWDResponse (docString,  parameters);
+						docString = getOfflineImage (docString,  parameters);
+						return docString;
+					}		});	
+			
+		
+			//submit tasks. The Future object can be used to check the status of a Callable and to retrieve the result from the Callable.
+			List<Future<String>> futures = new ArrayList<Future<String>>();
+			for (Callable<String> t : tasks) {
+				futures.add(ecs.submit(t));
+			}
+		
+			//Now we collect responses
+			ArrayList<Document> docs=new ArrayList<Document>();
+			while (!futures.isEmpty()) {
+				try {
+					Future<String> f = ecs.poll(180, TimeUnit.SECONDS);
+					futures.remove(f);  
+					if (f == null) {  // poll returns null on timeout
+					} else if (f.isCancelled()){
+					} else if (f.isDone()){
+						String content=f.get();
+						try {
+							Document doc=readDocument(content);
+							docs.add(doc);
+						} catch (Exception e) {
+							logger.error("Bad response: Invalid Gate xml file "+content);
+						}
+					} else {	}
+				} catch (Exception e) {
+					logger.error("Aggregator Error: Exception Occured in one of the threads",e.getCause());
+					} 
+				
+			}
+			
+			logger.error("ShutDown the Executor");
+			es.shutdown();
+			
+			Document result=readDocument(gateInputString);
+			
+			//Chapuza for Spanish: for Sentence Detector to Work I need to add an "extra \n."
+		    if (languageCode.compareTo("es")==0)
+		    {
+		    	String documentContent=result.getContent().toString();
+		    	documentContent+="\n.";
+		    	result.setContent(new DocumentContentImpl(documentContent));
+		    }
+		   
+		    
+		
+			GateOperations go = new GateOperations ();
+			for(Document d:docs){
+				if (d!=null)
+				{
+					go.aggregate(d, result);
+				}
+					
+			}
+			
+			
+			if (languageCode.compareTo("bg")!=0)
+			{
+				go.addExtraInfo(result);
+			}
+			
+			if (languageCode.compareTo("es")==0)
+			{
+				go.spanishSentenceDetection(result);
+			}
+			
+			//go.chapuza(result);
+			
+			return result.toXml();
+		}
+		
+		return gateInputString;
+	}
+	
+	
+	
+}
+

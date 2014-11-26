@@ -1,0 +1,38 @@
+package es.ujaen.clients;
+import java.rmi.RemoteException;
+import ujaen.es.clients.MultiWordsServiceStub;
+
+public class MultiWordDetectionClientUA {
+	
+	private int connectionTimeout;
+	
+	private String executeClient (MultiWordsServiceStub stub, String gateInputString,String parameters) throws RemoteException, Exception{    
+		
+		MultiWordsServiceStub.DetectMultiWordsE req = new MultiWordsServiceStub.DetectMultiWordsE  ();
+		MultiWordsServiceStub.DetectMultiWords aux = new MultiWordsServiceStub.DetectMultiWords ();
+		
+		aux.setText(gateInputString);
+		aux.setParameters(parameters);
+		req.setDetectMultiWords(aux);
+		
+		MultiWordsServiceStub.DetectMultiWordsResponseE res = stub.detectMultiWords(req);
+		return res.getDetectMultiWordsResponse().get_return();
+	}
+	
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+	   this.connectionTimeout=connectionTimeout;	
+	}
+	
+	public String getClientResponse (String gateInputString,String parameters) throws RemoteException, Exception 
+	{
+		String gateOutputString ="";
+		MultiWordsServiceStub stub = new  MultiWordsServiceStub();
+        stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+        
+        gateOutputString =executeClient (stub,gateInputString,parameters);
+        return  gateOutputString;
+	}
+	
+}
+

@@ -1,0 +1,43 @@
+package es.ujaen.clients;
+
+import java.rmi.RemoteException;
+
+import ujaen.es.clients.FormatExceptionException;
+import ujaen.es.clients.SyntaxOBServiceImplServiceStub;
+
+public class SyntaxEnglishClient {
+	
+	
+	private int connectionTimeout;
+	
+	
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+	   this.connectionTimeout=connectionTimeout;	
+	}
+	
+	
+private String executeClient (SyntaxOBServiceImplServiceStub stub, String gateInputString,String languageCode) throws FormatExceptionException, RemoteException{    
+		
+	SyntaxOBServiceImplServiceStub.SimplifySyntaxE req= new  SyntaxOBServiceImplServiceStub.SimplifySyntaxE();
+	SyntaxOBServiceImplServiceStub.SimplifySyntax aux= new  SyntaxOBServiceImplServiceStub.SimplifySyntax();
+	aux.setGateDocument(gateInputString);
+	aux.setParams(languageCode);
+	req.setSimplifySyntax(aux);
+	SyntaxOBServiceImplServiceStub.SimplifySyntaxResponseE res=stub.simplifySyntax(req);
+	return res.getSimplifySyntaxResponse().get_return();
+	}
+
+public String getClientResponse (String gateInputString,String languageCode) throws RemoteException, FormatExceptionException
+{
+	String gateOutputString ="";
+	SyntaxOBServiceImplServiceStub  stub = new  SyntaxOBServiceImplServiceStub ();
+    stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+    
+    gateOutputString =executeClient (stub,gateInputString,languageCode);
+    return  gateOutputString;
+}
+	
+	
+
+}

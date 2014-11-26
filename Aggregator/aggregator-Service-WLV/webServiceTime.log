@@ -1,0 +1,143 @@
+0    [main] ERROR es.ujaen.aggregator.Pipeline  - Aggregation for Sentence Level
+5528 [pool-1-thread-2] ERROR es.ujaen.aggregator.Pipeline  - Disambiguator Time:5501
+6988 [pool-1-thread-1] ERROR es.ujaen.aggregator.Pipeline  - WLV Syntax Time:6961
+6990 [main] ERROR es.ujaen.aggregator.Pipeline  - ShutDown the Executor in Aggregator Sentence
+8335 [main] ERROR es.ujaen.aggregator.Layout  - Start Layout Computation
+8335 [main] ERROR es.ujaen.aggregator.Layout  - Compute EOL inside the sentence boundaries
+8343 [main] ERROR es.ujaen.aggregator.Layout  - Add paragraph boundaries:
+8343 [main] ERROR es.ujaen.aggregator.Layout  - ======EOL=======
+8343 [main] ERROR es.ujaen.aggregator.Layout  - 52:53
+8343 [main] ERROR es.ujaen.aggregator.Layout  - 115:116
+8344 [main] ERROR es.ujaen.aggregator.Layout  - 136:137
+8344 [main] ERROR es.ujaen.aggregator.Layout  - ======Paragraph=======
+8344 [main] ERROR es.ujaen.aggregator.Layout  - 1:187
+8344 [main] ERROR es.ujaen.aggregator.Layout  - Add the Layout and Paragraph Annotations Sets
+8350 [main] ERROR es.ujaen.aggregator.Layout  - Finish
+0    [main] ERROR es.ujaen.aggregator.Pipeline  - Normal Aggregation
+3438 [pool-1-thread-6] ERROR es.ujaen.aggregator.Pipeline  - Acronyms UA Time:3385
+4492 [pool-1-thread-4] ERROR es.ujaen.aggregator.Pipeline  - Multi Word Detection Alicante:4440
+10835 [pool-1-thread-7] ERROR es.ujaen.aggregator.Pipeline  - Disambiguator Time:10782
+11125 [pool-1-thread-5] ERROR es.ujaen.aggregator.Pipeline  - Summarizer Time:11082
+11516 [pool-1-thread-1] ERROR es.ujaen.aggregator.Pipeline  - WLV Syntax Time:11463
+11691 [pool-1-thread-2] ERROR es.ujaen.aggregator.Pipeline  - English Coreference time:11648
+12181 [pool-1-thread-3] ERROR es.ujaen.aggregator.Pipeline  - Multi Word Detection Jaen:12129
+14279 [pool-1-thread-4] ERROR es.ujaen.aggregator.Pipeline  - OI time:9786
+15985 [pool-1-thread-7] ERROR es.ujaen.aggregator.Pipeline  - WD Time:5136
+16082 [main] ERROR es.ujaen.aggregator.Pipeline  - ShutDown the Executor
+17606 [main] ERROR es.ujaen.aggregator.Pipeline  - Consolidate the MultiWord Expression Annotation Set by copying the Idiom Annotation Set.
+17633 [main] ERROR es.ujaen.aggregator.Pipeline  - Compute the layout information.
+17656 [main] ERROR es.ujaen.aggregator.Layout  - Start Layout Computation
+17657 [main] ERROR es.ujaen.aggregator.Layout  - Compute EOL inside the sentence boundaries
+17697 [main] ERROR es.ujaen.aggregator.Layout  - Add paragraph boundaries:
+17738 [main] ERROR es.ujaen.aggregator.Layout  - ======EOL=======
+17738 [main] ERROR es.ujaen.aggregator.Layout  - 138:139
+17738 [main] ERROR es.ujaen.aggregator.Layout  - 503:504
+17738 [main] ERROR es.ujaen.aggregator.Layout  - 660:661
+17739 [main] ERROR es.ujaen.aggregator.Layout  - ======Paragraph=======
+17739 [main] ERROR es.ujaen.aggregator.Layout  - 1:25
+17739 [main] ERROR es.ujaen.aggregator.Layout  - 27:65
+17739 [main] ERROR es.ujaen.aggregator.Layout  - 67:226
+17739 [main] ERROR es.ujaen.aggregator.Layout  - 229:346
+17739 [main] ERROR es.ujaen.aggregator.Layout  - 349:804
+17739 [main] ERROR es.ujaen.aggregator.Layout  - 807:849
+17739 [main] ERROR es.ujaen.aggregator.Layout  - 852:1137
+17740 [main] ERROR es.ujaen.aggregator.Layout  - 1139:1511
+17740 [main] ERROR es.ujaen.aggregator.Layout  - 1513:2100
+17740 [main] ERROR es.ujaen.aggregator.Layout  - 2102:2739
+17740 [main] ERROR es.ujaen.aggregator.Layout  - 2742:3306
+17740 [main] ERROR es.ujaen.aggregator.Layout  - 3308:3556
+17740 [main] ERROR es.ujaen.aggregator.Layout  - 3558:4043
+17740 [main] ERROR es.ujaen.aggregator.Layout  - Add the Layout and Paragraph Annotations Sets
+17741 [main] ERROR es.ujaen.aggregator.Layout  - Finish
+17741 [main] ERROR es.ujaen.aggregator.Pipeline  - Aggregator Total Time:17 seconds
+0    [main] ERROR es.ujaen.aggregator.Pipeline  - Normal Aggregation
+2027 [pool-1-thread-5] ERROR es.ujaen.aggregator.Pipeline  - Acronyms UA Time:2001
+9151 [pool-1-thread-4] ERROR es.ujaen.aggregator.Pipeline  - Summarizer Time:9125
+10340 [pool-1-thread-1] ERROR es.ujaen.aggregator.Pipeline  - Syntax Spanish UJ Time:10314
+13247 [pool-1-thread-1] ERROR es.ujaen.aggregator.Pipeline  - Syntax Spanish UA Time:2884
+14003 [pool-1-thread-3] ERROR es.ujaen.aggregator.Pipeline  - Multi Word Detection Jaen:13977
+22121 [pool-1-thread-2] ERROR es.ujaen.aggregator.Pipeline  - Spanish Coreference time:22095
+36678 [pool-1-thread-3] ERROR es.ujaen.aggregator.Pipeline  - OI time:22674
+36683 [main] ERROR es.ujaen.aggregator.Pipeline  - ShutDown the Executor
+38398 [main] ERROR es.ujaen.aggregator.Pipeline  - Consolidate the MultiWord Expression Annotation Set by copying the Idiom Annotation Set.
+38399 [main] ERROR es.ujaen.aggregator.Pipeline  - Compute the layout information.
+38421 [main] ERROR es.ujaen.aggregator.Layout  - Start Layout Computation
+38421 [main] ERROR es.ujaen.aggregator.Layout  - Compute EOL inside the sentence boundaries
+38517 [main] ERROR es.ujaen.aggregator.Layout  - Add paragraph boundaries:
+38527 [main] ERROR es.ujaen.aggregator.Layout  - ======EOL=======
+38527 [main] ERROR es.ujaen.aggregator.Layout  - 1368:1369
+38527 [main] ERROR es.ujaen.aggregator.Layout  - 1247:1248
+38528 [main] ERROR es.ujaen.aggregator.Layout  - ======Paragraph=======
+38528 [main] ERROR es.ujaen.aggregator.Layout  - 2:705
+38528 [main] ERROR es.ujaen.aggregator.Layout  - 707:974
+38528 [main] ERROR es.ujaen.aggregator.Layout  - 976:1508
+38528 [main] ERROR es.ujaen.aggregator.Layout  - 1509:1718
+38528 [main] ERROR es.ujaen.aggregator.Layout  - 1720:2160
+38528 [main] ERROR es.ujaen.aggregator.Layout  - 2162:2372
+38528 [main] ERROR es.ujaen.aggregator.Layout  - 2373:2622
+38528 [main] ERROR es.ujaen.aggregator.Layout  - 2623:2819
+38529 [main] ERROR es.ujaen.aggregator.Layout  - 2821:3191
+38529 [main] ERROR es.ujaen.aggregator.Layout  - 3192:3554
+38529 [main] ERROR es.ujaen.aggregator.Layout  - 3555:3717
+38529 [main] ERROR es.ujaen.aggregator.Layout  - 3719:3895
+38529 [main] ERROR es.ujaen.aggregator.Layout  - 3897:4163
+38529 [main] ERROR es.ujaen.aggregator.Layout  - 4165:4678
+38529 [main] ERROR es.ujaen.aggregator.Layout  - Add the Layout and Paragraph Annotations Sets
+38531 [main] ERROR es.ujaen.aggregator.Layout  - Finish
+38531 [main] ERROR es.ujaen.aggregator.Pipeline  - Aggregator Total Time:38 seconds
+0    [main] ERROR es.ujaen.aggregator.Pipeline  - Normal Aggregation
+38757 [main] ERROR es.ujaen.aggregator.Pipeline  - Essential Bulgarian Processing Time:38755
+42067 [main] ERROR es.ujaen.aggregator.Pipeline  - Aggregator Error: Exception Occured in one of the threads
+org.apache.axis2.AxisFault: Transport error: 502 Error: Bad Gateway
+	at org.apache.axis2.transport.http.HTTPSender.handleResponse(HTTPSender.java:310)
+	at org.apache.axis2.transport.http.HTTPSender.sendViaPost(HTTPSender.java:194)
+	at org.apache.axis2.transport.http.HTTPSender.send(HTTPSender.java:75)
+	at org.apache.axis2.transport.http.CommonsHTTPTransportSender.writeMessageWithCommons(CommonsHTTPTransportSender.java:404)
+	at org.apache.axis2.transport.http.CommonsHTTPTransportSender.invoke(CommonsHTTPTransportSender.java:231)
+	at org.apache.axis2.engine.AxisEngine.send(AxisEngine.java:443)
+	at org.apache.axis2.description.OutInAxisOperationClient.send(OutInAxisOperation.java:406)
+	at org.apache.axis2.description.OutInAxisOperationClient.executeImpl(OutInAxisOperation.java:229)
+	at org.apache.axis2.client.OperationClient.execute(OperationClient.java:165)
+	at ujaen.es.clients.BgCorefOBServiceImplServiceStub.processBG(BgCorefOBServiceImplServiceStub.java:188)
+	at es.ujaen.clients.CoreferenceBulgarianClient.executeClient(CoreferenceBulgarianClient.java:71)
+	at es.ujaen.clients.CoreferenceBulgarianClient.getClientResponse(CoreferenceBulgarianClient.java:81)
+	at es.ujaen.aggregator.Pipeline.getBulgarianCoreferenceResults(Pipeline.java:413)
+	at es.ujaen.aggregator.Pipeline.getCorefResponse(Pipeline.java:439)
+	at es.ujaen.aggregator.Pipeline.access$1(Pipeline.java:426)
+	at es.ujaen.aggregator.Pipeline$2.call(Pipeline.java:699)
+	at es.ujaen.aggregator.Pipeline$2.call(Pipeline.java:1)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+46788 [pool-1-thread-1] ERROR es.ujaen.aggregator.Pipeline  - Acronyms UA Time:7921
+47383 [pool-1-thread-4] ERROR es.ujaen.aggregator.Pipeline  - Summarizer Time:8518
+47665 [pool-1-thread-3] ERROR es.ujaen.aggregator.Pipeline  - Multi Word Detection Jaen:8800
+50605 [pool-1-thread-3] ERROR es.ujaen.aggregator.Pipeline  - OI time:2906
+58238 [pool-1-thread-5] ERROR es.ujaen.aggregator.Pipeline  - Disambiguator Time:19372
+64018 [pool-1-thread-5] ERROR es.ujaen.aggregator.Pipeline  - WD Time:5779
+64703 [main] ERROR es.ujaen.aggregator.Pipeline  - ShutDown the Executor
+65028 [main] ERROR es.ujaen.aggregator.Pipeline  - Consolidate the MultiWord Expression Annotation Set by copying the Idiom Annotation Set.
+65029 [main] ERROR es.ujaen.aggregator.Pipeline  - Compute the layout information.
+65089 [main] ERROR es.ujaen.aggregator.Layout  - Start Layout Computation
+65090 [main] ERROR es.ujaen.aggregator.Layout  - Compute EOL inside the sentence boundaries
+65128 [main] ERROR es.ujaen.aggregator.Layout  - Add paragraph boundaries:
+65142 [main] ERROR es.ujaen.aggregator.Layout  - ======EOL=======
+65142 [main] ERROR es.ujaen.aggregator.Layout  - 21:22
+65142 [main] ERROR es.ujaen.aggregator.Layout  - 2:92
+65142 [main] ERROR es.ujaen.aggregator.Layout  - 1068:1069
+65142 [main] ERROR es.ujaen.aggregator.Layout  - 946:1117
+65142 [main] ERROR es.ujaen.aggregator.Layout  - ======Paragraph=======
+65142 [main] ERROR es.ujaen.aggregator.Layout  - 2:320
+65143 [main] ERROR es.ujaen.aggregator.Layout  - 321:903
+65143 [main] ERROR es.ujaen.aggregator.Layout  - 905:944
+65143 [main] ERROR es.ujaen.aggregator.Layout  - 946:1846
+65143 [main] ERROR es.ujaen.aggregator.Layout  - 1847:2522
+65143 [main] ERROR es.ujaen.aggregator.Layout  - 2524:2936
+65143 [main] ERROR es.ujaen.aggregator.Layout  - Add the Layout and Paragraph Annotations Sets
+65145 [main] ERROR es.ujaen.aggregator.Layout  - Finish
+65145 [main] ERROR es.ujaen.aggregator.Pipeline  - Aggregator Total Time:65 seconds

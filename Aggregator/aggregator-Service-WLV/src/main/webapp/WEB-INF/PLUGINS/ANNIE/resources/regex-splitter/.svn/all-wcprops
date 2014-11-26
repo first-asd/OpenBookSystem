@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/regex-splitter
+END
+internal-split-patterns.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/regex-splitter/internal-split-patterns.txt
+END
+non-split-patterns.txt
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/regex-splitter/non-split-patterns.txt
+END
+external-split-patterns.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/regex-splitter/external-split-patterns.txt
+END

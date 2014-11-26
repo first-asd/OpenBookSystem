@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/tokeniser
+END
+DefaultTokeniser.rules
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/tokeniser/DefaultTokeniser.rules
+END
+postprocess.jape
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/tokeniser/postprocess.jape
+END
+AlternateTokeniser.rules
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/webapp/WEB-INF/PLUGINS/ANNIE/resources/tokeniser/AlternateTokeniser.rules
+END

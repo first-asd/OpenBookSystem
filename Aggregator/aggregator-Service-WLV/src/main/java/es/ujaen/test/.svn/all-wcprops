@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/test
+END
+TestAggregatorWSBulgarian.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ebarbu/!svn/ver/8/Aggregator-Maven/src/main/java/es/ujaen/test/TestAggregatorWSBulgarian.java
+END
+TestSyntacticSimplificationSpanishStandalone.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ebarbu/!svn/ver/11/Aggregator-Maven/src/main/java/es/ujaen/test/TestSyntacticSimplificationSpanishStandalone.java
+END
+TestAggregatorWSSpanish.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ebarbu/!svn/ver/11/Aggregator-Maven/src/main/java/es/ujaen/test/TestAggregatorWSSpanish.java
+END
+TestBulgarianCoreference.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ebarbu/!svn/ver/8/Aggregator-Maven/src/main/java/es/ujaen/test/TestBulgarianCoreference.java
+END
+TestAggregatorWSEnglish.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ebarbu/!svn/ver/11/Aggregator-Maven/src/main/java/es/ujaen/test/TestAggregatorWSEnglish.java
+END
+TestSyntacticSimplification.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ebarbu/!svn/ver/11/Aggregator-Maven/src/main/java/es/ujaen/test/TestSyntacticSimplification.java
+END
+TestChapuza.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/test/TestChapuza.java
+END
+TestDisambiguatorAlicante.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ebarbu/!svn/ver/8/Aggregator-Maven/src/main/java/es/ujaen/test/TestDisambiguatorAlicante.java
+END
+TestRenameCoreferenceAlicante.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ebarbu/!svn/ver/10/Aggregator-Maven/src/main/java/es/ujaen/test/TestRenameCoreferenceAlicante.java
+END
+TestEnglishCoreference.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ebarbu/!svn/ver/10/Aggregator-Maven/src/main/java/es/ujaen/test/TestEnglishCoreference.java
+END

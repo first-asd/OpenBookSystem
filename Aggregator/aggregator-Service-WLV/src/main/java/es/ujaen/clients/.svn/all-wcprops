@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/clients
+END
+CoreferenceSpanishClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ebarbu/!svn/ver/8/Aggregator-Maven/src/main/java/es/ujaen/clients/CoreferenceSpanishClient.java
+END
+DisambiguatorClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ebarbu/!svn/ver/8/Aggregator-Maven/src/main/java/es/ujaen/clients/DisambiguatorClient.java
+END
+CoreferenceEnglishClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/clients/CoreferenceEnglishClient.java
+END
+SummarizerClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/clients/SummarizerClient.java
+END
+MultiWordDetectionClientUA.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ebarbu/!svn/ver/10/Aggregator-Maven/src/main/java/es/ujaen/clients/MultiWordDetectionClientUA.java
+END
+SyntaxEnglishClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/clients/SyntaxEnglishClient.java
+END
+WikipediaDisambiguationClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/clients/WikipediaDisambiguationClient.java
+END
+SyntaxSpanishClientUA.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ebarbu/!svn/ver/11/Aggregator-Maven/src/main/java/es/ujaen/clients/SyntaxSpanishClientUA.java
+END
+CoreferenceBulgarianClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/clients/CoreferenceBulgarianClient.java
+END
+OfflineImageClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/clients/OfflineImageClient.java
+END
+MultiWordDetectionClientUJ.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ebarbu/!svn/ver/8/Aggregator-Maven/src/main/java/es/ujaen/clients/MultiWordDetectionClientUJ.java
+END
+BasicProcessingBulgarianClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/java/es/ujaen/clients/BasicProcessingBulgarianClient.java
+END
+SyntaxSpanishClientUJ.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ebarbu/!svn/ver/11/Aggregator-Maven/src/main/java/es/ujaen/clients/SyntaxSpanishClientUJ.java
+END

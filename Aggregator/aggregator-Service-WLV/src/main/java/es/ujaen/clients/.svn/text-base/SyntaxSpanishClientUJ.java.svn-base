@@ -1,0 +1,36 @@
+package es.ujaen.clients;
+
+import java.rmi.RemoteException;
+
+import ujaen.es.clients.SyntacticSimplificationStub;
+
+public class SyntaxSpanishClientUJ {
+	
+	
+	private int connectionTimeout;
+	
+	public void setConnectionTimeout (int connectionTimeout)
+	{
+	   this.connectionTimeout=connectionTimeout;	
+	}
+	
+	private String executeClient (SyntacticSimplificationStub stub, String gateInputString,String parameters) throws RemoteException, Exception{    
+		SyntacticSimplificationStub.GetSyntacticSimplification  req = new SyntacticSimplificationStub.GetSyntacticSimplification ();
+    	req.setGateInputString(gateInputString);
+    	req.setParameters(parameters);
+    	SyntacticSimplificationStub.GetSyntacticSimplificationResponse res=stub.getSyntacticSimplification(req);
+    	return res.get_return();
+}
+
+
+	
+	public String getClientResponse (String gateInputString,String parameters) throws RemoteException, Exception
+	{
+		String gateOutputString ="";
+		SyntacticSimplificationStub stub = new  	SyntacticSimplificationStub();
+        stub._getServiceClient().getOptions().setTimeOutInMilliSeconds(connectionTimeout);
+        gateOutputString =executeClient (stub,gateInputString,parameters);
+        return  gateOutputString;
+	}
+}
+

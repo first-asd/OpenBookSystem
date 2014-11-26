@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema
+END
+TokenSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/TokenSchema.xml
+END
+EmailSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/EmailSchema.xml
+END
+GpeSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/GpeSchema.xml
+END
+MoneySchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/MoneySchema.xml
+END
+InternetSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/InternetSchema.xml
+END
+EntityHeadSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/EntityHeadSchema.xml
+END
+EntitySchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/EntitySchema.xml
+END
+FacilitySchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/FacilitySchema.xml
+END
+SentenceSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/SentenceSchema.xml
+END
+StreetSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/StreetSchema.xml
+END
+SyntaxTreeNodeSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/SyntaxTreeNodeSchema.xml
+END
+PercentSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/PercentSchema.xml
+END
+CorefSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/CorefSchema.xml
+END
+EntityMentionSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/EntityMentionSchema.xml
+END
+IdentifierSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/IdentifierSchema.xml
+END
+DateSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/DateSchema.xml
+END
+PhoneSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/PhoneSchema.xml
+END
+UtteranceSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/UtteranceSchema.xml
+END
+OrganizationSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/OrganizationSchema.xml
+END
+AddressSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/AddressSchema.xml
+END
+PosSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/PosSchema.xml
+END
+LocationSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/LocationSchema.xml
+END
+PersonSchema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ebarbu/!svn/ver/4/Aggregator-Maven/src/main/resources/WEB-INF/PLUGINS/ANNIE/resources/schema/PersonSchema.xml
+END
