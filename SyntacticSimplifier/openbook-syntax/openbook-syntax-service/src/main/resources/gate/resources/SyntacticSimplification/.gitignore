@@ -1,0 +1,11 @@
+/*.pl~
+/*.sh~
+/*_errors.txt
+/num_*.txt
+
+/sentence*.txt
+/*rules.err
+/*rules.out
+/*.dot
+
+/*.post.xml

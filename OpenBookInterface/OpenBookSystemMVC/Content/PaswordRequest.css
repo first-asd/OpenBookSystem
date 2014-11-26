@@ -1,0 +1,64 @@
+﻿.requestContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+    .requestContainer label {
+        color: #898989;
+        font-size: 16px;
+        font-family: Arial;
+    }
+
+    .requestContainer input {
+        height: 32px;
+        max-width: 290px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-width: 1px;
+        border-color: #b3b3b3;
+        border-style: solid;
+        padding-left: 20px;
+        width: 93%;
+        background-color: #fff;
+        margin-top:10px;
+    }
+
+
+    .requestContainer .serviceError {      
+        display:inline-block;
+        color:Red;
+        font-family:Arial;
+        width:100%;
+    }
+
+
+.submitButton {
+    background-color: #56a0c9;
+    color: #fff;
+    display: inline-block;
+    height: 28px;
+    text-align: center;
+    line-height: 26px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    text-transform: uppercase;
+}
+
+.signUpErrSummary {
+    position: relative;
+    color:Red;
+    font-family:Arial;
+}

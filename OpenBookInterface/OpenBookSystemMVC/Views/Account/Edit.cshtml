@@ -1,0 +1,383 @@
+﻿@model OpenBookSystemMVC.Models.EditAccountModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginRouteForm("General", new { controller = "Account", action = "Edit", nUserID = Model.User.AccountId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @*@Styles.Render("~/Content/colorpicker");*@
+    
+    @Styles.Render("~/Content/useracc");
+    @Styles.Render("~/Content/chosen");
+    @Styles.Render("~/Scripts/Spectrum/spectrum");         
+    <link href="~/Scripts/uploadify/uploadifive-v.1.1.1-commercial/Sample/uploadifive.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/chosen");
+    
+        
+    <div class="userAccBody">
+        <div class="userAccTitleCont">
+            <span class="user-account-title" id="lblUserName">@Model.FullName </span>
+        </div>
+
+        <div class="userAccShadow">
+            <img src="/Images/ShadowLine.png" class="userAccImgShadow" />
+        </div>
+
+        <ul class="tabs-text-input" style="border: solid 1px #999999;">
+            @if (Model.IsCarerSelfEditing)
+            {
+                <li data-id="account-info" class="extra-wide-item selected">@Resources.ClientDefault.EditPatientDetails_TabAccount </li>    
+            } 
+            else 
+            {
+                <li data-id="account-info" class="wide-item selected">@Resources.ClientDefault.EditPatientDetails_TabAccount </li>    
+            }
+            
+            @if (!Model.IsCarerSelfEditing) 
+            {
+                <li data-id="preferences" class="wide-item">@Resources.ClientDefault.EditPatientDetails_TabPreferences </li>
+            }
+        </ul>
+
+        <div class="account-fields-tab account-info">
+            <table class="account-personal-fields-table">
+
+                <tr>
+                    <td class="account-personal-label-cell">@Html.LabelFor(m => m.FirstName) </td>
+                    <td class="account-personal-input-cell">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "signUpTableInput" })
+                        *
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="account-personal-label-cell">@Html.LabelFor(m => m.LastName)</td>
+                    <td class="account-personal-input-cell">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "signUpTableInput" })
+                        *
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="account-personal-label-cell">@Html.LabelFor(m => m.Email) </td>
+                    <td class="account-personal-input-cell">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "signUpTableInput" })
+                        *
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="account-personal-label-cell">@Html.LabelFor(m => m.Password) </td>
+                    <td class="account-personal-input-cell">
+                        @Html.PasswordFor(m => m.Password, new { @class = "signUpTableInput", value = Model.Password })
+                        *
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="account-personal-label-cell">@Html.LabelFor(m => m.ConfirmPassword) </td>
+                    <td class="account-personal-input-cell">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "signUpTableInput", value = Model.Password })
+                        *
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="account-personal-label-cell">@Html.LabelFor(m => m.Age) </td>
+                    <td class="account-personal-input-cell">
+                        @Html.TextBoxFor(m => m.Age, new { @class = "signUpTableInput" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="account-personal-label-cell">@Html.LabelFor(m => m.Gender) </td>
+                    <td class="account-personal-input-cell">
+                        <div class="ddlCustomContainer ddlSexCont">
+                            @Html.EnumDropDownListFor(m => m.Gender, new { @class = "customRoundedDDL", style = "width:100px;height:32px;" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="account-personal-txtarealabel-cell">
+                        @ClientDefault.EditPatientDetails_Additional_Information
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(x => x.AdditionalInformation, new { @class = "account-personal-textarea" })
+                    </td>
+                </tr>
+
+            </table>
+
+            <div class="account-picture-box">
+                <img id="imgSignUpProfilePic" class="signUpImg" @{ Write(string.Format("src=/GetUserImage/{0}", Model.User.AccountId)); } />
+                <img id="imgSignUpProfilePicIE" class="signUpImg" />
+                <div class="uploadify-container">
+                    @Html.TextBoxFor(m => m.ImageFile, new
+                        { 
+                            @class = "account-hidden-input", 
+                            type = "file",
+                            id = "fileupProfilePicture"
+                        })
+                </div>
+                <input type="button" value="@Resources.ClientDefault.Browse_Dots" id="btnSelectPicture" class="signUpUploadPic" />
+            </div>
+
+        </div>
+
+        @if (!Model.IsCarerSelfEditing) 
+        {
+            <div class="account-fields-tab preferences hide-item">
+                <div id="dialogs"></div>
+                <div class="centerDiv" align="center">
+                    <div class="center_div_containers font-options">
+                        <div class="dotted_box" style="position:relative">
+
+                            <div class="font_options">
+                                <h3 class="title">@Resources.ClientDefault.UserAccount_FontOptions</h3>
+                                <div class="line">
+                                    <label for="lbFontSize" class="font_label">@Resources.ClientDefault.UserAccount_FontSize</label>
+                                    @Html.HiddenFor(m => m.DocumentFontSize, new { id = "hiddenDocumentFontSize" })
+                                    <select id="lbFontSize">
+                                        @{ Write(Html.Raw(Model.GenerateFontSizeListBoxItems())); }
+                                    </select>
+                                </div>
+                                <div class="line">
+                                    <label for="lbLineSpacing" class="font_label">@Resources.ClientDefault.UserAccount_LineSpacing</label>
+                                    @*@Html.HiddenFor(m => m.DocumentLineSpacing, new { id = "hiddenDocumentLineSpacing" })*@
+                                    @Html.EnumDropDownListFor(x => x.DocumentLineSpacing, new { id = "lbLineSpacing" })
+                                    @*                           <select id="lbLineSpacing">
+                    @{ Write(Html.Raw(Model.GenerateLineSpacingListBoxItems())); }
+                </select>*@
+                                </div>
+                                <div class="line">
+                                    <label for="lbTextFont" class="font_label">@Resources.ClientDefault.UserAccount_TextFont</label>
+                                    @Html.HiddenFor(m => m.DocumentFontName, new { id = "hiddenDocumentFontName" })
+                                    <select id="lbTextFont">
+                                        @{ Write(Html.Raw(Model.GenerateTextFontListBox())); }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="toolsbar_options">
+                                <h3 class="title">@Resources.ClientDefault.UserAccount_Toolbar</h3>
+                                <ul class="toolbar-buttons-list">
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.ThemesTool, new { id = "cbThemes" })
+                                        @Html.LabelFor(m => m.ThemesTool, new { @for = "cbThemes" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.HighlightTool, new { id = "cbHighlight" })
+                                        @Html.LabelFor(m => m.HighlightTool, new { @for = "cbHighlight" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.FontSizeTool, new { id = "cbFontSize" })
+                                        @Html.LabelFor(m => m.FontSizeTool, new { @for = "cbFontSize" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.ExplainWordTool, new { id = "cbExplainWord" })
+                                        @Html.LabelFor(m => m.ExplainWordTool, new { @for = "cbExplainWord" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.ExplainWordWithPictureTool, new { id = "cbExplainWordWithPicture" })
+                                        @Html.LabelFor(m => m.ExplainWordWithPictureTool, new { @for = "cbExplainWordWithPicture" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.MagnifyTool, new { id = "cbMagnify" })
+                                        @Html.LabelFor(m => m.MagnifyTool, new { @for = "cbMagnify" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.Underline, new { id = "cbUnderline" })
+                                        @Html.LabelFor(m => m.Underline, new { @for = "cbUnderline" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.Bold, new { id = "cbBold" })
+                                        @Html.LabelFor(m => m.Bold, new { @for = "cbBold" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.Notes, new { id = "cbNotes" })
+                                        @Html.LabelFor(m => m.Notes, new { @for = "cbNotes" })
+                                    </li>
+                                    @if (Model.User.CarerId != 0)
+                                        {
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.AskCarer, new { id = "cbAskCarer" })
+                                        @Html.LabelFor(m => m.AskCarer, new { @for = "cbAskCarer" })
+                                    </li>
+                                        }
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.Summary, new { id = "cbSummary" })
+                                        @Html.LabelFor(m => m.Summary, new { @for = "cbSummary" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.ShowMultiwords, new { id = "cbShowMultiwords" })
+                                        @Html.LabelFor(m => m.ShowMultiwords, new { @for = "cbShowMultiwords" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.ShowObstacles, new { id = "cbShowObstacles" })
+                                        @Html.LabelFor(m => m.ShowObstacles, new { @for = "cbShowObstacles" })
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="center_div_containers_right">
+                        <div class="languageSection">
+                            <h3 class="title">@Resources.ClientDefault.UserAccount_Language</h3>
+
+                            @*@Html.EditorFor( x => x.LanguageObjectPreferences, "LanguageObjectPreferences")*@
+
+                            <ul class="langprefs-list">
+                                @{ 
+                                    string currentGroup = string.Empty;
+                                    if (Model.LanguageObjectPreferences.Count > 0)
+                                    {
+                                        currentGroup = Model.LanguageObjectPreferences[0].data.PreferenceGroup;
+                                    }
+                                }
+                                @for (int i = 0; i < Model.LanguageObjectPreferences.Count; i++)
+                                {
+                                    if (i == 0 && !string.IsNullOrEmpty(currentGroup))
+                                    {
+                                        <li class="langprefs-group">@currentGroup</li>
+                                    }
+                                    else if (currentGroup != Model.LanguageObjectPreferences[i].data.PreferenceGroup && !string.IsNullOrEmpty(Model.LanguageObjectPreferences[i].data.PreferenceGroup))
+                                    {
+                                        currentGroup = Model.LanguageObjectPreferences[i].data.PreferenceGroup;
+                                        <li class="langprefs-group">@currentGroup</li>
+                                    }
+                                    else if (string.IsNullOrEmpty(Model.LanguageObjectPreferences[i].data.PreferenceGroup))
+                                    {
+                                        currentGroup = string.Empty;
+                                    }
+                                    
+                                    <li class="langprefs-datarow @{ if (string.IsNullOrEmpty(currentGroup)) { Write(" nogroup"); } }">
+                                    @if (Model.LanguageObjectPreferences[i].data.PrefrenceType == LanguagePreferenceType.Boolean)
+                                    {        
+                                        @Html.CheckBoxFor( item => Model.LanguageObjectPreferences[i].BoolValue)     
+                                        <label>@Model.LanguageObjectPreferences[i].data.Caption</label>
+                                    }
+                                    else if (Model.LanguageObjectPreferences[i].data.PrefrenceType == LanguagePreferenceType.Number)
+	                                {   
+                                        <label>@Model.LanguageObjectPreferences[i].data.Caption</label>                                     
+                                        @Html.TextBoxFor( item => Model.LanguageObjectPreferences[i].IntValue)  
+                                        
+                                    }
+                                    else if (Model.LanguageObjectPreferences[i].data.PrefrenceType == LanguagePreferenceType.Enumerated && Model.LanguageObjectPreferences[i].data.EnumerationOptions != null)
+	                                {	
+                                        <label>@Model.LanguageObjectPreferences[i].data.Caption</label>	                                
+                                        @Html.DropDownListFor(item => Model.LanguageObjectPreferences[i].EnumerationValue, new SelectList(Model.LanguageObjectPreferences[i].data.EnumerationOptions, "Value", "Caption", Model.LanguageObjectPreferences[i].EnumerationValue))                                                                                
+	                                }     
+
+                                    @Html.HiddenFor(x => x.LanguageObjectPreferences[i].Caption)
+                                    </li>  
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+
+                       <div class="center_div_containers ">
+                            <div class="dotted_box">
+                                <h3 class="title">@Resources.ClientDefault.UserAccount_Themes</h3>
+                                <button type="button" id="btnCreateTheme" class="c_button hoverfix">@Resources.ClientDefault.UserAccount_CreateTheme</button>
+
+                                <div class="clear"></div>
+                                <span class="curThemeLabel">@ClientDefault.UserAccount_CurrentTheme</span>
+                                @{ Write(Html.Raw(Model.GenerateCurrentThemeBox())); }
+
+                                <a class="previewButton hoverfix c_button">@ClientDefault.UserAccount_Preview</a>
+
+                                <ul id="selected_theme" class="list_box">
+                                    @{ Write(Html.Raw(Model.GenerateThemesListBox())); }
+                                </ul>
+                                @Html.HiddenFor(m => m.DefaultThemeId, new { id = "selectedThemeId" })
+                            </div>
+                        </div>   
+                    
+                    @if (Model.CurrentlyLoggedUser.Role == AccountRoles.User)
+                    {
+                        <div class="center_div_containers">
+                            <div class="dotted_box">
+                                <h3 class="title">@Resources.ClientDefault.UserAccount_ManageLabels</h3>
+                                <button type="button" id="btnCreateLabel" class="c_button hoverfix">@Resources.ClientDefault.UserAccount_CreateLabel</button>
+                                <ul id="labels" class="list_box">
+                                    @{ Write(Html.Raw(Model.GenerateLabelsListBox())); }
+                                </ul>
+                            </div>
+                        </div>
+                    }          
+
+                    <div class="clear"></div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        }
+        @Html.ValidationSummary(false, Resources.ClientDefault.Error_List, new { @class = "accEditError" })
+
+        <input type ="button" id="btnSubmitChanges" class="btnSubmitAccChanges" @{ if (Model.IsUpdate) { Write(string.Format("value={0}", Resources.ClientDefault.EditPatientDetails_Update_Account_C)); } else { Write(string.Format("value={0}", Resources.ClientDefault.Create_Account_C)); } }/>
+
+        <div class="userAccShadow userAccBotShad">
+            <img src="/Images/ShadowLine.png" class="userAccImgShadow" />
+        </div>
+
+        <input id="hfLabelPlaceholder" type="hidden" value="@ClientDefault.DocumentEdit_NewLabel_Placeholder" />
+
+        <div class="previewDialog">
+            <h3 class="title">@ClientDefault.UserAccount_PreviewTheme</h3>
+
+            <span>@ClientDefault.UserAccount_TextWithHighlight</span>
+            <div class="textWithHighlight">
+                Either the well was very deep, or <span class="highlight">she fell very slowly</span>, for she had
+                plenty of time as she went down to look about her and to wonder what was
+                going to happen next. First, she tried to look down and make out what
+                she was coming to, but it was too dark to see anything; then she
+                looked at the sides of the well, and noticed that they were filled with
+                cupboards and book-shelves; here and there she saw maps and pictures
+                hung upon pegs. She took down a jar from one of the shelves as
+                she passed; it was labelled <span class="highlight">'ORANGE MARMALADE'</span>, but to her great
+                disappointment it was empty: she did not like to drop the jar for fear
+                of killing somebody, so managed to put it into one of the cupboards as
+                she fell past it.
+            </div>
+
+            <br />
+            <br />
+
+            <span>@ClientDefault.UserAccount_MagnifiedText</span>
+            <div class="magnifiedText">
+                <span class="sentence">Either the well was very deep, or <span class="highlight">she fell very slowly</span>, for she had
+                plenty of time as she went down to look about her and to wonder what was
+                going to happen next.</span> First, she tried to look down and make out what
+                she was coming to, but it was too dark to see anything; then she
+                looked at the sides of the well, and noticed that they were filled with
+                cupboards and book-shelves; here and there she saw maps and pictures
+                hung upon pegs. She took down a jar from one of the shelves as
+                she passed; it was labelled <span class="highlight">'ORANGE MARMALADE'</span>, but to her great
+                disappointment it was empty: she did not like to drop the jar for fear
+                of killing somebody, so managed to put it into one of the cupboards as
+                she fell past it.
+            </div>
+        </div>
+
+    </div>
+}
+
+
+@Scripts.Render("~/bundles/jquery-unobtrusive")
+@Scripts.Render("~/bundles/jquery-validation")
+@Scripts.Render("~/bundles/jquery-unobtrusive-validate")
+@Scripts.Render("~/bundles/spectrum")
+<script src="~/Scripts/uploadify/uploadifive-v.1.1.1-commercial/Sample/jquery.uploadifive.min.js"></script>
+<script src="~/Scripts/uploadify/jquery.uploadify.js"></script>
+<script src="~/Scripts/Placeholders/Placeholders.min.js"></script>
+@*@Scripts.Render("~/bundles/fileValidations")*@
+<script type="text/javascript" src="/Scripts/FileSizeValidation.js"></script>
+@Scripts.Render("~/bundles/agevalid")
+@Scripts.Render("~/bundles/useracc")
+@*<script src="~/Scripts/UserAccount.js"></script>*@
+@*<script src="~/Scripts/jquery.colorPicker.js"></script>*@
+

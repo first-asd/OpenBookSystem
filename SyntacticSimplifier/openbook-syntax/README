@@ -1,0 +1,14 @@
+Implementation for Syntax Simplification 
+
+** openbook-syntax-service 
+The main module containing the Web service wrappers.
+Provides SOAP1.1 web service using JAX-WS and Apache CXF2.
+The web service consume/return a string parameter containing a GATE xml document.
+
+** openbook-syntax-war
+The module which packages the Web service as a war file compatible with Apache Tomcat
+Soon: Metro compatible war packaging
+
+** openbook-syntax-client
+Command line client to invoke the endpoint
+

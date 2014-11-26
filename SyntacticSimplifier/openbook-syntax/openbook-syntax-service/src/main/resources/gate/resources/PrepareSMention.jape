@@ -1,0 +1,42 @@
+Phase:firstpass
+Input: sync PC
+Options: control = brill
+
+Rule: featextract
+Priority: 10
+(
+{sync} | {PC}
+):m
+-->
+{  
+  AnnotationSet mAnnots = bindings.get("m");  
+  if(mAnnots != null && mAnnots.size() != 0) {
+		Annotation theInstance = mAnnots.iterator().next();  
+		String type=(String)theInstance.getFeatures().get("type");
+		if (type==null)
+			type=(String)theInstance.getFeatures().get("TYPE");
+		FeatureMap features = Factory.newFeatureMap();
+		features.put("type",type);
+		if (type.matches("(STQ|COMBINATORY|SPECIAL|HELP)")){
+			features.put("sChunk",type);
+			
+		}else {
+			java.util.regex.Pattern p=java.util.regex.Pattern.compile("(SS|ES|C)(P|L|M|C|I|Adv)(V|N|A|AdvP?|P|Q|I|M|CV)([1-5]?)");
+			java.util.regex.Matcher m=p.matcher(type);
+			if (m.matches()){
+				 
+				features.put("sChunk",m.group(1));
+				features.put("sProj",m.group(2));
+				features.put("sCat",m.group(3));
+				if (m.groupCount()>3){
+					features.put("sCat2",m.group(3)+m.group(4));
+				}
+			}else{
+				System.err.println("Unparsed sync annotation type: "+ type);
+			}
+		}  
+		outputAS.add(mAnnots.firstNode(), mAnnots.lastNode(), "sMention", features);
+		features=null;
+  }
+}
+

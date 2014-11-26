@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://OpenBookAPI/Entities/" elementFormDefault="qualified" targetNamespace="http://OpenBookAPI/Entities/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd4" namespace="http://OpenBookAPI/Enums/" />
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+  <xs:import schemaLocation="http://iwebtech.dynalias.com/FIRST/v4_0/OpenBookAPIService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary" />
+  <xs:complexType name="RequestBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthenticationToken" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestBase" nillable="true" type="tns:RequestBase" />
+  <xs:complexType name="OriginalUserDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileContent" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://OpenBookAPI/Enums/" minOccurs="0" name="Type" type="q1:OriginalDocumentType" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OriginalUserDocument" nillable="true" type="tns:OriginalUserDocument" />
+  <xs:complexType name="ResponseBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResultStatus" nillable="true" type="tns:ResultStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseBase" nillable="true" type="tns:ResponseBase" />
+  <xs:complexType name="ResultStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://OpenBookAPI/Enums/" minOccurs="0" name="Result" type="q2:ActionResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultStatus" nillable="true" type="tns:ResultStatus" />
+  <xs:complexType name="Document">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDocumentInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OriginalDocumentContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SimplifiedContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Document" nillable="true" type="tns:Document" />
+  <xs:complexType name="BaseDocumentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthorId" type="xs:long" />
+      <xs:element minOccurs="0" name="DateModified" type="xs:dateTime" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocumentLabels" nillable="true" type="q3:ArrayOflong" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="IsCompleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFavourite" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrivate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRead" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseDocumentInfo" nillable="true" type="tns:BaseDocumentInfo" />
+  <xs:complexType name="GetDocumentSummaryResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentSummaryResponse" nillable="true" type="tns:GetDocumentSummaryResponse" />
+  <xs:complexType name="GetObstacleInfoResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObstacleInfo" nillable="true" type="q4:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetObstacleInfoResponse" nillable="true" type="tns:GetObstacleInfoResponse" />
+  <xs:complexType name="GetDocumentTestRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentTestRequest" nillable="true" type="tns:GetDocumentTestRequest" />
+  <xs:complexType name="GetDocumentTestResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentTest" nillable="true" type="tns:Test" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentTestResponse" nillable="true" type="tns:GetDocumentTestResponse" />
+  <xs:complexType name="Test">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="Questions" nillable="true" type="tns:ArrayOfTestQuestion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Test" nillable="true" type="tns:Test" />
+  <xs:complexType name="ArrayOfTestQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TestQuestion" nillable="true" type="tns:TestQuestion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTestQuestion" nillable="true" type="tns:ArrayOfTestQuestion" />
+  <xs:complexType name="TestQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Answers" nillable="true" type="tns:ArrayOfTestQuestionAnswer" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="OrderIndex" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestQuestion" nillable="true" type="tns:TestQuestion" />
+  <xs:complexType name="ArrayOfTestQuestionAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TestQuestionAnswer" nillable="true" type="tns:TestQuestionAnswer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTestQuestionAnswer" nillable="true" type="tns:ArrayOfTestQuestionAnswer" />
+  <xs:complexType name="TestQuestionAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="QuestionId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestQuestionAnswer" nillable="true" type="tns:TestQuestionAnswer" />
+  <xs:complexType name="SubmitTestAnswerRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnswerId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SubmitTestAnswerRequest" nillable="true" type="tns:SubmitTestAnswerRequest" />
+  <xs:complexType name="GetUserNotificationsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Notifications" nillable="true" type="tns:ArrayOfNotification" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserNotificationsResponse" nillable="true" type="tns:GetUserNotificationsResponse" />
+  <xs:complexType name="ArrayOfNotification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Notification" nillable="true" type="tns:Notification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotification" nillable="true" type="tns:ArrayOfNotification" />
+  <xs:complexType name="Notification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+      <xs:element minOccurs="0" name="DocumentTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="IsRead" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MessageContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceiverId" type="xs:long" />
+      <xs:element minOccurs="0" name="SenderId" type="xs:long" />
+      <xs:element minOccurs="0" name="SentOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Notification" nillable="true" type="tns:Notification" />
+  <xs:complexType name="MarkNotificationAsReadRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NotificationId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarkNotificationAsReadRequest" nillable="true" type="tns:MarkNotificationAsReadRequest" />
+  <xs:complexType name="GetUnreadNotificationsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Notifications" nillable="true" type="tns:ArrayOfNotification" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUnreadNotificationsResponse" nillable="true" type="tns:GetUnreadNotificationsResponse" />
+  <xs:complexType name="SendNotificationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewNotification" nillable="true" type="tns:Notification" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendNotificationRequest" nillable="true" type="tns:SendNotificationRequest" />
+  <xs:complexType name="DeleteNotificationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NotificationId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteNotificationRequest" nillable="true" type="tns:DeleteNotificationRequest" />
+  <xs:complexType name="CreateThemeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewTheme" nillable="true" type="tns:Theme" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateThemeRequest" nillable="true" type="tns:CreateThemeRequest" />
+  <xs:complexType name="Theme">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="BackgroundColor" type="q5:Color" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="FontColor" type="q6:Color" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="HighlightColor" type="q7:Color" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="MagnificationColor" type="q8:Color" />
+      <xs:element minOccurs="0" name="UserId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Theme" nillable="true" type="tns:Theme" />
+  <xs:complexType name="CreateThemeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ThemeId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateThemeResponse" nillable="true" type="tns:CreateThemeResponse" />
+  <xs:complexType name="LoadUserThemesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoadUserThemesRequest" nillable="true" type="tns:LoadUserThemesRequest" />
+  <xs:complexType name="LoadUserThemesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Themes" nillable="true" type="tns:ArrayOfTheme" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoadUserThemesResponse" nillable="true" type="tns:LoadUserThemesResponse" />
+  <xs:complexType name="ArrayOfTheme">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Theme" nillable="true" type="tns:Theme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTheme" nillable="true" type="tns:ArrayOfTheme" />
+  <xs:complexType name="LoadDefaultThemesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Themes" nillable="true" type="tns:ArrayOfTheme" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoadDefaultThemesResponse" nillable="true" type="tns:LoadDefaultThemesResponse" />
+  <xs:complexType name="LoginRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginRequest" nillable="true" type="tns:LoginRequest" />
+  <xs:complexType name="LoginResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountInfo" nillable="true" type="tns:AccountInfo" />
+          <xs:element minOccurs="0" name="SessionToken" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginResponse" nillable="true" type="tns:LoginResponse" />
+  <xs:complexType name="AccountInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountId" type="xs:long" />
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="CarerId" type="xs:long" />
+      <xs:element minOccurs="0" name="CarersComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://OpenBookAPI/Enums/" minOccurs="0" name="Gender" type="q9:Gender" />
+      <xs:element minOccurs="0" name="ImgURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Picture" nillable="true" type="tns:UserImage" />
+      <xs:element minOccurs="0" name="Preferences" nillable="true" type="tns:UserPreferences" />
+      <xs:element xmlns:q10="http://OpenBookAPI/Enums/" minOccurs="0" name="Role" type="q10:AccountRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountInfo" nillable="true" type="tns:AccountInfo" />
+  <xs:complexType name="UserImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileContent" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserImage" nillable="true" type="tns:UserImage" />
+  <xs:complexType name="UserPreferences">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentTheme" nillable="true" type="tns:Theme" />
+      <xs:element minOccurs="0" name="DocumentFontName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentFontSize" type="xs:int" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary" minOccurs="0" name="LanguagePreferences" nillable="true" type="q11:ArrayOfLanguagePreference" />
+      <xs:element xmlns:q12="http://OpenBookAPI/Enums/" minOccurs="0" name="LineSpacing" type="q12:LineSpacingDefaults" />
+      <xs:element xmlns:q13="http://OpenBookAPI/Enums/" minOccurs="0" name="SelectedDocumentSimplificationTools" nillable="true" type="q13:ArrayOfDocumentSimplificationTools" />
+      <xs:element xmlns:q14="http://OpenBookAPI/Enums/" minOccurs="0" name="UILanguage" type="q14:UserInterfaceLanguage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserPreferences" nillable="true" type="tns:UserPreferences" />
+  <xs:complexType name="ArrayOfEnumerationOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnumerationOption" nillable="true" type="tns:EnumerationOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnumerationOption" nillable="true" type="tns:ArrayOfEnumerationOption" />
+  <xs:complexType name="EnumerationOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnumerationOption" nillable="true" type="tns:EnumerationOption" />
+  <xs:complexType name="RegisterAccountRequset">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Account" nillable="true" type="tns:AccountInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterAccountRequset" nillable="true" type="tns:RegisterAccountRequset" />
+  <xs:complexType name="CreateUserAccountRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Account" nillable="true" type="tns:AccountInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateUserAccountRequest" nillable="true" type="tns:CreateUserAccountRequest" />
+  <xs:complexType name="CreateUserAccountResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountInfo" nillable="true" type="tns:AccountInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateUserAccountResponse" nillable="true" type="tns:CreateUserAccountResponse" />
+  <xs:complexType name="ValidateVerificationTicketRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ticket" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ValidateVerificationTicketRequest" nillable="true" type="tns:ValidateVerificationTicketRequest" />
+  <xs:complexType name="UpdateAccountProfileRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Account" nillable="true" type="tns:AccountInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateAccountProfileRequest" nillable="true" type="tns:UpdateAccountProfileRequest" />
+  <xs:complexType name="UpdateAccountProfileResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UpdatedAccount" nillable="true" type="tns:AccountInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateAccountProfileResponse" nillable="true" type="tns:UpdateAccountProfileResponse" />
+  <xs:complexType name="DeleteUserAccountRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteUserAccountRequest" nillable="true" type="tns:DeleteUserAccountRequest" />
+  <xs:complexType name="GetAccountInfoRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountInfoRequest" nillable="true" type="tns:GetAccountInfoRequest" />
+  <xs:complexType name="GetAccountInfoResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:AccountInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountInfoResponse" nillable="true" type="tns:GetAccountInfoResponse" />
+  <xs:complexType name="GetCarersUsersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CarersUsers" nillable="true" type="tns:ArrayOfAccountInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCarersUsersResponse" nillable="true" type="tns:GetCarersUsersResponse" />
+  <xs:complexType name="ArrayOfAccountInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountInfo" nillable="true" type="tns:AccountInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountInfo" nillable="true" type="tns:ArrayOfAccountInfo" />
+  <xs:complexType name="GetCarerUsersPageListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary" minOccurs="0" name="CarersUsers" nillable="true" type="q15:ArrayOfCarerUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCarerUsersPageListResponse" nillable="true" type="tns:GetCarerUsersPageListResponse" />
+  <xs:complexType name="GetUserImageRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserImageRequest" nillable="true" type="tns:GetUserImageRequest" />
+  <xs:complexType name="GetUserImageResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Image" nillable="true" type="tns:UserImage" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserImageResponse" nillable="true" type="tns:GetUserImageResponse" />
+  <xs:complexType name="GetDefaultLanguageSettingsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/OpenBookAPIServiceLibrary" minOccurs="0" name="Preferences" nillable="true" type="q16:ArrayOfLanguagePreference" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDefaultLanguageSettingsResponse" nillable="true" type="tns:GetDefaultLanguageSettingsResponse" />
+  <xs:complexType name="RetrievePasswordRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetrievePasswordRequest" nillable="true" type="tns:RetrievePasswordRequest" />
+  <xs:complexType name="CreateLabelRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Label" nillable="true" type="tns:LibraryLabel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateLabelRequest" nillable="true" type="tns:CreateLabelRequest" />
+  <xs:complexType name="LibraryLabel">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="FontColor" type="q17:Color" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="LabelColor" type="q18:Color" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LibraryLabel" nillable="true" type="tns:LibraryLabel" />
+  <xs:complexType name="CreateLabelResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LabelId" type="xs:long" />
+          <xs:element minOccurs="0" name="LabelInfo" nillable="true" type="tns:LibraryLabel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateLabelResponse" nillable="true" type="tns:CreateLabelResponse" />
+  <xs:complexType name="DeleteLabelRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LabelId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteLabelRequest" nillable="true" type="tns:DeleteLabelRequest" />
+  <xs:complexType name="GetAccountLabelsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountLabelsRequest" nillable="true" type="tns:GetAccountLabelsRequest" />
+  <xs:complexType name="GetAccountLabelsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Labels" nillable="true" type="tns:ArrayOfLibraryLabel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountLabelsResponse" nillable="true" type="tns:GetAccountLabelsResponse" />
+  <xs:complexType name="ArrayOfLibraryLabel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LibraryLabel" nillable="true" type="tns:LibraryLabel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLibraryLabel" nillable="true" type="tns:ArrayOfLibraryLabel" />
+  <xs:complexType name="SaveDocumentLabelsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+          <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LabelIds" nillable="true" type="q19:ArrayOflong" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveDocumentLabelsRequest" nillable="true" type="tns:SaveDocumentLabelsRequest" />
+  <xs:complexType name="UpdateLabelRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Label" nillable="true" type="tns:LibraryLabel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateLabelRequest" nillable="true" type="tns:UpdateLabelRequest" />
+  <xs:complexType name="GetLibraryItemsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLibraryItemsRequest" nillable="true" type="tns:GetLibraryItemsRequest" />
+  <xs:complexType name="GetLibraryItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfBaseDocumentInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLibraryItemsResponse" nillable="true" type="tns:GetLibraryItemsResponse" />
+  <xs:complexType name="ArrayOfBaseDocumentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BaseDocumentInfo" nillable="true" type="tns:BaseDocumentInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBaseDocumentInfo" nillable="true" type="tns:ArrayOfBaseDocumentInfo" />
+  <xs:complexType name="ChangeDocumentFavouriteStatusRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+          <xs:element minOccurs="0" name="IsFavourite" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeDocumentFavouriteStatusRequest" nillable="true" type="tns:ChangeDocumentFavouriteStatusRequest" />
+  <xs:complexType name="SimplifyDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:OriginalUserDocument" />
+          <xs:element minOccurs="0" name="SimplifySentenceMode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SimplifyDocumentRequest" nillable="true" type="tns:SimplifyDocumentRequest" />
+  <xs:complexType name="SimplifyDocumentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SimplifiedDocument" nillable="true" type="tns:Document" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SimplifyDocumentResponse" nillable="true" type="tns:SimplifyDocumentResponse" />
+  <xs:complexType name="ExplainWordRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+          <xs:element minOccurs="0" name="Word" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExplainWordRequest" nillable="true" type="tns:ExplainWordRequest" />
+  <xs:complexType name="ExplainWordResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Explanation" nillable="true" type="tns:WordExplanation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExplainWordResponse" nillable="true" type="tns:ExplainWordResponse" />
+  <xs:complexType name="WordExplanation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PictureURLs" nillable="true" type="q20:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WordExplanation" nillable="true" type="tns:WordExplanation" />
+  <xs:complexType name="ExplainWordWithPicturesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+          <xs:element minOccurs="0" name="Word" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExplainWordWithPicturesRequest" nillable="true" type="tns:ExplainWordWithPicturesRequest" />
+  <xs:complexType name="ExplainWordWithPicturesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PictureURLs" nillable="true" type="q21:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExplainWordWithPicturesResponse" nillable="true" type="tns:ExplainWordWithPicturesResponse" />
+  <xs:complexType name="DeleteDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteDocumentRequest" nillable="true" type="tns:DeleteDocumentRequest" />
+  <xs:complexType name="SaveDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:Document" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveDocumentRequest" nillable="true" type="tns:SaveDocumentRequest" />
+  <xs:complexType name="SaveDocumentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveDocumentResponse" nillable="true" type="tns:SaveDocumentResponse" />
+  <xs:complexType name="GetDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentRequest" nillable="true" type="tns:GetDocumentRequest" />
+  <xs:complexType name="GetDocumentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:Document" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentResponse" nillable="true" type="tns:GetDocumentResponse" />
+  <xs:complexType name="GetDocumentDefinitionsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentDefinitionsRequest" nillable="true" type="tns:GetDocumentDefinitionsRequest" />
+  <xs:complexType name="GetDocumentDefinitionsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Definitions" nillable="true" type="tns:ArrayOfDocumentDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDocumentDefinitionsResponse" nillable="true" type="tns:GetDocumentDefinitionsResponse" />
+  <xs:complexType name="ArrayOfDocumentDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentDefinition" nillable="true" type="tns:DocumentDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentDefinition" nillable="true" type="tns:ArrayOfDocumentDefinition" />
+  <xs:complexType name="DocumentDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Definition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentDefinition" nillable="true" type="tns:DocumentDefinition" />
+  <xs:complexType name="MarkDocumentAsReadRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarkDocumentAsReadRequest" nillable="true" type="tns:MarkDocumentAsReadRequest" />
+</xs:schema>

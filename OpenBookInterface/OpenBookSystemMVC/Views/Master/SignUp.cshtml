@@ -1,0 +1,126 @@
+﻿@model OpenBookSystemMVC.Models.SignUpViewModel
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/signup")
+
+<div class="signUpElementsBody">
+@using (Html.BeginForm("SignUp","Master",FormMethod.Post,new { enctype="multipart/form-data" }))
+{
+    <div class="signUpTitle">
+       @Resources.ClientDefault.SignUp_Sign_Up_C
+    </div>
+    
+    <div class="signUpShadow">
+        &nbsp;
+    </div>
+    
+    <div class="signUpMiddleContent">
+        <table class="signUpTable">
+            <tr class="signUpTableRow">
+                <td class="signUpTableLabelCell"> @Html.LabelFor(m => m.FirstName) </td>
+                <td class="signUpTableInputCell"> 
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "signUpTableInput" }) 
+                    *
+                </td>
+            </tr>
+            <tr class="signUpTableRow">
+                <td class="signUpTableLabelCell"> @Html.LabelFor(m => m.LastName) </td>
+                <td class="signUpTableInputCell"> 
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "signUpTableInput" }) 
+                    *
+                </td>
+            </tr>
+            <tr class="signUpTableRow">
+                <td class="signUpTableLabelCell"> @Html.LabelFor(m => m.Email) </td>
+                <td class="signUpTableInputCell"> 
+                    @Html.TextBoxFor(m => m.Email, new { @class = "signUpTableInput" }) 
+                    *
+                </td>
+            </tr>
+            <tr class="signUpTableRow">
+                <td class="signUpTableLabelCell"> @Html.LabelFor(m => m.Password) </td>
+                <td class="signUpTableInputCell"> 
+                    @Html.TextBoxFor(m => m.Password, new { @class = "signUpTableInput", type = "password" }) 
+                    *
+                </td>
+            </tr>
+            <tr class="signUpTableRow">
+                <td class="signUpTableLabelCell"> @Html.LabelFor(m => m.ConfirmPassword) </td>
+                <td class="signUpTableInputCell"> 
+                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "signUpTableInput", type = "password" }) 
+                    *
+                </td>
+            </tr>
+
+            <tr class="signUpTableRow">
+                <td class="signUpTableLabelCell"> @Html.LabelFor(m => m.Age) </td>
+                <td class="signUpTableInputCell"> 
+                    @Html.TextBoxFor(m => m.Age, new { @class = "signUpTableInput" }) 
+                </td>
+            </tr>
+
+            <tr class="signUpTableRow">
+                <td class="signUpTableLabelCell"> @Html.LabelFor(m => m.Gender) </td>
+                <td class="signUpTableInputCell">
+                    <div class="ddlCustomContainer ddlSexCont">
+                        @Html.EnumDropDownListFor(m => m.Gender, new { @class = "customRoundedDDL", style = "width:100px;height:32px;" })
+                    </div>
+                </td>
+            </tr>
+
+            @if (Model.Role == AccountRoles.Carer)
+            {
+                <tr class="signUpTableRow">
+                    <td class="signUpTableLabelCell"> @Html.LabelFor(m => m.PhoneNumber) </td>
+                    <td class="signUpTableInputCell"> 
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "signUpTableInput" }) 
+                    </td>
+                </tr>   
+            }
+
+            @Html.HiddenFor( m => m.Role )
+        </table>
+        <div class="signUpMdlRight">
+            <img runat="server" id="imgSignUpProfilePic" class="signUpImg" src="/Images/profile_photoFrm.png"/>
+            <img id="imgSignUpProfilePicIE" class="signUpImg" />
+            @Html.TextBoxFor(m => m.ImageFile, new { type = "file" , @class = "signup-input-hidden", id = "fileInputControl" })
+            <input type="button" runat="server" value="@Resources.ClientDefault.Browse_Dots" id="btnSelectPicture" class="signUpUploadPic" onclick="return false;" />
+        </div>
+    </div>
+    
+    <div class="signUpShadow">
+        &nbsp;
+    </div>
+    
+    <div class="signUpValDiv">
+        <div class="signUpRequiredLbl">
+           @Resources.ClientDefault.Req_Field
+        </div>
+    
+        @Html.ValidationSummary(false, Resources.ClientDefault.Error_List ,new { @class = "signUpErrSummary" })        
+
+    </div> 
+    
+    <br />
+    
+    <div class="signUpSubmit">
+        <input id="btnSubmit"  class="btnSubmitSignUp" value="@Resources.ClientDefault.Create_Account_C" type="submit" />
+    </div>
+}     
+</div>
+
+@Scripts.Render("~/bundles/jquery-unobtrusive")
+@Scripts.Render("~/bundles/jquery-validation")
+@Scripts.Render("~/bundles/jquery-unobtrusive-validate")
+@Scripts.Render("~/bundles/fileValidations")
+@Scripts.Render("~/bundles/agevalid")
+@*@Scripts.Render("~/bundles/globals")*@
+<script src="/Scripts/Globals.js"></script>
+
+<script>
+    setUpImagePreview('fileInputControl', 'imgSignUpProfilePic', 'imgSignUpProfilePicIE');
+</script>

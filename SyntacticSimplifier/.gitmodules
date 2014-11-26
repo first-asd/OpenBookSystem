@@ -1,0 +1,3 @@
+[submodule "openbook-encoref"]
+	path = openbook-encoref
+	url = https://idornescu@bitbucket.org/idornescu/first-encoref.git

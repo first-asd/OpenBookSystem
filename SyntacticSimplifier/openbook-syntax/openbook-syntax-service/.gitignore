@@ -1,0 +1,17 @@
+/target/
+/.classpath
+/.project
+/.settings/
+/*~
+
+
+#project temporary files
+/src/main/resources/gate/temp*
+/src/main/resources/gate/out-crf*
+*_errors.txt
+
+/src/main/resources/gate/resources/SyntacticDiagnosis-v1/*txt
+*guideance.temp*-raw.txt
+RuleApplications*txt
+*-raw.txt.rules.out
+*-raw.txt.rules.err

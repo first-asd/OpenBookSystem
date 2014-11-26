@@ -1,0 +1,9 @@
+/*.pl~
+/*.sh~
+/*_errors.txt
+/num_*.txt
+/RuleApplications.*.txt
+/sentence*.txt
+/*rules.err
+/*rules.out
+/*.dot

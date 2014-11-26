@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- gate.xml: GATE configuration data -->
+<GATE>
+
+<!-- NOTE: the next element may be overwritten by the GUI!!! -->
+<GATECONFIG Document_add_space_on_unpack="true"
+ Known_plugin_path=""
+ Load_plugin_path=""
+ Look_and_Feel="javax.swing.plaf.metal.MetalLookAndFeel"
+ Main_frame_height="744"
+ Main_frame_maximized="true"
+ Main_frame_width="1366"
+ Menus_font="Dialog#12#false#true"
+ Other_components_font="Dialog#12#false#true"
+ Save_features_when_preserving_format="false"
+ Save_options_on_exit="true"
+ Save_session_on_exit="true"
+ Text_components_font="Dialog#12#false#false"
+ docedit_insert_append="true"
+ gate.gui.MainFrame.browsercommandline=""
+ gate.gui.MainFrame.datastoretype="SerialDataStore: file-based storage using Java serialisation"
+ gate.gui.MainFrame.treeselectview="false"
+ gate.gui.MainFrame.viewselecttree="false"
+ gate.gui.docview.AnnotationSetsView.colours="{PronounAnaphora=-2141520038, paragraph=-2130748838, root=-2130748673, SyntaxTreeNode=-2144542420, Dependency=-2132680404, AltSentencesApp=-2130748838, sent=-2141519873, P=-2141520038, sync=-2132726740, S=-2141562113, Apposition=-2141520038, syntax.sync=-2134114100, cplxSent=-2141520038, mnode=-2130748838, AltSentencesAppMOD=-2130748838, DiscourseEntity=-2130748838, DOCUMENT=-2130748838, AltSentences=-2130706598, Token=-2141562113, SpaceToken=-2141520038, s=-2130748838, sMention=-2132726559, Split=-2130706598, sentenceAnn=-2130748838, _New_=-2141520038, Sentence=-2130748838, Lookup=-2144588575, PC=-2130706598}"
+ gate.gui.docview.AnnotationSetsView.types="[._New_, .DiscourseEntity, .PronounAnaphora, Original markups.PC]"
+ gate.swing.XJFileChooser="{lastapplication=temp-apps/simplesyntax, application.runCRFmodel=temp-apps/runCRF, gate.persist.SerialDataStore=/home/idornescu/sync/FIRST/wp3/gatedatastore, gate.jape.plus.Transducer=resources/PrepareSMention.jape, gate.corpora.DocumentImpl=/home/idornescu/sync/FIRST/wp3/syntax/corpus-beta/meter/ef.meter_news.complete-encoding-clean-part0.xml, gate.corpora.CorpusImpl=/home/idornescu/sync/FIRST/wp3/syntax/corpus-beta/meter, application.SimpleSyntax=temp-apps/simplesyntax, applications=SimpleSyntax;runCRFmodel;, gate.corpora.SerialCorpusImpl=/home/idornescu/sync/FIRST/wp3/syntax/corpus-beta/literature, gate.groovy.ScriptPR=resources/applySyntacticRulesPl.groovy}"
+/>
+
+</GATE>

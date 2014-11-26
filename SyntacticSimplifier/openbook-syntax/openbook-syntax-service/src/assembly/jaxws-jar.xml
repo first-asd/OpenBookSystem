@@ -1,0 +1,18 @@
+<assembly>
+   <id>jaxws</id>
+   <formats>
+      <format>jar</format>
+   </formats>
+   <includeBaseDirectory>false</includeBaseDirectory>
+   <fileSets>
+      <fileSet>
+         <directory>target/classes/wlv</directory>
+         <outputDirectory>/wlv</outputDirectory>
+      </fileSet>
+      <fileSet>
+         <directory>target/classes/eu</directory>
+         <outputDirectory>/eu</outputDirectory>
+      </fileSet>
+   </fileSets>
+</assembly>
+

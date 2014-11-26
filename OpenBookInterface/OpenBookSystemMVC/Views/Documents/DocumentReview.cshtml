@@ -1,0 +1,355 @@
+﻿@model OpenBookSystemMVC.Models.DocumentReviewModel
+
+@{
+    ViewBag.Title = "DocumentReview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/doc-review")
+@Styles.Render("~/Content/font-awesome/css/fontawesome")
+@Styles.Render("~/Scripts/Magnific/magnific")
+
+@using (Html.BeginForm("DocumentReview", "Documents", FormMethod.Post, new { enctype = "multipart/form-data", id = "document-review-form" }))
+{
+    <div class="docreview-container">
+
+        <div class="container-left">
+            <h3 class="document-title">@{ Write(Model.DocumentTitle); }</h3>
+
+            <div class="content-area" tabindex="0" data-bind="sentenceNavigation: NavigationHandlerValues">
+            </div>
+
+            <div class="left-buttonbar">
+                <button data-bind="click: CancelDocument" class="obs-button">@ClientDefault.Library_Cancel</button>
+                <button data-bind="click: SaveDocumentTitle" class="obs-button">@ClientDefault.Library_Save</button>
+                <button data-bind="click: OpenContactUserWindow" class="obs-button contact-button">@ClientDefault.DocumentReview_ContactUser</button>
+                <button data-bind="click: SelectPrevSentence" class="obs-button icon-arrow-left" title="@ClientDefault.ReviewDocument_PrevSentence"></button>
+                <button data-bind="click: SelectNextSentence" class="obs-button icon-arrow-right " title="@ClientDefault.ReviewDocument_NextSentence"></button>
+                <button data-bind="click: OpenEditSummaryDialogue" class="obs-button">@ClientDefault.DocumentReview_Summary</button>
+                <button data-bind="click: OpenPreviewDialogue" class="obs-button preview-button">@ClientDefault.UserAccount_Preview</button>
+                <div class="linebreak"></div>
+            </div>
+        </div>
+
+        <div data-bind="with: EditSentenceModel" class="container-right">
+            <h5>@ClientDefault.DocumentReview_OriginalSentence</h5>
+            <div data-bind="html: $data.OriginalSentence" class="preview-original-sentence">
+            </div>
+
+            <div class="transf-sent-topbar">
+                <h5>@ClientDefault.DocumentReview_TransformedSentence</h5>
+                <button @*style="display:none"*@ data-bind="click: ToggleAddNote, style: { 'backgroundColor': IsAddNoteOn() ? '#F3AA3C' : '#56a0c9' }" class="obs-button">@ClientDefault.EditDocument_AddNote</button>
+            </div>
+
+            <div data-bind="click: $root.SelectObstacleHandler, css: { 'addnote-on': IsAddNoteOn }, attr: { 'contenteditable': IsAddNoteOn() ? false : true }" class="edit-transformed-sentence">
+            </div>
+
+
+            <div data-bind="visible: !IsAccepted()" class="sentence-operations-bar">
+                <div class="alt-struct" data-bind="visible: AlternativeStructures().length > 0">
+                    <span data-bind="text: $root.AltStructuresText()"></span>
+                    <button data-bind="OnOffButton: $root.AltStructsButtonOptions, click: $root.ToggleAltStructs"></button>
+                </div>
+                <div class="obstacles-btn">
+                    <span data-bind="text: $root.ObstaclesDetectedText()"></span>
+                    <button data-bind="OnOffButton: $root.ObstaclesButtonOptions, visible: ObstaclesCount() > 0, click: $root.ToggleObstacles"></button>
+                </div>
+            </div>
+
+            <div class="sentence-operations-container">
+
+                @*-----------------Alternative Structures Area--------------------*@
+                <div data-bind="visible: $root.IsAlternativeStructuresOn" class="alternative-structures-body">
+                    <ul data-bind="foreach: AlternativeStructures">
+                        <li>
+                            <input type="radio" data-bind=" attr: { 'value': $data.Index }, checked: $parent.SelectedStructure" />
+                            <span data-bind="text: Label, css: { 'alt-label-delete': $data.IsDelete }" class="alt-label"></span>
+                            <span data-bind="text: Text"></span>
+                        </li>
+                    </ul>
+
+                    <button data-bind="click: SelectStructure" class="obs-button">@ClientDefault.DocumentReview_SelectStructure</button>
+                </div>
+                @*-----------------Alternative Structures Area--------------------*@
+
+
+                @*-----------------Selected Word Operations Area------------------*@
+                <div data-bind="visible: $root.EditSentenceModel.IsWordSelected, with: $root.SelectedWordModel" class="obstacles-body">
+                    <div class="word-options-title" data-bind="visible: !$root.IsReprocessing()">
+                        <span data-bind="text: SelectedWord().Text" class="obstacle-text"></span>
+                        <button class="linklike-button" id="feedbackBtn" data-bind="click: ToggleFeedbackBaloon, visible: IsObstacle() || IsMultiword()">(@ClientDefault.DocumentReview_Explain)</button>
+                        <div class="feedback-baloon" data-bind="visible: IsFeedbackBaloonOn">
+                            @*<span>@ClientDefault.DocumentReview_ObstacleOfType</span>*@
+                            <div class="feedback-close">
+                                <span class="icon-remove" data-bind="click: ToggleFeedbackBaloon"></span>
+                            </div>
+                            <ul data-bind="foreach: FeedbackTypes">
+                                <li data-bind="text: $data"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div data-bind="css: { 'data-loading': IsLoading }" class="obstacles-options-area">
+
+                        @*------------------Multiword select------------------*@
+                        <div class="obstacles-menu-container" data-bind="visible: IsMultiwordSelectOn">
+                            <ul class="obstacles-options-menu">
+                                <li>
+                                    <button class="linklike-button" data-bind="text: MultiwordInnerText, click: SelectInnerWord"></button>
+                                </li>
+                                <li>
+                                    <button class="linklike-button" data-bind="text: SelectedWord().Text, click: BackToMenu"></button>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        @*------------------Multiword select------------------*@
+
+                        @*------------------Operations Menu------------------*@
+                        <div data-bind="visible: IsMenuOn" class="obstacles-menu-container">
+                            <ul class="obstacles-options-menu">
+                                <li data-bind="visible: !IsWordIdiom() && HasSynonyms">
+                                    <button class="linklike-button" data-bind="click: ToggleSynonymsOn">@ClientDefault.DocumentReview_ReplaceWithSynonym</button>
+                                </li>
+                                <li data-bind="visible: HasPictures">
+                                    <button class="linklike-button" data-bind="click: ToggleImagesOn">@ClientDefault.DocumentReview_InsertImage</button>
+                                </li>
+                                <li data-bind="visible: HasDefinitions">
+                                    <button class="linklike-button" data-bind="click: ToggleDefinitionsOn">@ClientDefault.DocumentReview_InsertDefinition</button>
+                                </li>
+                                <li data-bind="visible: !IsWordIdiom() && HasAnaphoras">
+                                    <button class="linklike-button" data-bind="click: ToggleAnaphorasOn, text: $root.AnaphoraMenuLabel()"></button>
+                                </li>
+                            </ul>
+
+                            <button data-bind="click: CloseWord" class="obstacles-menu-close obs-button">@ClientDefault.DocumentEdit_Close</button>
+                        </div>
+                        @*------------------Operations Menu------------------*@
+
+
+                        @*------------------Synonyms Operations Area------------------*@
+                        <div data-bind="visible: IsSynonymsOn" class="obstacles-synonyms-container">
+
+                            <h5>@ClientDefault.DocumentReview_Synonyms</h5>
+
+                            <ul data-bind="foreach: SelectedWord().Synonyms">
+                                <li>
+                                    <input type="radio" data-bind=" attr: { 'value': $data.Index }, checked: $root.SelectedWordModel.SelectedSynonym" />
+                                    <span data-bind="text: $data.Text"></span>
+                                    <br />
+                                    <span data-bind="text: $data.Description"></span>
+                                </li>
+                            </ul>
+
+                            <div class="synonyms-buttonbar">
+                                <button data-bind="click: ReplaceWordWithSynonym" class="obs-button">@ClientDefault.DocumentReview_Replace</button>
+                                <button data-bind="click: BackToMenu" class="obs-button">@ClientDefault.Error_ButtonBack</button>
+                            </div>
+
+                        </div>
+                        @*------------------Synonyms Operations Area------------------*@
+
+
+                        @*------------------Add Image Operations Area------------------*@
+                        <div data-bind="visible: IsInsertImagesOn" class="obstacles-images-container">
+                            <h5>@ClientDefault.DocumentReview_Images</h5>
+
+                            <div class="images-wrapper">
+                                <ul data-bind="foreach: SelectedWord().PictureURLs, style: { 'width': CalculateImageListWidth()() }" class="obstacles-images">
+                                    <li>
+                                        <img data-bind="attr: { 'src': $data },click: $parent.SelectImage, css: { 'selected-img': $data == $parent.SelectedImage() }, magnific: $data" />
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="images-buttonbar">
+                                <button data-bind="click: OpenAddUserImageDialogue" class="obs-button fl-left">@ClientDefault.DocumentReview_Custom</button>
+                                <button data-bind="click: BackToMenu" class="obs-button fl-right">@ClientDefault.Error_ButtonBack</button>
+                                <button data-bind="click: InsertSelectedImage" class="obs-button fl-right">@ClientDefault.DocumentReview_AddImage</button>
+                            </div>
+                        </div>
+                        @*------------------Add Image Operations Area------------------*@
+
+
+                        @*------------------Insert Definition Operations Area------------------*@
+                        <div data-bind="visible: IsInsertDefinitionOn" class="obstacles-definitions-container">
+                            <h5>@ClientDefault.DocumentReview_Definitions</h5>
+
+                            <ul data-bind="foreach: SelectedWord().Definitions" class="definitions-list">
+                                <li>
+                                    <input type="radio" data-bind=" attr: { 'value': $data.Index }, checked: $root.SelectedWordModel.SelectedDefinition" />
+                                    <div data-bind="html: $data.Html" class="definition-html"></div>
+                                </li>
+                            </ul>
+
+                            <div class="definitions-buttonbar">
+                                <button data-bind="click: InsertSelectedDefinition" class="obs-button">@ClientDefault.DocumentReview_AddDefinition</button>
+                                <button data-bind="click: BackToMenu" class="obs-button">@ClientDefault.Error_ButtonBack</button>
+                            </div>
+
+                        </div>
+                        @*------------------Insert Definition Operations Area------------------*@
+
+
+
+                        @*------------------Insert Anaphora Operations Area--------------------*@
+                        <div data-bind="visible: IsInsertAnaphorasOn()" class="obstacles-synonyms-container">
+
+                            <h5>@ClientDefault.DocumentReview_Anaphoras</h5>
+
+                            <ul data-bind="foreach: SelectedWord().Anaphoras" class="anaphoras-list">
+                                <li>
+                                    <input type="radio" data-bind=" attr: { 'value': $data.Index }, checked: $root.SelectedWordModel.SelectedAnaphora" />
+                                    <span data-bind="text: $data.Text"></span>
+                                </li>
+                            </ul>
+
+                            <div class="synonyms-buttonbar">
+                                <button data-bind="click: ReplaceWordWithAnaphora" class="obs-button">@ClientDefault.DocumentReview_Replace</button>
+                                <button data-bind="click: BackToMenu" class="obs-button">@ClientDefault.Error_ButtonBack</button>
+                            </div>
+                        </div>
+                        @*------------------Insert Anaphora Operations Area--------------------*@
+
+
+
+                    </div>
+
+                </div>
+                @*-----------------Selected Word Operations Area------------------*@
+
+                @*-----------------Ajax Error Notification------------------*@
+
+                <div data-bind="with: $root.ErrorHandlingModel, visible: $root.ErrorHandlingModel.IsErrorOn" class="error-notification-container">
+                    <span data-bind="text: ErrorMessage" class="error-message"></span>
+
+                    <div class="error-buttonbar">
+                        <button data-bind="click: ErrorRetryHandler()" class="obs-button">@ClientDefault.DocumentReview_Retry</button>
+                        <button data-bind="click: ErrorBackHandler()" class="obs-button">@ClientDefault.Error_ButtonBack</button>
+                    </div>
+                </div>
+
+                @*-----------------Ajax Error Notification------------------*@
+
+                @*-----------------Selected Note---------------------------*@
+
+                <div class="selected-note-container" data-bind="visible: IsNoteSelected">
+                    <h5>@ClientDefault.DocumentReview_NoteText</h5>
+
+                    <textarea id="note-content"></textarea>
+
+                    <div class="selected-note-buttonbar">
+                        <button data-bind="click: SaveNote" class="obs-button">@ClientDefault.DocumentEdit_Save_Result_C</button>
+                        <button data-bind="click: DeleteNote" class="obs-button">@ClientDefault.Documents_Delete_C</button>
+                        <button data-bind="click: CancelNote" class="obs-button">@ClientDefault.Library_Cancel</button>
+                    </div>
+
+                </div>
+
+                @*-----------------Selected Note---------------------------*@
+
+                @if (OBSSecurity.FeedbackEnabled)
+                {
+                    <span class="icon-envelope-alt" data-bind="click: $root.FeedbackModel.OpenFeedbackDialog" title="@ClientDefault.Feedback_SendSentFeedback"></span>
+                }
+
+            </div>
+
+            <div class="right-buttonbar">
+                <button data-bind="click: $root.ReprocessSentencePrompt" class="obs-button reprocess-button">@ClientDefault.DocumentReview_Reprocess</button>
+                <button data-bind="click: $root.SubmitSentence" class="obs-button">@ClientDefault.DocumentReview_Accept</button>
+                <button data-bind="click: $root.CancelSentenceChanges" class="obs-button">@ClientDefault.Library_Cancel</button>
+            </div>
+
+        </div>
+
+        @*-------------------Dialogs section-------------------*@
+        <div class="insert-image-dialogue" data-bind="visible: IsAddImageDialogueOn">
+            <h5>@ClientDefault.DocumentReview_InsertHyperlink</h5>
+            <input data-bind="value: ImageHyperlink" type="text" id="image-hyperlink" placeholder="http://" />
+
+        </div>
+
+        <div class="edit-title-dialogue" style="display:none">
+            <h5>@ClientDefault.DocumentEdit_DocName</h5>
+            <input data-bind="value: NewDocumentTitle" type="text" id="input-title" />
+        </div>
+
+        <div class="contact-user-dialogue" data-bind="with: ContactUserModel">
+            <span class="heading">@ClientDefault.EditDocument_NotificationSubject</span>
+            <input type="text" data-bind="value: Subject" />
+
+            <br />
+
+            <span class="heading">@ClientDefault.Notifications_Message</span>
+            <textarea data-bind="value: Content"></textarea>
+            <div class="loading" data-bind="visible: IsLoading"></div>
+            <div class="finished" data-bind="visible: IsFinished">@ClientDefault.DocumentReview_NotifSent</div>
+            @*<div class="notif-error"></div>*@
+        </div>
+
+        <div class="edit-summary-dialogue">
+            <span>@ClientDefault.DocumentReview_CurrentSummary</span>
+
+            <textarea id="text-summary"></textarea>
+        </div>
+
+        <div class="preview-document-dialogue" style="display:none">
+            <h3 class="document-title">@{ Write(Model.DocumentTitle); }</h3>
+
+            <style type="text/css">
+                .preview-doc-container {
+                    font-family: @(Model.User.Preferences.DocumentFontName);
+                    color: @(Model.User.Preferences.CurrentTheme.FontColor.ToHEX());
+                    background-color: @(Model.User.Preferences.CurrentTheme.BackgroundColor.ToHEX());
+                }
+
+                .preview-doc-container .highlight {
+                    background-color: @(Model.User.Preferences.CurrentTheme.HighlightColor.ToHEX());
+                }
+            </style>
+
+            <div class="preview-doc-container">
+
+            </div>
+        </div>
+
+        <div class="reprocess-sentence-dialogue" style="display:none">
+            <p>
+                @ClientDefault.DocumentReview_ConfirmReprocess
+            </p>
+
+
+        </div>
+
+        @*-------------------Dialogs section-------------------*@
+
+        @*-------------------Misc section-------------------*@
+
+        <div id="newnote-container">
+            <label class="carer-note" data-content=""></label>
+        </div>
+
+        @*-------------------Misc section-------------------*@
+
+
+        @Html.HiddenFor(x => x.CarerId, new { id = "hidCarerId" })
+        @Html.HiddenFor(x => x.DocumentTitle, new { id = "hidDocumentTitle" })
+        @Html.HiddenFor(x => x.SimplifiedContent, new { id = "hidSimplifiedContent" })
+        @Html.HiddenFor(x => x.DocumentId, new { id = "hidDocumentId" })
+        @Html.HiddenFor(x => x.UserId, new { id = "hidUserId" })
+        @Html.HiddenFor(x => x.OriginalContent)
+        @Html.HiddenFor(x => x.Summary, new { id = "hidSummary" })
+        @Html.HiddenFor(x => x.UserActionsLog, new { id = "hidActionLog" })
+
+        <script src="~/Scripts/Placeholders/Placeholders.min.js"></script>
+
+        @Scripts.Render("~/bundles/magnific")
+        @Scripts.Render("~/bundles/moment")
+
+        <script src="~/Scripts/DocumentReviewViewModel.js"></script>
+        @*@Scripts.Render("~/bundles/doc-review")*@
+
+
+    </div>
+}
