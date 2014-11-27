@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="2">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/media/datos/documentos/trabajo/doctorado/apps/metaphors/texts/adults/texto5.txt</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>Normativa de los cursos CFI online
+Los Cursos de Formación en Informática online son cursos no presenciales que se realizan a través del Campus Virtual de la Universidad Complutense. En estos cursos CFI puede participar cualquier persona que reúna los requisitos indicados en la descripción de cada curso.
+Para participar en los cursos CFI es necesario realizar previamente la matrícula en la Fundación General de la UCM (ver las normas de matrícula). Los estudiantes matriculados encontrarán en la Zona de estudiantes de esta web CFI las instrucciones iniciales para ponerse en marcha con el estudio de los cursos en el Campus Virtual (Manual CFI). En las asignaturas del propio Campus Virtual encontrarán instrucciones completas.
+Cada estudiante dispone de un máximo de aproximadamente cuatro meses para superar el curso. Deberá realizar todos los ejercicios propuestos, entregando sus soluciones a todos los ejercicios que así lo requieran (ejercicios entregables), que deberá aprobar. También deberá superar el examen final en aula de informática. Habrá tres convocatorias de exámenes para cada curso CFI. Cada estudiante podrá hacer uso de las convocatorias que resten una vez que haya terminado todos los ejercicios. No habrá exámenes en septiembre.
+El estudiante se compromete a utilizar correctamente las herramientas del Campus Virtual: sólo para el propósito para el que han sido diseñadas (su propio aprendizaje) y sin obtener ningún beneficio de terceras personas. Se compromete igualmente a no utilizar de forma fraudulenta las páginas web mediante su cesión a terceras personas, respetando la autoría de las mismas, que radica en el servicio de Cursos de Formación en Informática de la Universidad Complutense.
+El estudiante se compromete a estar atento a las comunicaciones que, a través del servicio de mensajería y los foros del curso, se le hagan llegar, siendo así consciente en todo momento de los eventos y convocatorias que se hayan programado.
+Todos los ejercicios identificados como Para entregar deberán ser enviados (sus soluciones) al profesor a través de la correspondiente herramienta del Campus Virtual. Los ejercicios evaluados por debajo de la calificación mínima deberán repetirse hasta que sean evaluados positivamente. La falta de envío de la solución de algún ejercicio entregable será motivo para no poder presentarse al examen.
+Cada estudiante debe realizar sus propios ejercicios. La entrega de ejercicios copiados de otros estudiantes significará la expulsión inmediata del curso.
+Una vez superado el curso se expedirá un diploma acreditativo que se podrá recoger en la Fundación General de la UCM durante el curso académico. Los estudiantes matriculados en planes de estudio oficiales de la Universidad Complutense podrán recoger además un certificado para el reconocimiento de créditos si así lo hubieran solicitado.
+</TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+</GateDocument>

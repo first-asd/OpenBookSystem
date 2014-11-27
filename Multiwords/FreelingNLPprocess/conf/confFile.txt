@@ -1,0 +1,17 @@
+LANG=es
+FREELINGDIR:/opt/dist/006_freeling/freeling-3.0
+FREELINGDATA:/usr/local/share/freeling
+FREELINGTOKENIZER:tokenizer.dat
+FREELINGSPLITTER:splitter_first.dat
+FREELINGLOCUTIONS:locucions_extended.dat
+FREELINGQUANTITIES:quantities.dat
+FREELINGAFIXOS:afixos.dat
+FREELINGPROBABILITIES:probabilitats.dat
+FREELINGDICC:dicc30.src
+FREELINGNP:np_first.dat
+FREELINGPUNCT:common/punct.dat
+FREELINGCORRECTOR:corrector/corrector.dat
+FREELINGTAGGER:tagger.dat
+FREELINGJAVAAPI:freeling_javaAPI
+IOSHAREFACTORY:es.ujaen.sinai.freelingnlp.model.io.FactoryIOShareXML
+SCHEMAFILE:/media/datos/geni/workspaces/java/FreelingNLPprocess/nlpShareFormat.xsd

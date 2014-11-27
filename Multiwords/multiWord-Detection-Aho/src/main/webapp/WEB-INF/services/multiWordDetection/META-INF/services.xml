@@ -1,0 +1,14 @@
+<service name="MultiWordDetection-UJ" scope="application" targetNamespace="http://first-asd.eu/service/">
+    <description>
+    This is a Multi Word Detection service developed with axis2 using maven.It is an extension of the initial service that can map multiple lists not necessary idioms. 
+    </description>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+    <schema schemaNamespace="http://first-asd.eu/service/xsd"/>
+    <parameter name="ServiceClass">es.ujaen.sinai.first.MultiWordDetection</parameter>
+    <parameter name="AppConfFile">/opt/dist/008_first/MultiWordDetection/ConfigurationFiles/ed_fglng_conf.txt</parameter>
+</service>

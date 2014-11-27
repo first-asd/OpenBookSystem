@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument>
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">docNewLineType</Name>
+  <Value className="java.lang.String">LF</Value>
+</Feature>
+</GateDocumentFeatures>
+
+
+<TextWithNodes>Text 6
+
+The desires of the tables.
+
+</TextWithNodes>
+
+</GateDocument>

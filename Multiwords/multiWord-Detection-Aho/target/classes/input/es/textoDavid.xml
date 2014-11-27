@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="2">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/media/datos/documentos/trabajo/doctorado/apps/metaphors/texts/adults/texto1.txt</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>Dar gato por liebre.
+</TextWithNodes>
+<!-- The default annotation set -->
+
+
+</GateDocument>

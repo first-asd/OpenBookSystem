@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="2">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/media/datos/documentos/trabajo/doctorado/apps/metaphors/texts/adults/texto2.txt</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>Skara Brae
+Asentamiento neolítico, situado en la Bahía de Skaill, en la más grande de las Islas Orcadas. Consta de diez casas agrupadas, y debió estar habitado, aproximadamente, entre el 3100 y el 2500 a. C. Su importancia y su buen estado de conservación han hecho que sea declarado Patrimonio de la Humanidad por la Unesco. Está considerado como el poblado neolítico mejor conservado y más completo de Europa.
+Hasta 1850, Skara Brae estaba oculto bajo capas de sedimentos acumuladas durante siglos. Entre 1928 y 1930 fue excavado por completo por Vere Gordon Childe, revelando su contenido. Fue descubierto por un temporal que asoló Gran Bretaña en 1850 y se prolongó durante dos días. Causó estragos, mató a mucha gente. Pero también hizo otra cosa a 1.100 km al norte, en las islas Orcadas, concretamente en la bahía de O´Skaill: arrancó la hierba de un montículo de suelo irregular que dejaron a la vista los restos de un antiguo y sólido poblado construido en piedra, con sus casas sin tejado aunque intactas. Un total de 9 casas con más de 5.000 años de antigüedad. Sí, un poblado que mantenía mucho de su contenido original que es más antiguo que Stonehenge y las Pirámides. Las casas fueron construidas empleando la técnica de la arquitectura subterránea, utilizando para ello montículos preexistentes de desechos conocidos como Køkkenmødding (en inglés, middens). Aunque estos montículos también proporcionaban cierta estabilidad a la casa, su función principal era la de ofrecer aislamiento contra el duro clima de las Órcadas.  Estas edificaciones medían unos 40 m2, y constaban de una gran habitación cuadrada con una gran chimenea, que se emplearía para cocinar y como calefacción. Dado que en esta zona apenas crecen árboles, los habitantes de Skara Brae empleaban maderas traídas por la marea y huesos de ballena, recubiertos con paja y hierba, para cubrir sus viviendas.
+A pesar de que eran viviendas de habitantes del Neolítico, las casas sorprenden por su sofisticación: tienen cerradura, un sistema de desagüe e, incluso, fontanería elemental con aberturas en las paredes para evacuar los deshechos. 
+Cada casa tenía aparadores empotrados, hornacinas de almacenamiento, compartimentos encajados que presumiblemente eran camas, depósitos de agua y capas de material aislante que servirían para mantener los interiores confortables y sin humedades. Las casas eran todas de un único tamaño y estaban construidas siguiendo el mismo tipo de planta, lo que sugiere una especie de genial comuna más que una jerarquía tribal convencional. Entre las casas había pasadizos cubiertos que conducían a un área abierta pavimentada (apodada “el mercado” por los primeros arqueólogos), donde se realizarían labores en un entorno social.
+Sin embargo, a pesar de todas las comodidades de las que gozaban los habitantes de Skara Brae (joyas, cerámica, trigo, cebada, marisco, pescado, ganado, perros… excepto madera: se calentaban quemando algas), los habitantes de Skara Brae se marcharon. Atropelladamente. Como se huyeran de algo, como de nuevo explica Bill Bryson:
+No sabemos nada sobre esa gente (de dónde venían, qué idioma hablaban, qué los llevó a establecerse en un lugar tan solitario en el extremo más desarbolado de Europa), pero todas las evidencias encontradas indican que al parecer Skara Brae disfrutó de seiscientos años de paz y tranquilidad ininterrumpidas. Entonces, un día, en torno al 2500 a. C., los habitantes del poblado desaparecieron, de forma repentina, por lo que parece. En el pasadizo que hay justo enfrente de una de las viviendas se descubrieron un montón de cuentas ornamentales diseminadas, algo que tenía que ser muy valioso para su propietario, lo que sugiere que el collar se rompió y su propietario tenía tanto miedo que ni siquiera se detuvo a recogerlo. Como tantas otras cosas, es imposible aseverar por qué la vida feliz e idílica de Skara Brae tuvo un final repentino.
+Sin duda daría para una historia de ciencia ficción o de conspiranoia histórica (o prehistórica). Como tantos otros lugares que sólo se atisban si aprendemos escudriñar. Y sólo se escudriña si previamente se dispone de información. Tenedlo en cuenta para las próximas vacaciones. 
+Más datos curiosos de Skara Brae: en el poblado hay una estancia que sólo puede abrirse desde fuera, lo cual sugiere que podían confinar a gente allí dentro, en una especie de cárcel: a pesar de lo lejos que estaban de todo y lo pequeña que era la comunidad, los habitantes de Skara Brae también contaban con miembros que necesitaban castigo u ostracismo.
+También hay unos desconcertantes depósitos estancos, en todas las casas. No se sabe la razón. Se sugiere que quizá los usaban para almacenar lapas, un molusco de concha dura que abunda en la zona. Pero ¿por qué las almacenaban? Y lo más importante: las lapas son difíciles de comer y aportan escasas calorías: son tan correosas que masticarlas precisa de más energía de la que aportan.
+Curiosamente, este asentamiento también ofrece el primer testimonio de la existencia de la pulga Pulex Irritans en Europa.
+Estudios realizados con carbono-14 hacen pensar que Skara Brae estuvo ocupado desde aproximadamente el año 3100 a. C. Hacia el 2500 a. C., el clima cambió, volviéndose más húmedo y frío, y el asentamiento fue abandonado. Hay diversas teorías que intenta explicar esta desaparición de los habitantes de Skara Brae, pero ninguna ha podido aportar pruebas concluyentes.
+</TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+</GateDocument>

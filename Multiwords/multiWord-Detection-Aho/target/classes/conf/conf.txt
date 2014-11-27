@@ -1,0 +1,1 @@
+AppConfigFile:/opt/dist/008_first/MultiWordDetection/ConfigurationFiles/ed_fglng_conf.txt

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://sinai.ujaen.es/nlptoolsshare"
+		xmlns:nlp="http://sinai.ujaen.es/nlptoolsshare"
+		elementFormDefault="qualified">
+		
+		
+		<xsd:simpleType name="form_type">
+			<xsd:restriction base="xsd:string">
+				<xsd:whiteSpace value="preserve" />
+			</xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="lemma_type">
+			<xsd:restriction base="xsd:string">
+				<xsd:whiteSpace value="preserve"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="category_type">
+			<xsd:restriction base="xsd:string">
+				<xsd:whiteSpace value="collapse"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:attribute name="beginspan" type="xsd:nonNegativeInteger" />
+		<xsd:attribute name="endspan" type="xsd:nonNegativeInteger"  />
+		
+		<xsd:complexType name="token_type">
+			<xsd:sequence>
+				<xsd:element name="form" type="nlp:form_type" maxOccurs="1" minOccurs="1"/>
+				<xsd:element name="lemma" type="nlp:lemma_type" maxOccurs="1" minOccurs="0"/>
+				<xsd:element name="category" type="nlp:category_type" maxOccurs="1" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute ref="nlp:beginspan" use="required" />
+			<xsd:attribute ref="nlp:endspan" use="required" />
+		</xsd:complexType>
+		
+		<xsd:element name="token" type="nlp:token_type"/>
+		
+		<xsd:complexType name="tokens_type">
+			<xsd:sequence>
+				<xsd:element ref="nlp:token" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:element name="tokens" type="nlp:tokens_type" />
+		
+		<xsd:complexType name="sentence_type">
+			<xsd:attribute ref="nlp:beginspan" use="required" />
+			<xsd:attribute ref="nlp:endspan" use="required" />
+		</xsd:complexType>
+		
+		<xsd:element name="sentence" type="nlp:sentence_type"/>
+		
+		<xsd:element name="text" type="xsd:string" />
+		
+		<xsd:complexType name="document_type">
+			<xsd:sequence>
+				<xsd:element ref="nlp:text" maxOccurs="1"/>
+				<xsd:element ref="nlp:tokens" minOccurs="0" maxOccurs="1"/>
+				<xsd:element ref="nlp:sentence" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:element name="document" type="nlp:document_type"/>
+		
+		<xsd:complexType name="nlptoolsshare_type">
+			<xsd:sequence>
+				<xsd:element ref="nlp:document" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:element name="nlptoolsshare" type="nlp:nlptoolsshare_type"/>
+		
+</xsd:schema>

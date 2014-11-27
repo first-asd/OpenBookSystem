@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument>
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/plain</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/Users/Eduard/Documents/MyPerlCode/FirstRelatedScripts/Annotated-GATE-Files/TextFiles/metaphor-1.txt</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">docNewLineType</Name>
+  <Value className="java.lang.String">LF</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>
+
+The Shock of the Truth .
+
+Going from rags to riches and quiet as a mouse and it is raining cats and dogs.
+
+</TextWithNodes>
+
+<AnnotationSet>
+</AnnotationSet>
+
+
+</GateDocument>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="2">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/media/datos/documentos/trabajo/doctorado/apps/metaphors/texts/adults/texto1.txt</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>
+Luego en 2010, el Centro Cultural, dio inicio a un programa, que constituía un recorrido formal por todas las instalaciones del fastuoso Centro Cultural de Filipinas, edificio principal del conjunto arquitectónico que la viuda del dictador ordenó construir a finales de los años sesenta junto a la bahía de Manila, en el cual se narra la historia de Imelda, sus encuentros con las grandes personalidades de la política internacional y de Hollywood, el rol de la Familia Marcos, así como el convulso período que Filipinas vivió durante esos años, mostrando los lugares, objetos y demás elementos, que constituyen una exhibición del legado de Imelda Marcos.
+</TextWithNodes>
+<AnnotationSet>
+</AnnotationSet>
+
+</GateDocument>

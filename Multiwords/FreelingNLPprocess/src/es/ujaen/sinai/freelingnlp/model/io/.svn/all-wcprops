@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eugenio/!svn/ver/611/trunk/FreelingNLPprocess/src/es/ujaen/sinai/freelingnlp/model/io
+END
+IFactoryIOShare.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/eugenio/!svn/ver/592/trunk/FreelingNLPprocess/src/es/ujaen/sinai/freelingnlp/model/io/IFactoryIOShare.java
+END
+IOShareXML.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/eugenio/!svn/ver/611/trunk/FreelingNLPprocess/src/es/ujaen/sinai/freelingnlp/model/io/IOShareXML.java
+END
+FactoryIOShareXML.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/eugenio/!svn/ver/592/trunk/FreelingNLPprocess/src/es/ujaen/sinai/freelingnlp/model/io/FactoryIOShareXML.java
+END
+IIOShare.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/eugenio/!svn/ver/605/trunk/FreelingNLPprocess/src/es/ujaen/sinai/freelingnlp/model/io/IIOShare.java
+END
