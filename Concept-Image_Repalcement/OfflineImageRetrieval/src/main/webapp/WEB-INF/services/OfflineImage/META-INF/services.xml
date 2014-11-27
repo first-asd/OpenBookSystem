@@ -1,0 +1,15 @@
+<service name="OfflineImageRetrieval" scope="application" targetNamespace="http://first-asd.eu/service/">
+    <description>
+        This Service Retrieves Images for Any Annotation Set
+    </description>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+    <schema schemaNamespace="http://first-asd.eu/service/xsd"/>
+    <parameter name="ServiceClass">es.ujaen.ImageRetrieval.GetImagesWS</parameter>
+        <parameter name="AppConfFile">/opt/dist/008_first/offlineImageRetrieval/config/imageConfigFile.txt</parameter>
+</service>
+

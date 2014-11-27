@@ -1,0 +1,1 @@
+AppConfigFile:/opt/dist/008_first/offlineImageRetrieval/config/imageConfigFile.txt

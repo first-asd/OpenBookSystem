@@ -4,6 +4,7 @@
 **************************************************************************
 **************************************************************************
 
+## Description
 
 The Aggregator web service is the main web service of the back-end of 
 OpenBook System, because it has the responsibility of the take the input
@@ -11,8 +12,10 @@ of the user, calls each of the Natural Language Processing (NLP) Services,
 takes the output of all of them and builds the output in XML format of the 
 system.
 
+## Dependencies
+
 The aggergator-Service-WLV stores a Maven project with the code of the 
-Aggregator. As all Maven project, in the root folder is the pom.xml with all 
+Aggregator. As all Maven projects, in the root folder is the pom.xml with all 
 the dependencies of the software. The dependencies can be divided in 
 libraries and clients of the web services of OpenBook System.
 
@@ -34,3 +37,12 @@ libraries and clients of the web services of OpenBook System.
   * Acronyms: Acronyms-UA-production 0.1
   * Multiwords: MultiWordDetection-UA-development 0.1
   * Keywords: Keywords-UA-development 0.1
+
+## Contact information
+
+If you need any information of this service you can write to:
+
+* L. Alfonso Ureña López: laurena@ujaen.es
+* M. Teresa Martín Valdivia: maite@ujaen.es
+* Eduard Barbu: ebarbu@ujaen.es
+* Eugenio Martínez Cámara: emcamara@ujaen.es

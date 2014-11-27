@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="2">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/media/datos/documentos/trabajo/doctorado/apps/metaphors/texts/adults/texto4.txt</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>Piscina
+La escuela de natación de Casco Antiguo nació en 2002, tras estos 10 años por su piscina en pleno centro de Madrid han pasado miles de alumnos. Casco Antiguo ofrece una amplia variedad de actividades acuáticas como clases de natación para bebés, matronatación, clases de natación infantil, perfeccionamiento, natación para adultos.
+
+Todos los programas están elaborados por un equipo de monitores profesionales de natación y de profesores licenciados en ciencias de la actividad física y el deporte. La gran experiencia y formación del personal de la escuela permite ofrecer un aprendizaje serio y eficaz de la natación.
+
+Nuestros profesores
+El proceso de enseñanza, está a cargo de profesores licenciados en Ciencias de la actividad física y el deporte, especializados en natación. El equipo de profesores, cuentan con amplia experiencia en recursos metodológicos para que el proceso de enseñanza-aprendizaje sea eficaz y positivo. Al estar especializados en niños pequeños les proporcionan una gran seguridad en el medio. El objetivo de la escuela es enseñar a nadar desde el cariño y la comprensión. Nunca imponiendo criterios, siempre adaptándonos a cada niño y sus necesidades.
+
+Cursos de natación para bebes de niños (de 6 meses a 2 y medio años). 
+Matronatación. La mejor opción es que los niños se familiaricen con el agua desde muy pequeños. Los bebes de menos de un año se adaptan más rápidamente al agua que los más mayores. Estos cursos se realizan con la participación de los padres, padres y niños apreden y se divierten juntos. El objetivo es que los niños adquieran autonomía y libertad de movimiento en el agua. Cada clase tiene una duración de 30 minutos. Un día en semana
+Horarios: lunes a sábados en horario de mañana o tarde.
+
+Cursos para escuelas infantiles y colegios (de 3 años en adelante).
+La oferta de la escuela de natación Casco Antiguo también se dirige a escuelas infantiles y colegios. Más de una quincena de colegios y escuelas han confiado en Casco Antiguo para sumar un espacio y recursos a su oferta educativa y así poder incluir actividades acuáticas. La natación, como bien es sabido, es una de las actividades deportivas más completas para los niños que aporta muchos beneficios.
+
+Iniciación
+Impartimos clases para adultos que quieren aprender a nadar, sin límite de edad. Son clases personalizadas para que el alumno ya de avanzada edad tenga toda la atención necesaria. El alumno aprenderá a desplazarse y coge autonomía durante estas clases. Una vez superada la fase de iniciación pasará al curso de mantenimiento. Cada clase tiene una duración de 30 minutos. 
+Horarios: lunes a sábados en horario de medio día.
+
+Cursos de iniciación (de 3 a 5 años)
+Las clases son en grupo, no más de 4 alumnos por grupo. También existe la posibilidad de tomar clases particulares. Los profesores están en el agua para darles más confianza y seguridad, estimulando al niño en el descubrimiento de nuevas experiencias en el agua y sin forzarle a hacer nada que no esté dispuesto. El objetivo es conseguir nado básico, la pérdida del miedo y adaptación al agua. Cada clase tiene una duración de 30 minutos. Un día en semana o dos días en semana.
+
+Mantenimiento
+Estos cursos ayudan a mantenerse ágil, fuerte y en forma. Los alumnos verán mejorados sus s problemas de espalda, lumbago y estrés, corazón, huesos con la práctica de la natación. En este tipo de clase se realizan ejercicios en la piscina aprovechando los beneficios que el agua impone. Cada clase tiene una duración de 30 minutos. 
+</TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+</GateDocument>

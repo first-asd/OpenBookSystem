@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="2">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+</GateDocumentFeatures>
+
+
+<TextWithNodes>
+
+Para reducir este peligro, Kittinger utilizó un pequeño paracaídas estabilizador.
+  
+Por eso, su velocidad de caída fue menor.
+  
+Baumgartner, en cambio, llevaba un paracaídas similar pero de apertura manual, para no comprometer su objetivo de superar la velocidad del sonido.
+  
+Solo se hubiese abierto automáticamente de haber entrado en un giro incontrolado que desarrollase fuerzas de más de 3.5 g.
+
+</TextWithNodes>
+
+<AnnotationSet>
+</AnnotationSet>
+
+</GateDocument>

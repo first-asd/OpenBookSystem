@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/lucene-3.4.0/lucene-core-3.4.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://lucene.apache.org/core/old_versioned_docs//versions/3_4_0/api/all/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/lucene-3.4.0/junit-4.1.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/httpmime-4.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/httpcore-nio-4.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/httpcore-ab-4.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/httpcore-4.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/httpcore-4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/httpclient-cache-4.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/httpclient-4.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/fluent-hc-4.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Azure/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/log4j/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/ant-contrib.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/ant-launcher.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/ant.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/aopalliance.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/apache-mime4j-core.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/apache-mime4j-dom.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/bcmail-jdk15.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/bcprov-jdk15.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/commons-codec.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/commons-compress.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/commons-io.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/commons-lang.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/commons-logging.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/dom4j.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/fontbox.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/gate-asm.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/gate-compiler-jdt.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/gate.jar" sourcepath="/Users/Eduard/.m2/repository/uk/ac/gate/gate-core/7.0/gate-core-7.0-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/ivy.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/java-getopt.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/java2html.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/javacc.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/jaxen.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/jdom.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/jempbox.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/junit.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/log4j.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/lucene-core.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/metadata-extractor.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/nekohtml.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/pdfbox.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/poi-ooxml-schemas.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/poi-ooxml.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/poi-scratchpad.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/poi.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/spring-aop.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/spring-beans.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/spring-core.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/tika-core.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/tika-parsers.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/wstx-lgpl.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/xmlbeans.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/xmlunit.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/xpp3.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/GATE_7.0/xstream.jar"/>
+	<classpathentry kind="lib" path="/Users/Eduard/Documents/JavaLibraries/Apache-Commons-Lang3/commons-lang3-3.0.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
