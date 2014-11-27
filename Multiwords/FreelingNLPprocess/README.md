@@ -10,7 +10,7 @@ FreelingNLPprocess is a Java application that executes the Freeling NLP tool. Th
 
 ## Dependencies
 
-* The [http://nlp.lsi.upc.edu/freeling/](Freeling) shared library has to be installed
+* The [Freeling](http://nlp.lsi.upc.edu/freeling/) shared library has to be installed
 
 ## Licence (see also LICENCE.txt)
 
