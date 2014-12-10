@@ -1,0 +1,83 @@
+The code is organized in 5 projects:
+1. Acronyms
+
+Receives a text as input and detect the acronyms that contains the text. Finally adds an annotation with the meaning of the acronym for each acronym detected.
+
+The "AcronymsService" is a web service that only has a method called "detectAcronyms". This service receives two parameters:
+	- text: The text to analyze( In GATE format).
+	- JSONParams: a String in JSON format, that contains the next parameters:
+		disambiguate.adress: If its value is 'y' the acronyms detection process should be executed, if 'n' the output is the same that the input. (default: y)
+		languageCode: the language's ISO 639-1 code. (Mandatory).
+
+The WSDL of the service is http://intime.dlsi.ua.es:8080/acronymsua/AcronymsService?wsdl
+
+2. Coreference
+
+Receives a text as input and detect the ellipsis. The output is a list of annotations for each elliptic noun detected. An annotation has a list of antecedents and the probability, for each antecedent, of being the omitted noun.
+
+The "CoreferenceService" is a web service that only has a method called "AnaphoraResolution" (Only 'es'). This service receives two parameters:
+	- text: The text to analyze( In GATE format).
+	- JSONParams: a String in JSON format, that contains the next parameters:
+		anaphoraResolution.address: If its value is 'y' the detection process should be executed, if 'n' the output is the same that the input. (default: y)
+		anaphoraResolution.complexity: Each type of anaphora has a different level of complexity, definite descriptions have a low complexity (because they are very common), ellipsis have a  medium complexity and pronominal anaphora has a high complexity (because they are the less common). So, this parameter indicates if all types of anaphors should be shown (low - default behaviour), or only ellipsis and definite descriptions (medium); or only definite descriptions (high). (default: low)
+		anaphoraResolution.confidence: It indicates the minimum confidence to include the proposed antecedents in the final result. Low if this filter is not wanted, medium if confidence must have a probability greater or equal than 0.6, and high if confidence must have a probability greater or equal than 0.9. (default: zero)
+		anaphoraResolution.mode: It indicates if several ranked alternatives must be shown (if available), or only the most probable antecedent must be shown (default: allAlternatives).
+		languageCode: the language's ISO 639-1 code. (Mandatory).
+
+The WSDL of the service is http://intime.dlsi.ua.es:8080/coreferenceua/AnaphoraResolutionService?wsdl
+
+
+
+3. Dictionary
+
+Receives a text as input and detect rare, specialized, long and polysemic words. The output is a list of annotations with the definitions and/or synonyms for each obstacle detected.
+
+El servicio web devuelve una cadena de texto (string) que contiene las definiciones
+y/o sinónimos de las palabras raras, especializadas, largas o polisémicas en
+formato GATE. 
+
+
+
+The Dictionary services has two web services the first one is "DictionaryService" and the second "DisambiguationService". The first service only has one parameter:
+	- text: The text to analyze( In GATE format).
+
+The second service parameters are:
+	- text: The text to analyze( In GATE format).
+	- jsonParameters: a String in JSON format, that contains the next parameters:
+		disambiguate.types: It is a JSON array that indicates what types of words should be addressed by the service (default: [RARE,SPECIALIZED,LONGWORDS])
+		disambiguate.information: It indicates the type of information to return (default: definitionsSynonyms)
+		disambiguate.address: It indicates if this web service should be executed or not . (default: y)
+		disambiguate.numMaxSenses: It represents the maximum number of senses the service must return. (default: 3)
+		multiWordDetection: If its value is 'y' the multiwrods detection process should be executed. (default: y)
+		languageCode: the language's ISO 639-1 code. (Mandatory).
+
+The WSDL of the services  are http://intime.dlsi.ua.es:8080/dictionaryua/DictionaryService?wsdl and http://intime.dlsi.ua.es:8080/dictionaryua/DisambiguationService?wsdl
+
+
+4. Multiwords
+
+Receives a text as input and detect the multiwords(set of words that have a meaning together) . The output is a list of annotations for each multiword detected. The list details the multiword and the meaning of it.
+
+The "MultiwordsService" is a web service that only has a method called "detectMultiWords". This service receives two parameters:
+	- text: The text to analyze( In GATE format).
+	- JSONParams: a String in JSON format, that contains the next parameters:
+		multiWordDetection: If its value is 'y' the multiwrods detection process should be executed. (default: y)
+		languageCode: the language's ISO 639-1 code. (Mandatory).
+
+The WSDL of the service is http://intime.dlsi.ua.es:8080/multiwordsua/MultiWordsService?wsdl
+
+5. Syntaxua
+
+Receives a text as input and detect long sentences and adversative locutions. The output is a list of annotations for each obstacle detected. Each annotation has a parameter that indicates if is a long sentence(longSentences) or an adversative locution(AltSentences). The first type of annotation only has the original sentence and the location of it in the text. The second type, besides, has an alternative phrase, the substitutions realized and the locutions detected.
+
+The "SyntaxuaService" is a web service that only has a method called "performSintacticSimplification" (Only 'es'). This service receives two parameters:
+	- gdoc: The text to analyze( In GATE format).
+	- JSONParams: a String in JSON format, that contains the next parameters:
+		syntacticSimplification: Activate or deactivate syntactic simplification. (default: y)
+		syntacticSimplification.adversatives: If the user wants adverstive substitution. (dafault: y)
+		syntacticSimplification.longSentences: Detect sentences with more than 15 or 20 words. (default: y)
+		syntacticSimplification.sizeLongSentences: It indicates if long sentences should be detected (medium) or very long sentences (high). (default: hight)
+		languageCode: the language's ISO 639-1 code. (Mandatory).
+
+The WSDL of the service is http://intime.dlsi.ua.es:8080/syntaxua/SyntaxuaService?wsdl
+

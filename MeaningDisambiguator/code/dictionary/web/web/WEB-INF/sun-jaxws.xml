@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint implementation="es.ua.dictionary.DisambiguationService" name="DisambiguationService" url-pattern="/DisambiguationService"/>
+  <endpoint implementation="es.ua.dictionary.DictionaryService" name="DictionaryService" url-pattern="/DictionaryService"/>
+  <endpoint implementation="es.ua.dictionary.DisambiguationService" name="DisambiguationService" url-pattern="/DisambiguationService"/>
+  <endpoint implementation="es.ua.dictionary.DictionaryService" name="DictionaryService" url-pattern="/DictionaryService"/>
+</endpoints>
